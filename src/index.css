@@ -1,5 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  font-family: "Open Sans",
+  sans-serif;
+  font-size: 20px;
+  color: #444;
+  text-align: center;
+  line-height: 1.5;
+}
+
+nav,
+footer {
+  padding: 1% 0;
+  background-color: #aaa;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+header {
+  padding: 25px 15px;
+}
+
+section {
+  min-height: 200px;
+  padding: 30px 15px;
+  background-color: #bbb;
+}
+
+section:nth-child(even) {
+  background-color: #ddd;
+}
+
+p {
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+p + p {
+  margin-top: 15px;
+}
+
+fieldset {
+	margin: 0;
+	padding: 10px;
+}
+
+input[type='file'] {
+	display: none;
+	margin-left: auto;
+  margin-right: auto;
+}
+
+#property-pic {
+	width: 300px;
+	height: 300px;
+}
+
+#bill-pic {
+	width: 25%;
+}
+
+.form-section {
+	text-align: left;
+}
+
+label {
+	font-size: 0.6em;
+	margin-top: 0;
+}
+
+input[type='text'] {
+	font-size: 0.8em;
+}
+
+.expense-form-section {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.icons {
+	float: right;
+	margin-right: 10px;
 }
