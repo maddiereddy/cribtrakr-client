@@ -1,0 +1,20 @@
+footer {
+  bottom: 0px;
+}
+
+.footer-copyright {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 0.7em;
+}
+
+.footer-contact {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.footer-contact a {
+  color: lightgray;
+  font-size: 1em;
+  padding: 10px 5px;
+}
