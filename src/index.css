@@ -14,7 +14,7 @@ body {
 nav,
 footer {
   padding: 1% 0;
-  background-color: #aaa;
+  background-color: tomato;
 }
 
 nav {
@@ -25,8 +25,8 @@ nav {
   z-index: 10;
 }
 
-header {
-  padding: 25px 15px;
+.home {
+  margin-top: 100px;
 }
 
 section {
@@ -89,4 +89,25 @@ input[type='text'] {
 .icons {
 	float: right;
 	margin-right: 10px;
+}
+
+footer {
+  bottom: 0px;
+}
+
+.footer-copyright {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 0.7em;
+}
+
+.footer-contact {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.footer-contact a {
+  color: lightgray;
+  font-size: 1em;
+  padding: 10px 5px;
 }
