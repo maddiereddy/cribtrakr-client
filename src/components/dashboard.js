@@ -8,19 +8,43 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchProtectedData());
     }
 
-    render() {
-        return (
-            <div className="dashboard">
-                <div className="dashboard-username">
-                    Username: {this.props.username}
-                </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
-                <div className="dashboard-protected-data">
-                    Protected data: {this.props.protectedData}
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="dashboard">
+        <header role="banner">
+          <h1>Rental Properties</h1>
+        </header>
+        <section class="card">
+          <img src={require("./home.png")} alt="Property"/>
+          <div class="container">
+            <h4><b>Property 1</b></h4> 
+            <p>Address 1</p> 
+          </div>
+        </section>
+        <section class="card">
+          <img src={require("./home.png")} alt="Property"/>
+          <div class="container">
+            <h4><b>Property 2</b></h4> 
+            <p>Address 2</p> 
+          </div>
+        </section>
+        <section class="card">
+          <img src={require("./add-home.png")} alt="Add Property"/>
+          <div class="container">
+            <h4><b>Add Property</b></h4> 
+            <p></p> 
+          </div>
+        </section>
+        {/* <div className="dashboard-username">
+          Username: {this.props.username}
+        </div>
+        <div className="dashboard-name">Name: {this.props.name}</div>
+        <div className="dashboard-protected-data">
+          Protected data: {this.props.protectedData}
+        </div> */}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
