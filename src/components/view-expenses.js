@@ -1,40 +1,18 @@
 import React from 'react';
+import ExpenseCard from './expense-card';
+import SearchForm from './search-form';
 
 export default function ViewExpenses(props) {
     return (
-      <section>
-        <section>
-          <form id="search">
-          <p>[<em>Search Filters</em> (by date range, property, category)]
-          </p>
-          <button type="submit">Search</button>
-        </form>
+      <div class="container">
+        <section className="search-section">
+          <SearchForm />
+          <button className="add-expense">Add Expense</button>
         </section>
-        <section>
-          <p>[<em>placeholder for details of an expense</em>]
-            <span class="icons">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </span>
-          </p>
-        </section>
-        <section>
-          <p>[<em>placeholder for details of an expense</em>]
-            <span class="icons">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </span>
-          </p>
-        </section>
-        <section>
-          <p>[<em>placeholder for details of an expense</em>]
-            <span class="icons">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </span>
-          </p>
-        </section>
-      </section>
+        <ExpenseCard />
+        <ExpenseCard />
+        <ExpenseCard />
+      </div>
     );
 };
 

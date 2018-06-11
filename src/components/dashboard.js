@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
-import Card from './card';
+import PropertyCard from './property-card';
 import Header from './header';
 
 export class Dashboard extends React.Component {
@@ -15,10 +15,10 @@ export class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         <Header title='Rental Properties' />
-        <Card link='/property-details' name='Property 1' image={require("./home.png")} />
-        <Card link='/property-details' name='Property 2' image={require("./home.png")} />
-        <Card link='/property-details' name='Property 3' image={require("./home.png")} />
-        <Card link='/add-property' name='Add Property' image={require("./add-home.png")} />
+        <PropertyCard link='/property-details' name='Property 1' image={require("./home.png")} />
+        <PropertyCard link='/property-details' name='Property 2' image={require("./home.png")} />
+        <PropertyCard link='/property-details' name='Property 3' image={require("./home.png")} />
+        <PropertyCard link='/add-property' name='Add Property' image={require("./add-home.png")} />
       </div>
     );
   }

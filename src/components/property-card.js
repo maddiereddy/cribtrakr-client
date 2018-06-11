@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './card.css';
+import './property-card.css';
 
-export default function Card(props) {
+export default function PropertyCard(props) {
     return (
       <section class="card">
         <img src={props.image} alt="Property"/>
@@ -13,7 +13,7 @@ export default function Card(props) {
     );
 };
 
-Card.defaultProps = {
+PropertyCard.defaultProps = {
     name: '',
     image: '',
     link: '',
