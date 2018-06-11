@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
-import Card from './card';
 import Header from './header';
+import ViewExpenses from './view-expenses';
 
-export class Dashboard extends React.Component {
+export class Expenses extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProtectedData());
     }
@@ -14,11 +14,8 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard">
-        <Header title='Rental Properties' />
-        <Card link='/property-details' name='Property 1' image={require("./home.png")} />
-        <Card link='/property-details' name='Property 2' image={require("./home.png")} />
-        <Card link='/property-details' name='Property 3' image={require("./home.png")} />
-        <Card link='/add-property' name='Add Property' image={require("./add-home.png")} />
+        <Header title='Expenses' />
+        <ViewExpenses />
       </div>
     );
   }
@@ -33,4 +30,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default requiresLogin()(connect(mapStateToProps)(Expenses));
