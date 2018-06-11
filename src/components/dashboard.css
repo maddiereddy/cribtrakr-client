@@ -1,3 +1,5 @@
-img {
-  width: 10%;
+.dashboard {
+  width: 60%;
+  margin: 50px auto ;
+  margin-top: 100px;
 }
