@@ -4,10 +4,9 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
 import Header from './header';
-import ExpenseCard from './expense-card';
-import SearchForm from './search-form';
+import NewExpense from './new-expense';
 
-export class Expenses extends React.Component {
+export class AddExpense extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProtectedData());
     }
@@ -15,16 +14,8 @@ export class Expenses extends React.Component {
   render() {
     return (
       <div className="dashboard">
-        <Header title='Expenses' />
-        <div class="container">
-          <section className="search-section">
-            <SearchForm />
-            <a href='/add-expense'><button className="add-expense">Add Expense</button></a>
-          </section>
-        <ExpenseCard />
-        <ExpenseCard />
-        <ExpenseCard />
-      </div>
+        <Header title='Add New Expense' />
+        <NewExpense />
       </div>
     );
   }
@@ -39,4 +30,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Expenses));
+export default requiresLogin()(connect(mapStateToProps)(AddExpense));

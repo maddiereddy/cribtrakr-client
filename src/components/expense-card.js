@@ -6,7 +6,7 @@ export default function ExpenseCard(props) {
       <section className="card">
           <p>[<em>placeholder for details of an expense</em>]
             <span class="icons">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <a href='/view-expense'> <i class="fa fa-pencil" aria-hidden="true"></i></a>
               <i class="fa fa-times" aria-hidden="true"></i>
             </span>
           </p>

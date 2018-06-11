@@ -22,9 +22,9 @@ export default function ViewProperty(props) {
               <label for="misc">Miscellaneous: </label><input type="text" name="misc" /></p>
             </fieldset>
             <div class="upload-pic">
-              {/* <input id="selectedFile" type="file" onchange="readURL(this);" />
+              <input id="selectedFile" type="file" onchange="readURL(this);" />
               <input type="button" value="Change image" onclick="document.getElementById('selectedFile').click();" />
-              <br> */}
+              <br />
               <img id="property-pic" src="home.png" alt="Property" />
             </div>
             

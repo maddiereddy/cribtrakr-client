@@ -9,6 +9,8 @@ import RegistrationPage from './registration-page';
 import ExpensesPage from './expenses';
 import PropertyDetails from './property-details';
 import AddProperty from './add-property';
+import AddExpense from './add-expense';
+import ViewExpense from './view-expense';
 import Footer from './footer'
 import {refreshAuthToken} from '../actions/auth';
 
@@ -52,6 +54,8 @@ export class App extends React.Component {
                 <Route exact path="/expenses" component={ExpensesPage} />
                 <Route exact path="/property-details" component={PropertyDetails} />
                 <Route exact path="/add-property" component={AddProperty} />
+                <Route exact path="/add-expense" component={AddExpense} />
+                <Route exact path="/view-expense" component={ViewExpense} />
                 <Footer />
             </div>  
         );
