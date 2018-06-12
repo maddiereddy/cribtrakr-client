@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import './nav.css';
@@ -38,24 +39,24 @@ export class Nav extends React.Component {
                     </ul>
                     ) : (
                     <ul id="menu">
-                        <a href="/#logIn"><li>Log In</li></a>
-                        <a href="/register"><li>Create Account</li></a>
-                        <a href="/"><li>Home</li></a>
+                        <Link to="/#logIn"><li>Log In</li></Link>
+                        <Link to="/register"><li>Create Account</li></Link>
+                        <Link to="/"><li>Home</li></Link>
                     </ul>
                     )}
                 </div>
                 {loggedIn ? (
                 <div id="nav-large-menu">
-                    <a href="/dashboard"><button id="home-link" className="nav-large-menu-items">
-                    <img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></a>
-                    <a href="/expenses"><button className="nav-large-menu-items">Expenses</button></a>
+                    <Link to="/dashboard"><button id="home-link" className="nav-large-menu-items">
+                    <img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></Link>
+                    <Link to="/expenses"><button className="nav-large-menu-items">Expenses</button></Link>
                     {logOutButtonLarge}
                 </div> ) : (
                 <div id="nav-large-menu">
-                    <a href="/dashboard"><button id="home-link" className="nav-large-menu-items">
-                    <img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></a>
-                    <a href="/#logIn"><button className="nav-large-menu-items">Log In</button></a>
-                    <a href="/register"><button className="nav-large-menu-items">Create Account</button></a>
+                    <Link to="/dashboard"><button id="home-link" className="nav-large-menu-items">
+                    <img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></Link>
+                    <Link to="/#logIn"><button className="nav-large-menu-items">Log In</button></Link>
+                    <Link to="/register"><button className="nav-large-menu-items">Create Account</button></Link>
                 </div>
                 )}
             </nav>

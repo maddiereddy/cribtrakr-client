@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
@@ -49,7 +50,7 @@ export class PropertyDetails extends React.Component {
             
             <button type="button" onClick={this.props.history.goBack}>Back</button>
             <button type="submit">Save Changes</button>
-            <a href="/expenses"><button type="button">View Expenses</button></a>
+            <Link to="/expenses"><button type="button">View Expenses</button></Link>
           </section>
         </form>
       </section>

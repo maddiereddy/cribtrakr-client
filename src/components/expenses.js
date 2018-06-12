@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
@@ -19,7 +20,7 @@ export class Expenses extends React.Component {
         <div className="container">
           <section className="search-section">
             <SearchForm />
-            <a href='/add-expense'><button className="add-expense">Add Expense</button></a>
+            <Link to='/add-expense'><button className="add-expense">Add Expense</button></Link>
           </section>
           <ExpenseCard />
           <ExpenseCard />
