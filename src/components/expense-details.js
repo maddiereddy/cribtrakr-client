@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './header';
 
-export default function ViewExpense(props) {
+export default function ExpenseDetails(props) {
     return (
       <div className="dashboard">
         <Header title='View/Edit Expense' />
@@ -58,7 +58,7 @@ export default function ViewExpense(props) {
     );
 };
 
-ViewExpense.defaultProps = {
+ExpenseDetails.defaultProps = {
     name: '',
     image: '',
 };

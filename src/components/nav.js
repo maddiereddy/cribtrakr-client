@@ -46,13 +46,13 @@ export class Nav extends React.Component {
                 </div>
                 {loggedIn ? (
                 <div id="nav-large-menu">
-                    <a href="/"><button id="home-link" className="nav-large-menu-items">
+                    <a href="/dashboard"><button id="home-link" className="nav-large-menu-items">
                     <img className="logo-sm" src={require("./house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></a>
                     <a href="/expenses"><button className="nav-large-menu-items">Expenses</button></a>
                     {logOutButtonLarge}
                 </div> ) : (
                 <div id="nav-large-menu">
-                    <a href="/"><button id="home-link" className="nav-large-menu-items">
+                    <a href="/dashboard"><button id="home-link" className="nav-large-menu-items">
                     <img className="logo-sm" src={require("./house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></a>
                     <a href="/#logIn"><button className="nav-large-menu-items">Log In</button></a>
                     <a href="/register"><button className="nav-large-menu-items">Create Account</button></a>

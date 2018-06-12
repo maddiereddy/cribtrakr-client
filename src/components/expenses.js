@@ -21,10 +21,10 @@ export class Expenses extends React.Component {
             <SearchForm />
             <a href='/add-expense'><button className="add-expense">Add Expense</button></a>
           </section>
-        <ExpenseCard />
-        <ExpenseCard />
-        <ExpenseCard />
-      </div>
+          <ExpenseCard />
+          <ExpenseCard />
+          <ExpenseCard />
+        </div>
       </div>
     );
   }
