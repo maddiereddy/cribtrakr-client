@@ -47,7 +47,7 @@ export class PropertyDetails extends React.Component {
               <img id="property-pic" src={require("../images/home.png")} alt="Property" />
             </div>
             
-            <button type="button">Back</button>
+            <button type="button" onClick={this.props.history.goBack}>Back</button>
             <button type="submit">Save Changes</button>
             <a href="/expenses"><button type="button">View Expenses</button></a>
           </section>

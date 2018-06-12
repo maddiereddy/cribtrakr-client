@@ -48,8 +48,8 @@ export class App extends React.Component {
         return (
             <div className="app">
                 <Nav />
-                <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/" component={LandingPage} />
+                <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/expenses" component={ExpensesPage} />
                 <Route exact path="/property-details" component={PropertyDetails} />

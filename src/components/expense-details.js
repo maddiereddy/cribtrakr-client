@@ -1,7 +1,16 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import requiresLogin from './requires-login';
+import {fetchProtectedData} from '../actions/protected-data';
+import './dashboard.css';
 import Header from './header';
 
-export default function ExpenseDetails(props) {
+export class ExpenseDetails extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(fetchProtectedData());
+  }
+
+  render() {
     return (
       <div className="dashboard">
         <Header title='View/Edit Expense' />
@@ -50,15 +59,22 @@ export default function ExpenseDetails(props) {
               <img id="bill-pic" src={require("../images/receipt.png")} alt="Receipt" />
               </p>
             </section>
-            <button type="button">Back</button>
+            <button type="button" onClick={this.props.history.goBack}>Back</button>
             <button type="submit">Save Changes</button>
           </form>
         </section>
       </div>
     );
-};
+  };
+}
 
-ExpenseDetails.defaultProps = {
-    name: '',
-    image: '',
+const mapStateToProps = state => {
+    const {currentUser} = state.auth;
+    return {
+        username: state.auth.currentUser.username,
+        name: `${currentUser.firstName} ${currentUser.lastName}`,
+        protectedData: state.protectedData.data
+    };
 };
+  
+export default requiresLogin()(connect(mapStateToProps)(ExpenseDetails));

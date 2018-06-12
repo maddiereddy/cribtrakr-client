@@ -60,8 +60,8 @@ export class AddExpense extends React.Component {
               <img id="bill-pic" src={require("../images/receipt.png")} alt="Receipt" />  
             </p>
           </section>
-          <button type="button">Back</button>
-          <button type="submit">Add Expense</button>
+          <button type="button" onClick={this.props.history.goBack}>Back</button>
+          <button type="submit">Save Expense</button>
         </form>
       </section>
       </div>

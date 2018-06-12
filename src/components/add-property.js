@@ -39,8 +39,8 @@ export class AddProperty extends React.Component {
               <br />
               <img id="property-pic" src={require("../images/home.png")} alt="Property" />
             </div>
-            <button type="button">Back</button>
-            <button type="submit">Add Property</button>
+            <button type="button" onClick={this.props.history.goBack}>Back</button>
+            <button type="submit">Save Property</button>
           </section>
         </form>
       </section>
