@@ -4,9 +4,9 @@ import './property-card.css';
 
 export default function PropertyCard(props) {
     return (
-      <section class="card">
+      <section className="card">
         <img src={props.image} alt="Property"/>
-        <div class="container">
+        <div className="container">
           <Link to={props.link}><h4><b>{props.name}</b></h4></Link> 
         </div>
       </section>

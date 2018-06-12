@@ -4,10 +4,17 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
 import Header from './header';
+import { readURL } from './upload';
 
 export class ExpenseDetails extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
+    this.fileSelector = document.getElementById('selectedFile');
+  }
+
+  handleFileSelect = (e) => {
+    e.preventDefault();
+    this.fileSelector.click();
   }
 
   render() {
@@ -16,17 +23,17 @@ export class ExpenseDetails extends React.Component {
         <Header title='View/Edit Expense' />
         <section>
           <form id="add-expense">
-            <section class="expense-form-section">
-              <p><label for="property">Property: </label>
+            <section className="expense-form-section">
+              <p><label htmlFor="property">Property: </label>
                 <select name="property" required>
                   <option value="Property1">Property 1</option>
                   <option value="Property2">Property 2</option>
                   <option value="Property3">Property 3</option>
                 </select>
               </p>
-              <p><label for="category">Category: </label>
+              <p><label htmlFor="category">Category: </label>
                 <select name="category" required>
-                  <option value="select" selected>Select Category</option>
+                  <option value="select" defaultValue>Select Category</option>
                   <option value="advertising">Advertising</option>
                   <option value="travel">Auto and Travel</option>
                   <option value="cleaning">Cleaning and Maintenance</option>
@@ -45,16 +52,16 @@ export class ExpenseDetails extends React.Component {
                   <option value="other">Other</option>
                 </select>
               </p>
-              <p><label for="amount">Amount: </label>
+              <p><label htmlFor="amount">Amount: </label>
               <input type="text" name="amount" required /></p>
-              <p><label for="vendor">Vendor Name: </label>
+              <p><label htmlFor="vendor">Vendor Name: </label>
               <input type="text" name="vendor" /></p>
-              <p><label for="description">Description: </label>
+              <p><label htmlFor="description">Description: </label>
               <textarea name="description"></textarea></p>
-              <p><label for="date">Date of Payment: </label>
+              <p><label htmlFor="date">Date of Payment: </label>
               <input type="date" name="date" required /></p>
-              <p><input id="selectedFile" type="file" onchange="readURL(this);" />
-              <input type="button" value="Upload Receipt" onclick="document.getElementById('selectedFile').click();" />
+              <p><input id="selectedFile" type="file" onChange={readURL(this)}/>
+              <input type="button" value="Upload image" onClick={this.handleFileSelect} />
               <br />
               <img id="bill-pic" src={require("../images/receipt.png")} alt="Receipt" />
               </p>

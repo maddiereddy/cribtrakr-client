@@ -16,7 +16,7 @@ export class Expenses extends React.Component {
     return (
       <div className="dashboard">
         <Header title='Expenses' />
-        <div class="container">
+        <div className="container">
           <section className="search-section">
             <SearchForm />
             <a href='/add-expense'><button className="add-expense">Add Expense</button></a>
