@@ -23,7 +23,7 @@ export class Nav extends React.Component {
                 <a onClick={() => this.logOut()}><button className="nav-large-menu-items">Log out</button></a>
             );
         }
-        const loggedIn = this.props.loggedIn;
+        const loggedIn = true;//this.props.loggedIn;
         return (
             <nav className="nav">
                 <div id="menuToggle">
@@ -55,8 +55,8 @@ export class Nav extends React.Component {
                 <div id="nav-large-menu">
                     <Link to="/dashboard"><button id="home-link" className="nav-large-menu-items">
                     <img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></Link>
-                    <Link to="/#logIn"><button className="nav-large-menu-items">Log In</button></Link>
-                    <Link to="/register"><button className="nav-large-menu-items">Create Account</button></Link>
+                    {/* <Link to="/#logIn"><button className="nav-large-menu-items">Log In</button></Link>
+                    <Link to="/register"><button className="nav-large-menu-items">Create Account</button></Link> */}
                 </div>
                 )}
             </nav>

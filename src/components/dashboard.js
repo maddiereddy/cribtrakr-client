@@ -1,14 +1,14 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
+// import {connect} from 'react-redux';
+// import requiresLogin from './requires-login';
+// import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
 import PropertyCard from './property-card';
 import Header from './header';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
+        // this.props.dispatch(fetchProtectedData());
     }
 
   render() {
@@ -24,13 +24,14 @@ export class Dashboard extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-    const {currentUser} = state.auth;
-    return {
-        username: state.auth.currentUser.username,
-        name: `${currentUser.firstName} ${currentUser.lastName}`,
-        protectedData: state.protectedData.data
-    };
-};
+// const mapStateToProps = state => {
+//     // const {currentUser} = state.auth;
+//     // return {
+//     //     username: state.auth.currentUser.username,
+//     //     name: `${currentUser.firstName} ${currentUser.lastName}`,
+//     //     protectedData: state.protectedData.data
+//     // };
+// };
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+// export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default (Dashboard);

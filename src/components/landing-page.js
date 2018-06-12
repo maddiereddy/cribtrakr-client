@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+// import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 import LoginForm from './login-form';
 
@@ -14,13 +15,14 @@ export function LandingPage(props) {
         <div className="home">
             <h1>Welcome to CribTrakr</h1>
             <LoginForm />
-            <Link to="/register">Register</Link>
+            {/* <Link to="/register">Register</Link> */}
         </div>
     );
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    // loggedIn: state.auth.currentUser !== null
+    loggedIn: true
 });
 
 export default connect(mapStateToProps)(LandingPage);

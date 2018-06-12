@@ -1,7 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
-
+// import {connect} from 'react-redux';
+// import {Route, withRouter} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Nav from './nav';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
@@ -12,37 +12,37 @@ import AddProperty from './add-property';
 import AddExpense from './add-expense';
 import ExpenseDetails from './expense-details';
 import Footer from './footer'
-import {refreshAuthToken} from '../actions/auth';
+//import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
-    componentDidUpdate(prevProps) {
-        if (!prevProps.loggedIn && this.props.loggedIn) {
-            // When we are logged in, refresh the auth token periodically
-            this.startPeriodicRefresh();
-        } else if (prevProps.loggedIn && !this.props.loggedIn) {
-            // Stop refreshing when we log out
-            this.stopPeriodicRefresh();
-        }
-    }
+    // componentDidUpdate(prevProps) {
+    //     if (!prevProps.loggedIn && this.props.loggedIn) {
+    //         // When we are logged in, refresh the auth token periodically
+    //         this.startPeriodicRefresh();
+    //     } else if (prevProps.loggedIn && !this.props.loggedIn) {
+    //         // Stop refreshing when we log out
+    //         this.stopPeriodicRefresh();
+    //     }
+    // }
 
-    componentWillUnmount() {
-        this.stopPeriodicRefresh();
-    }
+    // componentWillUnmount() {
+    //     this.stopPeriodicRefresh();
+    // }
 
-    startPeriodicRefresh() {
-        this.refreshInterval = setInterval(
-            () => this.props.dispatch(refreshAuthToken()),
-            60 * 60 * 1000 // One hour
-        );
-    }
+    // startPeriodicRefresh() {
+    //     this.refreshInterval = setInterval(
+    //         () => this.props.dispatch(refreshAuthToken()),
+    //         60 * 60 * 1000 // One hour
+    //     );
+    // }
 
-    stopPeriodicRefresh() {
-        if (!this.refreshInterval) {
-            return;
-        }
+    // stopPeriodicRefresh() {
+    //     if (!this.refreshInterval) {
+    //         return;
+    //     }
 
-        clearInterval(this.refreshInterval);
-    }
+    //     clearInterval(this.refreshInterval);
+    // }
 
     render() {
         return (
@@ -62,10 +62,13 @@ export class App extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    hasAuthToken: state.auth.authToken !== null,
-    loggedIn: state.auth.currentUser !== null
-});
+// const mapStateToProps = state => ({
+//     // hasAuthToken: state.auth.authToken !== null,
+//     // loggedIn: state.auth.currentUser !== null
+//     hasAuthToken: true,
+//     loggedIn: true
+// });
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
-export default withRouter(connect(mapStateToProps)(App));
+// export default withRouter(connect(mapStateToProps)(App));
+export default (App);
