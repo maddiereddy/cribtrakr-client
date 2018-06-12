@@ -15,10 +15,10 @@ export class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         <Header title='Rental Properties' />
-        <PropertyCard link='/property-details' name='Property 1' image={require("./home.png")} />
-        <PropertyCard link='/property-details' name='Property 2' image={require("./home.png")} />
-        <PropertyCard link='/property-details' name='Property 3' image={require("./home.png")} />
-        <PropertyCard link='/add-property' name='Add Property' image={require("./add-home.png")} />
+        <PropertyCard link='/property-details' name='Property 1' image={require("../images/home.png")} />
+        <PropertyCard link='/property-details' name='Property 2' image={require("../images/home.png")} />
+        <PropertyCard link='/property-details' name='Property 3' image={require("../images/home.png")} />
+        <PropertyCard link='/add-property' name='Add Property' image={require("../images/add-home.png")} />
       </div>
     );
   }

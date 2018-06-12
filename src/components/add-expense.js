@@ -57,7 +57,7 @@ export class AddExpense extends React.Component {
               <input id="selectedFile" type="file" onchange="readURL(this);" />
               <input type="button" value="Upload Receipt" onclick="document.getElementById('selectedFile').click();" />
               <br />
-              <img id="bill-pic" src={require("./receipt.png")} alt="Receipt" />  
+              <img id="bill-pic" src={require("../images/receipt.png")} alt="Receipt" />  
             </p>
           </section>
           <button type="button">Back</button>

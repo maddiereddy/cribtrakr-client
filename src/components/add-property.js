@@ -37,7 +37,7 @@ export class AddProperty extends React.Component {
               <input id="selectedFile" type="file" onchange="readURL(this);" />
               <input type="button" value="Upload image" onclick="document.getElementById('selectedFile').click();" />
               <br />
-              <img id="property-pic" src={require("./home.png")} alt="Property" />
+              <img id="property-pic" src={require("../images/home.png")} alt="Property" />
             </div>
             <button type="button">Back</button>
             <button type="submit">Add Property</button>
