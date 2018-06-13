@@ -23,13 +23,13 @@ nav {
 
 a {
 text-decoration: none;
-color: #232323;
+color: black;
 
 transition: color 0.3s ease;
 }
 
 a:hover {
-color: black;
+color: tomato;
 }
 
 #menu > a {
@@ -37,7 +37,7 @@ color: #fff;
 }
 
 #menu > a:hover {
-color: black;
+color: tomato;
 }
 
 #menuToggle {
@@ -124,7 +124,7 @@ padding-right: 20px;
 padding-bottom: 20px;
 padding-top: 125px;
 border: 2px solid #ffffff;
-background: #131b25;
+background: black;
 list-style-type: none;
 -webkit-font-smoothing: antialiased;
 
@@ -175,7 +175,7 @@ transform: none;
 
   }
   .nav-large-menu-items:hover {
-      color: #000;
+      color: black;
       background: none;
       border: none;
       cursor: pointer;

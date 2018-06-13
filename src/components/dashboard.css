@@ -1,33 +1,71 @@
 .dashboard {
-  width: 60%;
+  width: 80%;
   margin: 50px auto ;
   margin-top: 100px;
 }
 
-.search-section {
-  min-height: 100px;
+.login-form {
+  margin: 0px 40px 30px 40px;
+}
+
+#username, #password {
+  border: 2px solid tomato;
+  font-size: 0.8em;
+}
+
+#logIn-button {
+  width: 100px;
+  height: 30px;
+  font-size: 0.8em;
+}
+
+.search {
+  min-height: 150px;
   padding: 10px;
   border: 5px solid tomato;
   border-radius: 10px;
+  margin-bottom: 50px;
+  background-color:lightgray;
+  font-size: 1.0em;
 }
 
-.search-form {
-  width: 80%;
-  float: left;
-  overflow: hidden;
-  margin-left: 0px;
+#search-legend {
+  font-size: 1.8em;
+  text-align: left;
+  color: green;
 }
 
-.add-expense {
-  float: right;
-  overflow: hidden;
+.add-expense-button {
+  float: none;
+  font-size: 0.8em;
   height: 30px;
-  width: 15%;
+  width: 120px;
   background-color: tomato;
-  margin-right: 0px;
+  margin: 10px auto;
+  margin-bottom: 30px;
   border-radius: 10px;
 }
 
-#property-pic {
-  width: 10%;
+.search button {
+  float: none;
+  font-size: 0.8em;
+  height: 30px;
+  width: 100px;
+  background-color: tomato;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.pic-container img { 
+  width: 100%;
+}
+
+.pic-container {
+  max-height: 100px;
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.drop-down {
+  border: 2px solid tomato;
 }

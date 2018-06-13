@@ -39,10 +39,10 @@ section:nth-child(even) {
   background-color: #ddd;
 }
 
-p {
+/* p {
   margin: 0 auto;
   max-width: 650px;
-}
+} */
 
 p + p {
   margin-top: 15px;
@@ -50,7 +50,13 @@ p + p {
 
 fieldset {
 	margin: 0;
-	padding: 10px;
+	padding: 5px;
+}
+
+input, select, textarea {
+  width: 70%;
+  float: left;
+  margin-bottom:10px;
 }
 
 input[type='file'] {
@@ -59,31 +65,36 @@ input[type='file'] {
   margin-right: auto;
 }
 
-#property-pic {
-	width: 300px;
-	height: 300px;
-}
-
-#bill-pic {
-	width: 25%;
-}
-
 .form-section {
 	text-align: left;
 }
 
 label {
-	font-size: 0.6em;
-	margin-top: 0;
+  font-size: 0.6em;
+  float: left;
+  width: 28%;
+  text-align: left;
 }
 
 input[type='text'] {
 	font-size: 0.8em;
 }
 
-.expense-form-section {
-	width: 50%;
-	margin: 0 auto;
+input[type='button'] {
+  float: none;
+  margin: 0 auto;
+  max-width: 100px;
+}
+
+textarea {
+  height: 50px;
+}
+
+button {
+  background-color: tomato;
+  border-radius: 10px;
+  height: 30px;
+  margin-top: 10px;
 }
 
 .icons {

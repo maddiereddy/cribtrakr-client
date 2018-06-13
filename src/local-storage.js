@@ -13,3 +13,11 @@ export const clearAuthToken = () => {
         localStorage.removeItem('authToken');
     } catch (e) {}
 };
+
+export const setLoggedIn = (value) => {
+    return localStorage.setItem('loggedIn', value);
+};
+
+export const getLoggedIn = () => {
+    return localStorage.getItem('loggedIn');
+};

@@ -2,7 +2,7 @@ import React from 'react';
 // import {connect} from 'react-redux';
 // import {Route, withRouter} from 'react-router-dom';
 import {Route} from 'react-router-dom';
-import Nav from './nav';
+// import Nav from './nav';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
@@ -13,8 +13,12 @@ import AddExpense from './add-expense';
 import ExpenseDetails from './expense-details';
 import Footer from './footer'
 //import {refreshAuthToken} from '../actions/auth';
+import {setLoggedIn} from '../local-storage';
 
 export class App extends React.Component {
+    componentDidMount() {
+        setLoggedIn(false);
+    }
     // componentDidUpdate(prevProps) {
     //     if (!prevProps.loggedIn && this.props.loggedIn) {
     //         // When we are logged in, refresh the auth token periodically
@@ -25,9 +29,10 @@ export class App extends React.Component {
     //     }
     // }
 
-    // componentWillUnmount() {
-    //     this.stopPeriodicRefresh();
-    // }
+    componentWillUnmount() {
+        setLoggedIn(false);
+        // this.stopPeriodicRefresh();
+    }
 
     // startPeriodicRefresh() {
     //     this.refreshInterval = setInterval(
@@ -47,7 +52,7 @@ export class App extends React.Component {
     render() {
         return (
             <div className="app">
-                <Nav />
+                {/* <Nav /> */}
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />

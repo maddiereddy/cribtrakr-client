@@ -22,18 +22,17 @@ export class ExpenseDetails extends React.Component {
       <div className="dashboard">
         <Header title='View/Edit Expense' />
         <section>
-          <form id="add-expense">
+          <form id="add-expense-form">
             <section className="expense-form-section">
-              <p><label htmlFor="property">Property: </label>
+              <label htmlFor="property">Property:</label>
                 <select name="property" required>
                   <option value="Property1">Property 1</option>
                   <option value="Property2">Property 2</option>
                   <option value="Property3">Property 3</option>
                 </select>
-              </p>
-              <p><label htmlFor="category">Category: </label>
+              
+              <label htmlFor="category">Category:</label>
                 <select name="category" required>
-                  <option value="select" defaultValue>Select Category</option>
                   <option value="advertising">Advertising</option>
                   <option value="travel">Auto and Travel</option>
                   <option value="cleaning">Cleaning and Maintenance</option>
@@ -51,20 +50,23 @@ export class ExpenseDetails extends React.Component {
                   <option value="yardwork">Yard Work</option>
                   <option value="other">Other</option>
                 </select>
-              </p>
-              <p><label htmlFor="amount">Amount: </label>
-              <input type="text" name="amount" required /></p>
-              <p><label htmlFor="vendor">Vendor Name: </label>
-              <input type="text" name="vendor" /></p>
-              <p><label htmlFor="description">Description: </label>
-              <textarea name="description"></textarea></p>
-              <p><label htmlFor="date">Date of Payment: </label>
-              <input type="date" name="date" required /></p>
-              <p><input id="selectedFile" type="file" onChange={readURL(this)}/>
-              <input type="button" value="Upload image" onClick={this.handleFileSelect} />
-              <br />
-              <img id="bill-pic" src={require("../images/receipt.png")} alt="Receipt" />
-              </p>
+              
+              <label htmlFor="amount">Amount:</label>
+              <input type="text" name="amount" required />
+              <label htmlFor="vendor">Vendor:</label>
+              <input type="text" name="vendor" />
+              <label htmlFor="description">Descr:</label>
+              <textarea name="description"></textarea>
+              <label htmlFor="date">Date:</label>
+              <input type="date" name="date" required />
+              <div className="upload-pic">
+                <input id="selectedFile" type="file" onChange={readURL(this)}/>
+                <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
+                <br />
+                <div className="pic-container">
+                  <img src={require("../images/receipt.png")} alt="Receipt" />  
+                </div>
+              </div>
             </section>
             <button type="button" onClick={this.props.history.goBack}>Back</button>
             <button type="submit">Save Changes</button>

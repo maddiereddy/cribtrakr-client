@@ -17,15 +17,11 @@ export class Expenses extends React.Component {
     return (
       <div className="dashboard">
         <Header title='Expenses' />
-        <div className="container">
-          <section className="search-section">
-            <SearchForm />
-            <Link to='/add-expense'><button className="add-expense">Add Expense</button></Link>
-          </section>
+        <Link to='/add-expense'><button className="add-expense-button">Add Expense</button></Link>
+          <SearchForm />
           <ExpenseCard />
           <ExpenseCard />
           <ExpenseCard />
-        </div>
       </div>
     );
   }
