@@ -54,7 +54,7 @@ export class Nav extends React.Component {
                     {loggedIn ? (
                     
                     <ul id="menu">
-                        <Link to="/"><li>Home</li></Link> 
+                        <Link to="/dashboard"><li>Home</li></Link> 
                         {/* <Link to="/expenses"><li>Expenses</li></Link> */}
                         {expButton}
                         {logOutButton}
