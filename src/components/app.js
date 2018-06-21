@@ -16,55 +16,55 @@ import Footer from './footer'
 import {setLoggedIn} from '../local-storage';
 
 export class App extends React.Component {
-    componentDidMount() {
-        setLoggedIn(false);
-    }
-    // componentDidUpdate(prevProps) {
-    //     if (!prevProps.loggedIn && this.props.loggedIn) {
-    //         // When we are logged in, refresh the auth token periodically
-    //         this.startPeriodicRefresh();
-    //     } else if (prevProps.loggedIn && !this.props.loggedIn) {
-    //         // Stop refreshing when we log out
-    //         this.stopPeriodicRefresh();
-    //     }
-    // }
+  componentDidMount() {
+    setLoggedIn(false);
+  }
+  // componentDidUpdate(prevProps) {
+  //     if (!prevProps.loggedIn && this.props.loggedIn) {
+  //         // When we are logged in, refresh the auth token periodically
+  //         this.startPeriodicRefresh();
+  //     } else if (prevProps.loggedIn && !this.props.loggedIn) {
+  //         // Stop refreshing when we log out
+  //         this.stopPeriodicRefresh();
+  //     }
+  // }
 
-    componentWillUnmount() {
-        setLoggedIn(false);
-        // this.stopPeriodicRefresh();
-    }
+  componentWillUnmount() {
+    setLoggedIn(false);
+    // this.stopPeriodicRefresh();
+  }
 
-    // startPeriodicRefresh() {
-    //     this.refreshInterval = setInterval(
-    //         () => this.props.dispatch(refreshAuthToken()),
-    //         60 * 60 * 1000 // One hour
-    //     );
-    // }
+  // startPeriodicRefresh() {
+  //     this.refreshInterval = setInterval(
+  //         () => this.props.dispatch(refreshAuthToken()),
+  //         60 * 60 * 1000 // One hour
+  //     );
+  // }
 
-    // stopPeriodicRefresh() {
-    //     if (!this.refreshInterval) {
-    //         return;
-    //     }
+  // stopPeriodicRefresh() {
+  //     if (!this.refreshInterval) {
+  //         return;
+  //     }
 
-    //     clearInterval(this.refreshInterval);
-    // }
+  //     clearInterval(this.refreshInterval);
+  // }
 
-    render() {
-        return (
-            <div className="app">
-                {/* <Nav /> */}
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/register" component={RegistrationPage} />
-                <Route exact path="/expenses" component={ExpensesPage} />
-                <Route exact path="/property-details" component={PropertyDetails} />
-                <Route exact path="/add-property" component={AddProperty} />
-                <Route exact path="/add-expense" component={AddExpense} />
-                <Route exact path="/expense-details" component={ExpenseDetails} />
-                <Footer />
-            </div>  
-        );
-    }
+  render() {
+    return (
+      <div className="app">
+        {/* <Nav /> */}
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/register" component={RegistrationPage} />
+        <Route exact path="/expenses" component={ExpensesPage} />
+        <Route exact path="/property-details" component={PropertyDetails} />
+        <Route exact path="/add-property" component={AddProperty} />
+        <Route exact path="/add-expense" component={AddExpense} />
+        <Route exact path="/expense-details" component={ExpenseDetails} />
+        <Footer />
+      </div>  
+    );
+  }
 }
 
 // const mapStateToProps = state => ({

@@ -8,10 +8,10 @@ import './index.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <App />
-        </Router>
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('root')
 );

@@ -1,23 +1,23 @@
 export const loadAuthToken = () => {
-    return localStorage.getItem('authToken');
+  return localStorage.getItem('authToken');
 };
 
 export const saveAuthToken = authToken => {
-    try {
-        localStorage.setItem('authToken', authToken);
-    } catch (e) {}
+  try {
+      localStorage.setItem('authToken', authToken);
+  } catch (e) {}
 };
 
 export const clearAuthToken = () => {
-    try {
-        localStorage.removeItem('authToken');
-    } catch (e) {}
+  try {
+      localStorage.removeItem('authToken');
+  } catch (e) {}
 };
 
 export const setLoggedIn = (value) => {
-    return localStorage.setItem('loggedIn', value);
+  return localStorage.setItem('loggedIn', value);
 };
 
 export const getLoggedIn = () => {
-    return localStorage.getItem('loggedIn');
+  return localStorage.getItem('loggedIn');
 };
