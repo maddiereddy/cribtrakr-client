@@ -1,9 +1,13 @@
-img {
-  width: 20%;
-}
 .expense-card {
-  margin-top: 20px;
+  text-align: left;
+  margin: 20px;
   box-shadow: 6px 7px 10px #888888;
+}
+
+ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
 }
 
 i {

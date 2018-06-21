@@ -34,6 +34,8 @@ export class LoginForm extends React.Component {
                 <header>
                     <h2>Log In</h2>
                 </header>
+                <p><em>Demo version</em></p>
+                <p>Use any login/password combo</p>
                 <form className="login-form"
                     // onSubmit={this.props.handleSubmit(values =>
                     //     this.onSubmit(values)

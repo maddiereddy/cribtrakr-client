@@ -66,6 +66,6 @@
   margin: 0 auto;
 }
 
-.drop-down {
+.drop-down, select {
   border: 2px solid tomato;
 }

@@ -6,19 +6,51 @@ import './dashboard.css';
 import PropertyCard from './property-card';
 import Header from './header';
 
-export class Dashboard extends React.Component {
-    componentDidMount() {
-        // this.props.dispatch(fetchProtectedData());
-    }
+export default class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      properties: [
+        {
+          link: '/property-details',
+          name: 'Property 1',
+          image: require('../images/home.png')
+        },
+        {
+          link: '/property-details',
+          name: 'Property 2',
+          image: require('../images/home.png')
+        },
+        {
+          link: '/property-details',
+          name: 'Property 3',
+          image: require('../images/home.png')
+        },
+        {
+          link: '/add-property',
+          name: 'Add New Property',
+          image: require('../images/add-home.png')
+        }
+      ]
+    };
+  }
+    // componentDidMount() {
+    //     this.props.dispatch(fetchProtectedData());
+    // }
 
   render() {
+    const properties = this.state.properties.map((property, index) => (
+      <PropertyCard key={index} {...property} />
+    ));
     return (
       <div className="dashboard">
         <Header title='Rental Properties' />
-        <PropertyCard link='/property-details' name='Property 1' image={require("../images/home.png")} />
+        {properties}
+        {/* <PropertyCard link='/property-details' name='Property 1' image={require("../images/home.png")} />
         <PropertyCard link='/property-details' name='Property 2' image={require("../images/home.png")} />
         <PropertyCard link='/property-details' name='Property 3' image={require("../images/home.png")} />
-        <PropertyCard link='/add-property' name='Add Property' image={require("../images/add-home.png")} />
+        <PropertyCard link='/add-property' name='Add Property' image={require("../images/add-home.png")} /> */}
       </div>
     );
   }
@@ -34,4 +66,3 @@ export class Dashboard extends React.Component {
 // };
 
 // export default requiresLogin()(connect(mapStateToProps)(Dashboard));
-export default (Dashboard);

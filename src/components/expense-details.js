@@ -26,7 +26,7 @@ export class ExpenseDetails extends React.Component {
             <section className="expense-form-section">
               <label htmlFor="property">Property:</label>
                 <select name="property" required>
-                  <option value="Property1">Property 1</option>
+                  <option value="Property1" defaultValue>Property 1</option>
                   <option value="Property2">Property 2</option>
                   <option value="Property3">Property 3</option>
                 </select>
@@ -35,7 +35,7 @@ export class ExpenseDetails extends React.Component {
                 <select name="category" required>
                   <option value="advertising">Advertising</option>
                   <option value="travel">Auto and Travel</option>
-                  <option value="cleaning">Cleaning and Maintenance</option>
+                  <option value="cleaning" defaultValue>Cleaning and Maintenance</option>
                   <option value="commissions">Commissions</option>
                   <option value="fines">Fines</option>
                   <option value="insurance">Insurance</option>
@@ -52,13 +52,13 @@ export class ExpenseDetails extends React.Component {
                 </select>
               
               <label htmlFor="amount">Amount:</label>
-              <input type="text" name="amount" required />
+              <input type="text" name="amount" defaultValue="$500" required />
               <label htmlFor="vendor">Vendor:</label>
-              <input type="text" name="vendor" />
+              <input type="text" name="vendor" defaultValue="Acme Services"  />
               <label htmlFor="description">Descr:</label>
-              <textarea name="description"></textarea>
+              <textarea name="description" defaultValue="Some exciting service provided by the roadrunner!"></textarea>
               <label htmlFor="date">Date:</label>
-              <input type="date" name="date" required />
+              <input type="date" name="date" defaultValue="June 20, 2018" required />
               <div className="upload-pic">
                 <input id="selectedFile" type="file" onChange={readURL(this)}/>
                 <input type="button" value="Upload Image" onClick={this.handleFileSelect} />

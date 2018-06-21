@@ -28,30 +28,30 @@ export class PropertyDetails extends React.Component {
             <fieldset className="form-section">
               <legend>Address</legend>
               <label htmlFor="address-street">Street: </label>
-              <input type="text" name="address-street" required />
+              <input type="text" name="address-street" defaultValue="Main St." required />
               <label htmlFor="address-city">City: </label>
-              <input type="text" name="address-city" required />
+              <input type="text" name="address-city" defaultValue="Riverdale" required />
               <label htmlFor="address-state">State: </label>
-              <input type="text" name="address-state" required />
+              <input type="text" name="address-state" defaultValue="CA" required />
               <label htmlFor="address-zip">Zip: </label>
-              <input type="text" name="address-zip"  required />
+              <input type="text" name="address-zip" defaultValue="90210" required />
             </fieldset>
             <fieldset className="form-section">
               <legend>Expenses</legend>
               <label htmlFor="mortgage">Mortgage:</label>
-              <input type="text" name="mortgage" required />
+              <input type="text" name="mortgage" defaultValue="$60000" required />
               <label htmlFor="pmi">PMI:</label>
-              <input type="text" name="pmi" required />
+              <input type="text" name="pmi" defaultValue="$0" required />
               <label htmlFor="insurance">Insurance:</label>
-              <input type="text" name="insurance" required />
+              <input type="text" name="insurance" defaultValue="$2000" required />
               <label htmlFor="property-tax">PropTax:</label>
-              <input type="text" name="property-tax" required />
+              <input type="text" name="property-tax" defaultValue="$5000" required />
               <label htmlFor="hoa">HOA Fee:</label>
-              <input type="text" name="hoa" required />
+              <input type="text" name="hoa" defaultValue="$2000" required />
               <label htmlFor="mgmt-fees">Mgmt Fee:</label>
-              <input type="text" name="mgmt-fees" required />
+              <input type="text" name="mgmt-fees" defaultValue="$6000" required />
               <label htmlFor="misc">Misc:</label>
-              <input type="text" name="misc" />
+              <input type="text" name="misc" defaultValue="$0"/>
             </fieldset>
             <div className="upload-pic">
               <input id="selectedFile" type="file" onChange={readURL(this)}/>
