@@ -1,17 +1,17 @@
 import React from 'react';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-// import requiresLogin from './requires-login';
-// import {fetchProtectedData} from '../actions/protected-data';
+import requiresLogin from './requires-login';
+import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
 import Header from './header';
 import ExpenseCard from './expense-card';
 import SearchForm from './search-form';
 
-export default class Expenses extends React.Component {
-  // componentDidMount() {
-  //     // this.props.dispatch(fetchProtectedData());
-  // }
+export class Expenses extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(fetchProtectedData());
+  }
 
   constructor(props) {
     super(props);
@@ -66,13 +66,13 @@ export default class Expenses extends React.Component {
   }
 }
 
-// const mapStateToProps = state => {
-//     // const {currentUser} = state.auth;
-//     // return {
-//     //     username: state.auth.currentUser.username,
-//     //     name: `${currentUser.firstName} ${currentUser.lastName}`,
-//     //     protectedData: state.protectedData.data
-//     // };
-// };
+const mapStateToProps = state => {
+  const {currentUser} = state.auth;
+  return {
+      username: state.auth.currentUser.username,
+      name: `${currentUser.firstName} ${currentUser.lastName}`,
+      protectedData: state.protectedData.data
+  };
+};
 
-// export default requiresLogin()(connect(mapStateToProps)(Expenses));
+export default requiresLogin()(connect(mapStateToProps)(Expenses));

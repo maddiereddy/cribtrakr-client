@@ -8,7 +8,7 @@
   margin: 0px 40px 30px 40px;
 }
 
-#username, #password {
+#username, #password, #firstName, #lastName, #passwordConfirm {
   border: 2px solid tomato;
   font-size: 0.8em;
 }
