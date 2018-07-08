@@ -21,7 +21,7 @@ export function LandingPage(props) {
     },
     {
       title: 'How does CribTrakr work?',
-      description: 'First, create an account and add details of all your rental properies. Next, add expenses for each property as they come in. You can even upload pics of your bill receipts to have them handy during tax time!'
+      description: 'First, create an account and add details of all your rental properties. Next, add expenses for each property as they come in. You can even upload pics of your bill receipts to have them handy during tax time!'
     }
   ];
 
