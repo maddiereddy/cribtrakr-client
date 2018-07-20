@@ -5,9 +5,9 @@ import './property-card.css';
 export default function PropertyCard(props) {
   return (
     <section className="property-card">
-       <Link to={props.link}><img src={props.image} alt="Property"/></Link>
+       <Link to={`${props.link}/${props.id}`}><img src={props.image} alt="Property"/></Link>
       <div className="container">
-        <Link to={props.link}><h4><b>{props.name}</b></h4></Link> 
+        <Link to={`${props.link}/${props.id}`}><h4><b>{props.name}</b></h4></Link> 
       </div>
     </section>
   );
@@ -17,4 +17,5 @@ PropertyCard.defaultProps = {
   name: '',
   image: '',
   link: '',
+  id: ''
 };

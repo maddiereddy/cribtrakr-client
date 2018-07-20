@@ -53,10 +53,10 @@ export class App extends React.Component {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/register" component={RegistrationPage} />
         <Route exact path="/expenses" component={ExpensesPage} />
-        <Route exact path="/property-details" component={PropertyDetails} />
+        <Route exact path="/property-details/:id" component={PropertyDetails} />
         <Route exact path="/add-property" component={AddProperty} />
         <Route exact path="/add-expense" component={AddExpense} />
-        <Route exact path="/expense-details" component={ExpenseDetails} />
+        <Route exact path="/expense-details/:id" component={ExpenseDetails} />
         <Footer />
       </div>  
     );

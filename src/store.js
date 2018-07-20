@@ -5,12 +5,16 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
+import { rentalReducer } from './reducers/rentals';
+//import { expenseReducer } from './reducers/expenses';
 
 const store = createStore(
   combineReducers({
     form: formReducer,
     auth: authReducer,
-    protectedData: protectedDataReducer
+    protectedData: protectedDataReducer,
+    rental: rentalReducer,
+    //expense: expenseReducer
   }),
   applyMiddleware(thunk)
 );

@@ -8,7 +8,7 @@ import {saveAuthToken, clearAuthToken} from '../local-storage';
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
   type: SET_AUTH_TOKEN,
-  authToken
+  authToken: authToken
 });
 
 export const CLEAR_AUTH = 'CLEAR_AUTH';
@@ -24,13 +24,13 @@ export const authRequest = () => ({
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const authSuccess = currentUser => ({
   type: AUTH_SUCCESS,
-  currentUser
+  currentUser: currentUser
 });
 
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const authError = error => ({
   type: AUTH_ERROR,
-  error
+  error: error
 });
 
 // Stores the auth token in state and localStorage, and decodes and stores

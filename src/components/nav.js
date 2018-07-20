@@ -34,7 +34,8 @@ export class Nav extends React.Component {
                     {loggedIn ? (
                     
                     <ul id="menu">
-                        <a href="/"><li>Home</li></a> 
+                        <a href="/dashboard"><li>Rentals</li></a> 
+                        <a href="/expenses"><li>Expenses</li></a>
                         {logOutButton}
                     </ul>
                     ) : (
@@ -49,6 +50,7 @@ export class Nav extends React.Component {
                 <div id="nav-large-menu">
                     <Link to="/dashboard"><button id="home-link" className="nav-large-menu-items">
                     <img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></Link>
+                    <Link to="/dashboard"><button className="nav-large-menu-items">Rentals</button></Link>
                     <Link to="/expenses"><button className="nav-large-menu-items">Expenses</button></Link>
                     {logOutButtonLarge}
                 </div> ) : (

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
+import {fetchRentals} from '../actions/rentals';
 import './dashboard.css';
 import PropertyCard from './property-card';
 import Header from './header';
@@ -9,28 +10,41 @@ import Header from './header';
 export class Dashboard extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
-}
+    this.props.dispatch(fetchRentals());
+  }
 
-render() {
-return (
-  <div className="dashboard">
-    <Header title='Rental Properties' />
-    <PropertyCard link='/property-details' name='Property 1' image={require("../images/home.png")} />
-    <PropertyCard link='/property-details' name='Property 2' image={require("../images/home.png")} />
-    <PropertyCard link='/property-details' name='Property 3' image={require("../images/home.png")} />
-    <PropertyCard link='/add-property' name='Add Property' image={require("../images/add-home.png")} />
-  </div>
-);
-}
+  render() {
+    if (this.props.loading) return <div>Loading...</div>;
+    
+    let rentals;
+
+    if(this.props.rentals && this.props.rentals.length) {
+      rentals = this.props.rentals.map((rental, index) => 
+        <PropertyCard key={index} link={`/property-details`} name={rental.name} image={require("../images/home.png")} id={rental.id}/>
+      );
+    } else {
+      return <div>Loading...</div>;
+    }
+
+    return (
+      <div className="dashboard">
+        <Header title='Rental Properties' />
+        {rentals}
+        <PropertyCard link='/add-property' name='Add Property' image={require("../images/add-home.png")} />
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-const {currentUser} = state.auth;
-return {
-    username: state.auth.currentUser.username,
-    name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data
-};
+  const {currentUser} = state.auth;
+  return {
+      username: state.auth.currentUser.username,
+      name: `${currentUser.firstName} ${currentUser.lastName}`,
+      protectedData: state.protectedData.data,
+      rentals: state.rental.rentals,
+      loading: state.rental.loading
+  };
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
