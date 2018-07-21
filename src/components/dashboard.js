@@ -4,7 +4,7 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import {fetchRentals} from '../actions/rentals';
 import './dashboard.css';
-import PropertyCard from './property-card';
+import RentalCard from './rental-card';
 import Header from './header';
 
 export class Dashboard extends React.Component {
@@ -20,7 +20,7 @@ export class Dashboard extends React.Component {
 
     if(this.props.rentals && this.props.rentals.length) {
       rentals = this.props.rentals.map((rental, index) => 
-        <PropertyCard key={index} link={`/property-details`} name={rental.name} image={require("../images/home.png")} id={rental.id}/>
+        <RentalCard key={index} link={`/rental-details`} name={rental.name} image={require("../images/home.png")} id={rental.id}/>
       );
     } else {
       return <div>Loading...</div>;
@@ -30,7 +30,7 @@ export class Dashboard extends React.Component {
       <div className="dashboard">
         <Header title='Rental Properties' />
         {rentals}
-        <PropertyCard link='/add-property' name='Add Property' image={require("../images/add-home.png")} />
+        <RentalCard link='/add-rental' name='Add Property' image={require("../images/add-home.png")} />
       </div>
     );
   }

@@ -7,8 +7,8 @@ import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import ExpensesPage from './expenses';
-import PropertyDetails from './property-details';
-import AddProperty from './add-property';
+import RentalDetails from './rental-details';
+import AddRental from './add-rental';
 import AddExpense from './add-expense';
 import ExpenseDetails from './expense-details';
 import Footer from './footer'
@@ -53,10 +53,10 @@ export class App extends React.Component {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/register" component={RegistrationPage} />
         <Route exact path="/expenses" component={ExpensesPage} />
-        <Route exact path="/property-details/:id" component={PropertyDetails} />
-        <Route exact path="/add-property" component={AddProperty} />
+        <Route exact path="/rental-details/:id" component={RentalDetails} />
+        <Route exact path="/add-rental" component={AddRental} />
         <Route exact path="/add-expense" component={AddExpense} />
-        <Route exact path="/expense-details/:id" component={ExpenseDetails} />
+        <Route exact path="/expense-details" component={ExpenseDetails} />
         <Footer />
       </div>  
     );

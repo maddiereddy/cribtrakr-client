@@ -6,7 +6,7 @@ import './dashboard.css';
 import Header from './header';
 import { readURL } from './upload';
 
-export class AddProperty extends React.Component {
+export class AddRental extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
     this.fileSelector = document.getElementById('selectedFile');
@@ -79,4 +79,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(AddProperty));
+export default requiresLogin()(connect(mapStateToProps)(AddRental));

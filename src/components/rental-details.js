@@ -8,7 +8,7 @@ import './dashboard.css';
 import Header from './header';
 import { readURL } from './upload';
 
-export class PropertyDetails extends React.Component {
+export class RentalDetails extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
     this.props.dispatch(fetchRental(this.props.match.params.id));
@@ -99,4 +99,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(PropertyDetails));
+export default requiresLogin()(connect(mapStateToProps)(RentalDetails));
