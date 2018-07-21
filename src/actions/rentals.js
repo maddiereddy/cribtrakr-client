@@ -98,7 +98,7 @@ export const deleteRentalError = (error) => ({
 })
 
 
-export const newRental = rental => dispatch => {
+export const newRental = (rental) => dispatch => {
     //create a new rental
     const authToken = loadAuthToken();
     return fetch(`${API_BASE_URL}/rentals/`, {
@@ -112,8 +112,8 @@ export const newRental = rental => dispatch => {
     })
         .then(res => res.json())
             .then(response=> {
-            const id = response.id;
-            window.location = `/rental/${id}`;
+            // const id = response.id;
+            window.location = `/dashboard`; //`/rental-details/${id}`;
             return dispatch(createRentalSuccess(response));
         })
         .catch(err => {   
@@ -121,7 +121,7 @@ export const newRental = rental => dispatch => {
         });
 };
 
-export const fetchRental =(id)=>(dispatch, getState)=>{
+export const fetchRental =(id)=>(dispatch)=>{
     //fetch a specific rental with its id
     dispatch(fetchRentalData());
     const authToken = localStorage.getItem('authToken');
@@ -136,7 +136,7 @@ export const fetchRental =(id)=>(dispatch, getState)=>{
         .catch(err=> dispatch(fetchRentalError(err))) 
 }
 
-export const fetchRentals = () => (dispatch, getState) => {
+export const fetchRentals = () => (dispatch) => {
     //retrieve user's rentals
     dispatch(fetchRentalsData());
     const authToken = localStorage.getItem('authToken');
@@ -152,7 +152,7 @@ export const fetchRentals = () => (dispatch, getState) => {
         .catch(err=> dispatch(fetchRentalsError(err)))
 }
 
-export const updateRental = rental => dispatch => {
+export const updateRental = (rental) => dispatch => {
     //edit a rental with updateRental
     const authToken = loadAuthToken();
     return fetch(`${API_BASE_URL}/rentals/${rental.id}`, {
@@ -176,7 +176,7 @@ export const updateRental = rental => dispatch => {
         });
 };
 
-export const deleteRental = rental => dispatch => {
+export const deleteRental = (rental) => dispatch => {
   //delete a rental with deleteRental
   const authToken = loadAuthToken();
   return fetch(`${API_BASE_URL}/rentals/${rental.id}`, {
