@@ -33,7 +33,12 @@ export function LandingPage(props) {
           <About key={2} {...captions[2]} />
           <LoginForm />
           <Link to="/register">Register</Link>
-      </div>
+          <div className="demo-credentials">
+            <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Demo Credentials</u></b> <br/>
+            <b><i>Username:</i></b>  demo <br/>
+            <b><i>Password:</i></b>  password
+          </div>
+        </div>
   );
 }
 

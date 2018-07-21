@@ -106,3 +106,11 @@ button {
   margin: 10px;
   text-align: left;
 }
+
+.demo-credentials {
+  width: 200px;
+  height: 100px;
+  margin: 20px auto 0 auto;
+  font-size: 14px;
+  text-align: left;
+}

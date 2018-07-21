@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
-import {fetchRental, updateRental} from '../actions/rentals';
+import {fetchRental} from '../actions/rentals';
 import './dashboard.css';
 import Header from './header';
 import { readURL } from './upload';

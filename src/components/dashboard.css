@@ -5,7 +5,7 @@
 }
 
 .login-form {
-  margin: 0px 40px 30px 40px;
+  margin: 50px 40px 30px 40px;
 }
 
 #username, #password, #firstName, #lastName, #passwordConfirm {
