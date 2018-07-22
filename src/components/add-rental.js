@@ -4,7 +4,7 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
 import Header from './header';
-import AddForm from './add-form';
+import AddRentalForm from './add-rental-form';
 
 export class AddRental extends React.Component {
   componentDidMount() {
@@ -20,7 +20,7 @@ export class AddRental extends React.Component {
       <div className="dashboard">
         <Header title='Add New Property' />
         <section>
-          <AddForm username={username} />
+          <AddRentalForm username={username} />
         </section>
       </div>
     );

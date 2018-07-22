@@ -6,10 +6,10 @@ import "./dashboard.css";
 import Input from "./input";
 // import { readURL } from './upload';
 
-export class AddForm extends React.Component {
+export class AddRentalForm extends React.Component {
 	//form used to post a rental property
 	componentDidMount() {
-    this.fileSelector = document.getElementById('selectedFile');
+   //this.fileSelector = document.getElementById('selectedFile');
 	}
 	
   // handleFileSelect = (e) => {
@@ -85,4 +85,4 @@ export default reduxForm({
 	// 	console.log(`Error: ${JSON.stringify(errors)}`)
 	// 	dispatch(focus("rental", Object.keys(errors)[0]))
 	// }
-})(AddForm);
+})(AddRentalForm);

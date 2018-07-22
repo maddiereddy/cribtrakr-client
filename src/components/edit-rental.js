@@ -8,7 +8,7 @@ import './dashboard.css';
 import Header from './header';
 import { readURL } from './upload';
 
-export class RentalDetails extends React.Component {
+export class EditRental extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
     this.props.dispatch(fetchRental(this.props.match.params.id));
@@ -28,11 +28,12 @@ export class RentalDetails extends React.Component {
   }
 
   render() {
-    if (this.props.loading) return <div>Loading...</div>;
+    if (this.props.loading) 
+      return <div id="loading"><img src="../images/ajax-loader.gif" alt="Loading..."/></div>;
     
     const rental = this.props.currentRental;
     if (!rental) {
-      return <div>Loading...</div>;
+      return <div id="loading"><img src="../images/ajax-loader.gif" alt="Loading..."/></div>;
     }
 
     return (
@@ -99,4 +100,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(RentalDetails));
+export default requiresLogin()(connect(mapStateToProps)(EditRental));

@@ -69,3 +69,9 @@
 .drop-down, select {
   border: 2px solid tomato;
 }
+
+#loading img{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}

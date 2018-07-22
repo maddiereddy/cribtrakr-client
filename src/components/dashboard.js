@@ -14,16 +14,16 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    if (this.props.loading) return <div>Loading...</div>;
+    if (this.props.loading) return <div id="loading"><img src="../images/ajax-loader.gif" alt="Loading..."/></div>;
     
     let rentals;
 
     if(this.props.rentals && this.props.rentals.length) {
       rentals = this.props.rentals.map((rental, index) => 
-        <RentalCard key={index} link={`/rental-details`} name={rental.name} image={require("../images/home.png")} id={rental.id}/>
+        <RentalCard key={index} link={`/edit-rental`} name={rental.name} image={require("../images/home.png")} id={rental.id}/>
       );
     } else {
-      return <div>Loading...</div>;
+      return <div id="loading"><img src="../images/ajax-loader.gif" alt="Loading..."/></div>;
     }
 
     return (

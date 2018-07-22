@@ -111,10 +111,10 @@ export const newRental = (rental) => dispatch => {
     
     })
         .then(res => res.json())
-            .then(response=> {
-            // const id = response.id;
-            window.location = `/dashboard`; //`/rental-details/${id}`;
-            return dispatch(createRentalSuccess(response));
+				.then(response=> {
+					// const id = response.id;
+					window.location = `/dashboard`; //`/edit-rental/${id}`;
+					return dispatch(createRentalSuccess(response));
         })
         .catch(err => {   
             dispatch(createRentalError(err))
@@ -188,6 +188,9 @@ export const deleteRental = (rental) => dispatch => {
       body: JSON.stringify(rental)
   
   })
-  .then(()=> dispatch(deleteRentalSuccess(rental.id)))
-  .catch(err=> dispatch(deleteRentalError(err))) 
+	.then(()=> {
+		window.location = `/dashboard`;
+		return dispatch(deleteRentalSuccess(rental.id))
+	})
+	.catch(err=> dispatch(deleteRentalError(err))) 
 };
