@@ -6,7 +6,10 @@ export default class RentalCard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { open: false };
+    this.state = { 
+      open: false,
+      newRental: this.props.newRental
+    };
   }
 
   onClick(e){
@@ -28,24 +31,37 @@ export default class RentalCard extends React.Component {
       </fieldset>
     );
 
+    const existProperty = (
+      <div>
+        <p className="icons">
+          <Link to={`${this.props.link}/${this.props.id}`}> <i className="fa fa-pencil" aria-hidden="true"></i></Link>
+          <Link to={`delete-rental/${this.props.id}`}><i className="fa fa-times" aria-hidden="true"></i></Link>
+        </p>
+        <img src={this.props.image} alt="Property"/>
+        <h4><b>
+          <span>{this.props.rental.street}</span> <br/>
+          <span>{this.props.rental.city}</span>,  
+          <span> {this.props.rental.state}</span> 
+          <span> {this.props.rental.zip}</span> <br/>
+        </b></h4>
+        <button onClick={this.onClick.bind(this)}>Show Expenses</button>
+        { this.state.open && expenses }
+      </div>
+    );
+
+    const newProperty = (
+      <div>
+        <Link to={`${this.props.link}/${this.props.id}`}><img src={this.props.image} alt="Property"/></Link>
+        <h4><b>
+          <span><Link to={`${this.props.link}/${this.props.id}`}>{this.props.name}</Link></span>
+        </b></h4>
+      </div>
+    );
+
     return (
       <section className="property-card">
         <div className="container">
-          <p className="icons">
-            <Link to={`${this.props.link}/${this.props.id}`}> <i className="fa fa-pencil" aria-hidden="true"></i></Link>
-            <Link to={`delete-rental/${this.props.id}`}><i className="fa fa-times" aria-hidden="true"></i></Link>
-          </p>
-          <img src={this.props.image} alt="Property"/>
-          <div>
-            <h4><b>
-              <span>{this.props.rental.street}</span> <br/>
-              <span>{this.props.rental.city}</span>,  
-              <span>{this.props.rental.state}</span> -  
-              <span>{this.props.rental.zip}</span> <br/>
-            </b></h4>
-            <button onClick={this.onClick.bind(this)}>Show Expenses</button>
-            { this.state.open && expenses }
-          </div>
+          { this.state.newRental ? newProperty : existProperty}
         </div>
       </section>
     );
@@ -57,4 +73,6 @@ RentalCard.defaultProps = {
   image: '',
   link: '',
   id: '',
+  name: '',
+  newRental: false
 };

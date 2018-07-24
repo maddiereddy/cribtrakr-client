@@ -6,9 +6,30 @@ import './dashboard.css';
 import Input from './input';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { readURL } from './upload';
 
 export class EditRentalForm extends React.Component {
+  componentDidMount() {
+    this.fileSelector = document.getElementById('selectedFile');
+  }
+  
+  // https://www.javascripture.com/FileReader#readAsDataURL
+  readURL(event) {
+    let input = event.target
+    let reader = new FileReader();
+      
+    reader.onload = function () {
+      let dataURL = reader.result;
+      let output = document.getElementById('output');
+      output.src = dataURL;
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+	
+  handleFileSelect = (e) => {
+    e.preventDefault();
+    this.fileSelector.click();
+  }
+
   onSubmit(values) {
     const rentalId = this.props.initialValues.id
     const username = this.props.username;
@@ -35,7 +56,7 @@ export class EditRentalForm extends React.Component {
             <fieldset className="form-section">
               <legend>Address</legend>
               <label htmlFor="street">Street: </label>
-              <Field component={Input} type="text" name="street" readOnly='true' required />
+              <Field component={Input} type="text" name="street" required />
               <label htmlFor="city">City: </label>
               <Field component={Input} type="text" name="city" required />
               <label htmlFor="state">State: </label>
@@ -60,14 +81,14 @@ export class EditRentalForm extends React.Component {
               <label htmlFor="misc">Miscellaneous:</label>
               <Field component={Input} type="text" name="misc" />
             </fieldset>
-            {/* <div className="upload-pic">
-              <input id="selectedFile" type="file" onChange={readURL(this)}/>
+            <div className="upload-pic">
+              <input id="selectedFile" type="file" accept="image/*" onChange={this.readURL}/>
               <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
               <br />
               <div className="pic-container">
-                <img src={require("../images/home.png")} alt="Property" />
+                <img id="output" src={require("../images/home.png")} alt="Property" />
               </div>
-            </div> */}
+            </div>
           </section>
           <div>
             <Link to="/dashboard"><button type="button">Back</button></Link>
@@ -89,8 +110,8 @@ EditRentalForm = reduxForm({
 })(EditRentalForm);
 
 EditRentalForm = connect(
-  state => ({ initialValues: state.rental.currentRental }), // pull initial values from account reducer
-  { load: fetchRental } // bind account loading action creator
+  state => ({ initialValues: state.rental.currentRental }),
+  { load: fetchRental }
 )(EditRentalForm);
 
 export default EditRentalForm;

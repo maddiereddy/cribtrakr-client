@@ -22,7 +22,7 @@ export class Dashboard extends React.Component {
 
     if(this.props.rentals && this.props.rentals.length) {
       rentals = this.props.rentals.map((rental, index) => 
-        <RentalCard key={index} link={`/edit-rental`} rental={rental} image={require("../images/home.png")} id={rental.id}/>
+        <RentalCard key={index} link={`/edit-rental`} name={rental.name} rental={rental} image={require("../images/home.png")} id={rental.id}/>
       );
     } else {
       return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
@@ -32,7 +32,7 @@ export class Dashboard extends React.Component {
       <div className="dashboard">
         <Header title='Rental Properties' />
         {rentals}
-        <RentalCard link='/add-rental' name='Add Property' image={require("../images/add-home.png")} />
+        <RentalCard link='/add-rental' name='Add Property' newRental={true} image={require("../images/add-home.png")} />
       </div>
     );
   }

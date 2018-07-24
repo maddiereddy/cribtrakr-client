@@ -4,18 +4,17 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import './dashboard.css';
 import Header from './header';
-import { readURL } from './upload';
 
 export class AddExpense extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
-    this.fileSelector = document.getElementById('selectedFile');
+    // this.fileSelector = document.getElementById('selectedFile');
   }
 
-  handleFileSelect = (e) => {
-    e.preventDefault();
-    this.fileSelector.click();
-  }
+  // handleFileSelect = (e) => {
+  //   e.preventDefault();
+  //   this.fileSelector.click();
+  // }
 
   render() {
     return (
@@ -61,14 +60,14 @@ export class AddExpense extends React.Component {
             <textarea name="description"></textarea>
             <label htmlFor="date">Date:</label>
             <input type="date" name="date" required />
-            <div className="upload-pic">
+            {/* <div className="upload-pic">
               <input id="selectedFile" type="file" onChange={readURL(this)}/>
               <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
               <br />
               <div className="pic-container">
                 <img src={require("../images/receipt.png")} alt="Receipt" />  
               </div>
-            </div>
+            </div> */}
           </section>
           <button type="button" onClick={this.props.history.goBack}>Back</button>
           <button type="submit">Save Expense</button>

@@ -4,18 +4,29 @@ import { Link } from "react-router-dom";
 import { newRental } from "../actions/rentals";
 import "./dashboard.css";
 import Input from "./input";
-// import { readURL } from './upload';
 
 export class AddRentalForm extends React.Component {
-	//form used to post a rental property
-	componentDidMount() {
-   //this.fileSelector = document.getElementById('selectedFile');
-	}
+  componentDidMount() {
+    this.fileSelector = document.getElementById('selectedFile');
+  }
+  // https://www.javascripture.com/FileReader#readAsDataURL
+  readURL(event) {
+    let input = event.target
+    let reader = new FileReader();
+      
+    reader.onload = function () {
+      let dataURL = reader.result;
+      let output = document.getElementById('output');
+      output.src = dataURL;
+    };
+    console.log(`input file: ${input.files[0]}`)
+    reader.readAsDataURL(input.files[0]);
+  }
 	
-  // handleFileSelect = (e) => {
-  //   e.preventDefault();
-  //   this.fileSelector.click();
-  // }
+  handleFileSelect = (e) => {
+    e.preventDefault();
+    this.fileSelector.click();
+  }
 
   onSubmit(values) {
 		const username = this.props.username;
@@ -58,14 +69,15 @@ export class AddRentalForm extends React.Component {
               <label htmlFor="misc">Miscellaneous:</label>
               <Field component={Input} type="text" name="misc" />
             </fieldset>
-            {/* <div className="upload-pic">
-              <input id="selectedFile" type="file" onChange={readURL(this)}/>
+            
+            <div className="upload-pic">
+              <input id="selectedFile" type="file" accept="image/*" onChange={this.readURL}/>
               <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
               <br />
               <div className="pic-container">
-                <img src={require("../images/home.png")} alt="Property" />
+                <img id="output" src={require("../images/home.png")} alt="Property" />
               </div>
-            </div> */}
+            </div>
           </section>
 					<div>
 						<Link to="/dashboard"><button type="button">Back</button></Link>
