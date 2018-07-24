@@ -167,8 +167,8 @@ export const updateRental = (rental) => dispatch => {
     })
         .then(res => res.json())
             .then(response=> {
-            const id = response.id;
-            window.location = `/rentals/${id}`;
+            // const id = response.id;
+            // window.location = `/rentals/${id}`;
             return dispatch(updateRentalRequest(response));
         })
         .catch(err => {
@@ -189,7 +189,7 @@ export const deleteRental = (rental) => dispatch => {
   
   })
 	.then(()=> {
-		window.location = `/dashboard`;
+		// window.location = `/dashboard`;
 		return dispatch(deleteRentalSuccess(rental.id))
 	})
 	.catch(err=> dispatch(deleteRentalError(err))) 

@@ -5,10 +5,10 @@ import {fetchProtectedData} from '../actions/protected-data';
 import {fetchRental} from '../actions/rentals';
 import './dashboard.css';
 import Header from './header';
-import { EditRentalForm } from './edit-rental-form';
+import { DeleteRentalForm } from './delete-rental-form';
 import spinner from '../images/ajax-loader.gif';
 
-export class EditRental extends React.Component {
+export class DeleteRental extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
     this.props.dispatch(fetchRental(this.props.match.params.id));
@@ -34,9 +34,9 @@ export class EditRental extends React.Component {
 
     return (
       <div className="dashboard">
-        <Header title='Update Property Details' />
+        <Header title='Are you sure you want to delete this property?' />
         <section>
-        <EditRentalForm initialValues={initialValues} username={username} />
+        <DeleteRentalForm initialValues={initialValues} username={username} />
         </section>
       </div>
     );
@@ -54,4 +54,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(EditRental));
+export default requiresLogin()(connect(mapStateToProps)(DeleteRental));

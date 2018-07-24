@@ -6,6 +6,7 @@ import {fetchRentals} from '../actions/rentals';
 import './dashboard.css';
 import RentalCard from './rental-card';
 import Header from './header';
+import spinner from '../images/ajax-loader.gif';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
@@ -15,7 +16,7 @@ export class Dashboard extends React.Component {
 
   render() {
     if (this.props.loading) 
-      return <div id="loading"><img src="../images/ajax-loader.gif" alt="Loading..."/></div>;
+      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
     
     let rentals;
 
@@ -24,7 +25,7 @@ export class Dashboard extends React.Component {
         <RentalCard key={index} link={`/edit-rental`} name={rental.name} image={require("../images/home.png")} id={rental.id}/>
       );
     } else {
-      return <div id="loading"><img src="../images/ajax-loader.gif" alt="Loading..."/></div>;
+      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
     }
 
     return (

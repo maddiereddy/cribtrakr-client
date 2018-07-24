@@ -1,26 +1,24 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-import { updateRental, fetchRental  } from '../actions/rentals';
+import { deleteRental, fetchRental  } from '../actions/rentals';
 import './dashboard.css';
 import Input from './input';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { readURL } from './upload';
 
-export class EditRentalForm extends React.Component {
+export class DeleteRentalForm extends React.Component {
   onSubmit(values) {
     const rentalId = this.props.initialValues.id
     const username = this.props.username;
-    const rental = Object.assign({}, { user: username }, {id:rentalId}, values);
-    return this.props.dispatch(updateRental(rental))
+    const rental = Object.assign({}, { user: username }, { id: rentalId }, values);
+    return this.props.dispatch(deleteRental(rental))
   }
   render() {
     //redux form used to update rental content
     if (this.props.submitSucceeded === true ) {
       return (
         <div>
-          {/* <Redirect to={`/edit-rental/${this.props.initialValues.id}`} /> */}
           <Redirect to={`/dashboard`} />
         </div>
       )
@@ -28,14 +26,14 @@ export class EditRentalForm extends React.Component {
 
     return (
         <div>
-          <form className="edit-rental-form" id="edit-property-form"
+          <form className="delete-rental-form" id="delete-property-form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
             <fieldset className="form-section">
               <legend>Address</legend>
               <label htmlFor="street">Street: </label>
-              <Field component={Input} type="text" name="street" readOnly='true' required />
+              <Field component={Input} type="text" name="street" required />
               <label htmlFor="city">City: </label>
               <Field component={Input} type="text" name="city" required />
               <label htmlFor="state">State: </label>
@@ -60,21 +58,10 @@ export class EditRentalForm extends React.Component {
               <label htmlFor="misc">Misc:</label>
               <Field component={Input} type="text" name="misc" />
             </fieldset>
-            {/* <div className="upload-pic">
-              <input id="selectedFile" type="file" onChange={readURL(this)}/>
-              <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
-              <br />
-              <div className="pic-container">
-                <img src={require("../images/home.png")} alt="Property" />
-              </div>
-            </div> */}
-          </section>
+           </section>
           <div>
-            <Link to="/dashboard"><button type="button">Back</button></Link>
-            <button type="submit" disabled={this.props.pristine || this.props.submitting} >
-              Save Changes
-            </button>
-            <Link to="/expenses"><button type="button">View Expenses</button></Link>
+            <Link to="/dashboard"><button type="button">No, go back</button></Link>
+            <button type="submit" >Yes, delete property</button>
           </div>
         </form>
       </div>
@@ -82,15 +69,15 @@ export class EditRentalForm extends React.Component {
   }
 }
 
-EditRentalForm = reduxForm({
-    form: "editRental",
+DeleteRentalForm = reduxForm({
+    form: "deleteRental",
     // onSubmitFail: (errors, dispatch) =>
     //     dispatch(focus('editRental', Object.keys(errors)[0]))
-})(EditRentalForm);
+})(DeleteRentalForm);
 
-EditRentalForm = connect(
+DeleteRentalForm = connect(
   state => ({ initialValues: state.rental.currentRental }), // pull initial values from account reducer
   { load: fetchRental } // bind account loading action creator
-)(EditRentalForm);
+)(DeleteRentalForm);
 
-export default EditRentalForm;
+export default DeleteRentalForm;
