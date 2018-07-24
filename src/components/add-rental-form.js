@@ -49,13 +49,13 @@ export class AddRentalForm extends React.Component {
               <Field component={Input} type="text" name="pmi" />
               <label htmlFor="insurance">Insurance:</label>
               <Field component={Input} type="text" name="insurance" />
-              <label htmlFor="propertyTax">Prop Tax:</label>
+              <label htmlFor="propertyTax">Property Tax:</label>
               <Field component={Input} type="text" name="propertyTax" />
-              <label htmlFor="hoa">HOA Fee:</label>
+              <label htmlFor="hoa">HOA Fees:</label>
               <Field component={Input} type="text" name="hoa" />
-              <label htmlFor="managementFees">Mgmt Fee:</label>
+              <label htmlFor="managementFees">Management Fees:</label>
               <Field component={Input} type="text" name="managementFees" />
-              <label htmlFor="misc">Misc:</label>
+              <label htmlFor="misc">Miscellaneous:</label>
               <Field component={Input} type="text" name="misc" />
             </fieldset>
             {/* <div className="upload-pic">
