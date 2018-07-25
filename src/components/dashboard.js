@@ -16,8 +16,9 @@ export class Dashboard extends React.Component {
 
   render() {
     if (this.props.loading) 
-      return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
-    
+      // return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
+      return <div id="loading">Loading...</div>;
+
     let rentals;
 
     if(this.props.rentals && this.props.rentals.length) {
@@ -25,7 +26,8 @@ export class Dashboard extends React.Component {
         <RentalCard key={index} link={`/edit-rental`} name={rental.name} rental={rental} image={require("../images/home.png")} id={rental.id}/>
       );
     } else {
-      return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
+      // return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
+      return <div id="loading">Loading...</div>;
     }
 
     return (

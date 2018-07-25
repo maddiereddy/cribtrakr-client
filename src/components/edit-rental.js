@@ -16,8 +16,9 @@ export class EditRental extends React.Component {
 
   render() {
     if (this.props.loading) 
-      return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
-    
+      // return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
+      return <div id="loading">Loading...</div>;
+
     let username;
     let initialValues;
 
@@ -29,7 +30,8 @@ export class EditRental extends React.Component {
     }
 
     if (!initialValues) {
-      return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
+      // return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
+      return <div id="loading">Loading...</div>;
     }
 
     return (
