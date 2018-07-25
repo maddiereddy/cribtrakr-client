@@ -6,7 +6,7 @@ import {fetchRental} from '../actions/rentals';
 import './dashboard.css';
 import Header from './header';
 import { EditRentalForm } from './edit-rental-form';
-import spinner from '../images/ajax-loader.gif';
+//import spinner from '../images/ajax-loader.gif';
 
 export class EditRental extends React.Component {
   componentDidMount() {
@@ -16,7 +16,7 @@ export class EditRental extends React.Component {
 
   render() {
     if (this.props.loading) 
-      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+      return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
     
     let username;
     let initialValues;
@@ -29,7 +29,7 @@ export class EditRental extends React.Component {
     }
 
     if (!initialValues) {
-      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+      return <div id="loading"><img src={require("../images/ajax-loader.gif")} alt="Loading..."/></div>;
     }
 
     return (
