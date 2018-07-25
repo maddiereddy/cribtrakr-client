@@ -13,7 +13,8 @@
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-form": "^7.3.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "source-map-loader": "^0.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,7 +22,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "source-map-loader": "^0.2.3"
-  }
+  "devDependencies": {}
 }
