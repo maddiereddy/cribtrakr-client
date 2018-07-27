@@ -6,21 +6,36 @@ import "./dashboard.css";
 import Input from "./input";
 
 export class AddRentalForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = { 
+      selectedFile: null
+    };
+  }
+
   componentDidMount() {
     this.fileSelector = document.getElementById('selectedFile');
   }
   // https://www.javascripture.com/FileReader#readAsDataURL
-  readURL(event) {
+  readURL = (event) => {
     let input = event.target
     let reader = new FileReader();
       
-    reader.onload = function () {
+    reader.onload = () => {
       let dataURL = reader.result;
       let output = document.getElementById('output');
       output.src = dataURL;
-    };
-    console.log(`input file: ${input.files[0]}`)
-    reader.readAsDataURL(input.files[0]);
+    }
+
+    if (input.files[0].size <= (1024 * 1024 * 1)){
+      // reader.readAsDataURL(input.files[0]);
+      // this.setState({selectedFile: input.files[0]})
+    }
+    else {
+      alert("File size must under 2MB!");
+    }
   }
 	
   handleFileSelect = (e) => {
@@ -30,7 +45,7 @@ export class AddRentalForm extends React.Component {
 
   onSubmit(values) {
 		const username = this.props.username;
-    const rental = Object.assign({}, { user:username }, values);
+    const rental = Object.assign({}, {user:username}, {imageURL: this.state.selectedFile}, values);
     return this.props.dispatch(newRental(rental));
   }
 
@@ -71,7 +86,7 @@ export class AddRentalForm extends React.Component {
             </fieldset>
             
             <div className="upload-pic">
-              <input id="selectedFile" type="file" accept="image/*" onChange={this.readURL}/>
+              <input id="selectedFile" type="file" accept="image/png, image/jpeg, image/jpg" onChange={this.readURL}/>
               <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
               <br />
               <div className="pic-container">

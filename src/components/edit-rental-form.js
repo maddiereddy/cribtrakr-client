@@ -8,6 +8,14 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 export class EditRentalForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { 
+      selectedFile: null
+    };
+  }
+
   componentDidMount() {
     this.fileSelector = document.getElementById('selectedFile');
   }
@@ -21,8 +29,15 @@ export class EditRentalForm extends React.Component {
       let dataURL = reader.result;
       let output = document.getElementById('output');
       output.src = dataURL;
+
+      this.setState({selectedFile: dataURL});
     };
-    reader.readAsDataURL(input.files[0]);
+
+    if (input.files[0].size <= (1024 * 1024 * 1))
+      reader.readAsDataURL(input.files[0]);
+    else {
+      alert("File size must under 2MB!");
+    }
   }
 	
   handleFileSelect = (e) => {
@@ -33,7 +48,7 @@ export class EditRentalForm extends React.Component {
   onSubmit(values) {
     const rentalId = this.props.initialValues.id
     const username = this.props.username;
-    const rental = Object.assign({}, { user: username }, {id:rentalId}, values);
+    const rental = Object.assign({}, {user: username}, {id:rentalId}, values);
     return this.props.dispatch(updateRental(rental))
   }
   render() {
@@ -82,7 +97,7 @@ export class EditRentalForm extends React.Component {
               <Field component={Input} type="text" name="misc" />
             </fieldset>
             <div className="upload-pic">
-              <input id="selectedFile" type="file" accept="image/*" onChange={this.readURL}/>
+              <input id="selectedFile" type="file" accept="image/png, image/jpeg, image/jpg" onChange={this.readURL}/>
               <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
               <br />
               <div className="pic-container">
