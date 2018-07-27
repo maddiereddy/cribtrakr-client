@@ -1,9 +1,8 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { deleteRental, fetchRental  } from '../actions/rentals';
 import './dashboard.css';
-import Input from './input';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -30,7 +29,13 @@ export class DeleteRentalForm extends React.Component {
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
-            <fieldset className="form-section">
+            <h4><b>
+              <span>{this.props.initialValues.street}</span> <br/>
+              <span>{this.props.initialValues.city}</span>,  
+              <span> {this.props.initialValues.state}</span> 
+              <span> {this.props.initialValues.zip}</span> <br/>
+            </b></h4>
+            {/* <fieldset className="form-section">
               <legend>Address</legend>
               <label htmlFor="street">Street: </label>
               <Field component={Input} type="text" name="street" required />
@@ -57,7 +62,7 @@ export class DeleteRentalForm extends React.Component {
               <Field component={Input} type="text" name="managementFees" />
               <label htmlFor="misc">Misc:</label>
               <Field component={Input} type="text" name="misc" />
-            </fieldset>
+            </fieldset> */}
            </section>
           <div>
             <Link to="/dashboard"><button type="button">No, go back</button></Link>
