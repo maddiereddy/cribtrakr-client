@@ -32,7 +32,7 @@ export class SearchForm extends React.Component {
   
     return (
       <fieldset className="search">
-        <legend id="search-legend">Filter</legend>
+        <legend id="search-legend">Filter By:</legend>
         <form id="search-form">
           <label htmlFor="property">Property:</label>
           <select className="drop-down" name="property" required>
@@ -43,11 +43,11 @@ export class SearchForm extends React.Component {
           <select className="drop-down" name="category" required>
             {categories}
           </select>
-          
-          <label htmlFor="dateFrom">Date:</label>
-          <input type="date" name="dateFrom" required />
-          <label htmlFor="dateTo">Date:</label>
-          <input type="date" name="dateTo" required />
+          <p>Or</p>
+          <label htmlFor="dateFrom">From Date:</label>
+          <input type="date" name="dateFrom" />
+          <label htmlFor="dateTo">To Date:</label>
+          <input type="date" name="dateTo" />
         <button id="search-button" type="submit">Search</button>
       </form>
     </fieldset>

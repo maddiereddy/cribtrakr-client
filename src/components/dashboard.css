@@ -26,7 +26,16 @@
   border-radius: 10px;
   margin-bottom: 50px;
   background-color:lightgray;
-  font-size: 1.0em;
+  font-size: 1.3em;
+}
+
+.search p {
+  text-align: left;
+  font-weight: bold;
+}
+
+#dropdown {
+  
 }
 
 #search-legend {
@@ -66,8 +75,10 @@
   margin: 0 auto;
 }
 
-.drop-down, select {
+.drop-down, select, input {
   border: 2px solid tomato;
+  font-size: 0.6em;
+  padding: 3px;
 }
 
 #loading img{
