@@ -6,7 +6,7 @@ import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 import { rentalReducer } from './reducers/rentals';
-//import { expenseReducer } from './reducers/expenses';
+import { expenseReducer } from './reducers/expenses';
 
 const store = createStore(
   combineReducers({
@@ -14,7 +14,7 @@ const store = createStore(
     auth: authReducer,
     protectedData: protectedDataReducer,
     rental: rentalReducer,
-    //expense: expenseReducer
+    expense: expenseReducer
   }),
   applyMiddleware(thunk)
 );

@@ -20,13 +20,13 @@ export default class RentalCard extends React.Component {
   render() {
     const expenses = (
       <fieldset className="form-section">
-        <legend>Expenses</legend>
-        <span>Mortgage: {this.props.rental.mortgage}</span> <br/>
-        <span>PMI: {this.props.rental.pmi}</span><br/>
-        <span>Insurance: {this.props.rental.insurance}</span><br/> 
-        <span>Property Tax: {this.props.rental.propertyTax}</span> <br/>
-        <span>HOA Fees: {this.props.rental.hoa}</span> <br/>
-        <span>Management Fees: {this.props.rental.managementFees}</span><br/>
+        <legend>Recurring Payments</legend>
+        <span>Mortgage (per month): {this.props.rental.mortgage}</span> <br/>
+        <span>PMI (per month): {this.props.rental.pmi}</span><br/>
+        <span>Insurance (per year): {this.props.rental.insurance}</span><br/> 
+        <span>Property Tax (per year): {this.props.rental.propertyTax}</span> <br/>
+        <span>HOA Fees (per month): {this.props.rental.hoa}</span> <br/>
+        <span>Management Fees (per month): {this.props.rental.managementFees}</span><br/>
         <span>Miscellaneous: {this.props.rental.misc}</span><br/> 
       </fieldset>
     );
@@ -48,7 +48,7 @@ export default class RentalCard extends React.Component {
           <span> {this.props.rental.state}</span> 
           <span> {this.props.rental.zip}</span> <br/>
         </b></h4>
-        <button onClick={this.onClick.bind(this)}>{ this.state.open ? 'Hide' : 'Show' } Expenses</button>
+        <button onClick={this.onClick.bind(this)}>{ this.state.open ? 'Hide' : 'Show' } Details</button>
         { this.state.open && expenses }
       </div>
     );

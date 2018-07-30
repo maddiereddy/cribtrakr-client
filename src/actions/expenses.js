@@ -38,7 +38,7 @@ export const fetchExpenseError = (error) => dispatch => ({
     error
 })
 
-//get all
+//get all by propid
 export const FETCH_EXPENSES_DATA = 'FETCH_EXPENSES_DATA'
 export const fetchExpensesData = () => ({
     type: FETCH_EXPENSES_DATA,
@@ -53,6 +53,24 @@ export const fetchExpensesSuccess = (expenses) => ({
 export const FETCH_EXPENSES_ERROR= 'FETCH_EXPENSES_ERROR'
 export const fetchExpensesError = (error) => dispatch => ({
     type: FETCH_EXPENSES_ERROR,
+    error
+})
+
+//get all for user
+export const FETCH_ALL_EXPENSES_DATA = 'FETCH_ALL_EXPENSES_DATA'
+export const fetchAllExpensesData = () => ({
+    type: FETCH_ALL_EXPENSES_DATA,
+})
+
+export const FETCH_ALL_EXPENSES_SUCCESS = 'FETCH_ALL_EXPENSES_SUCCESS'
+export const fetchAllExpensesSuccess = (expenses) => ({
+    type: FETCH_ALL_EXPENSES_SUCCESS,
+    expenses: expenses
+})
+
+export const FETCH_ALL_EXPENSES_ERROR= 'FETCH_ALL_EXPENSES_ERROR'
+export const fetchAllExpensesError = (error) => dispatch => ({
+    type: FETCH_ALL_EXPENSES_ERROR,
     error
 })
 
@@ -142,6 +160,22 @@ export const fetchExpenses = (propId) => (dispatch) => {
     const authToken = localStorage.getItem('authToken');
 
     fetch(`${API_BASE_URL}/expenses/${propId}`, {
+        headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(expenses => dispatch(fetchExpensesSuccess(expenses)))
+        .catch(err=> dispatch(fetchExpensesError(err)))
+}
+
+export const fetchAllExpenses = () => (dispatch) => {
+    //retrieve user's expenses
+    dispatch(fetchExpensesData());
+    const authToken = localStorage.getItem('authToken');
+
+    fetch(`${API_BASE_URL}/expenses/`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
             'Content-Type': 'application/json'

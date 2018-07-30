@@ -1,52 +1,78 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import requiresLogin from './requires-login';
+import {fetchProtectedData} from '../actions/protected-data';
+import {fetchRentals} from '../actions/rentals';
+import spinner from '../images/ajax-loader.gif';
 import './dashboard.css';
 
-export default function SearchForm(props) {
-  return (
-    <fieldset className="search">
-      <legend id="search-legend">Search</legend>
-      <form id="search-form">
-        <label htmlFor="property">Property:</label>
-        <select className="drop-down" name="property" required>
-          <option value="select" defaultValue>Select Property</option>
-          <option value="Property1">Property 1</option>
-          <option value="Property2">Property 2</option>
-          <option value="Property3">Property 3</option>
-        </select>
-        
-        <label htmlFor="category">Category:</label>
-        <select className="drop-down" name="category" required>
-          <option value="select" defaultValue>Select Category</option>
-          <option value="advertising">Advertising</option>
-          <option value="travel">Auto and Travel</option>
-          <option value="cleaning">Cleaning and Maintenance</option>
-          <option value="commissions">Commissions</option>
-          <option value="fines">Fines</option>
-          <option value="insurance">Insurance</option>
-          <option value="legal">Legal and other Professional Fees</option>
-          <option value="management">Management Fees</option>
-          <option value="mortgage">Mortgage Interest</option>
-          <option value="otherInterest">Other Interest</option>
-          <option value="repairs">Repairs</option>
-          <option value="supplies">Supplies</option>
-          <option value="taxes">Taxes</option>
-          <option value="utilities">Utilities</option>
-          <option value="yardwork">Yard Work</option>
-          <option value="other">Other</option>
-        </select>
-        
-        <label htmlFor="dateFrom">Date:</label>
-        <input type="date" name="dateFrom" required />
-        <label htmlFor="dateTo">Date:</label>
-        <input type="date" name="dateTo" required />
-      <button id="search-button" type="submit">Search</button>
-    </form>
-  </fieldset>
-  );
+export class SearchForm extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(fetchProtectedData());
+    this.props.dispatch(fetchRentals());
+  }
+
+  render() {
+    if (this.props.loading) 
+      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+    
+      let rentals;
+
+      if(this.props.rentals && this.props.rentals.length) {
+        rentals = this.props.rentals.map((rental, index) => 
+        <option key={index} value={rental.name}>{rental.name}</option>
+        );
+      } else {
+        return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+      }
+    
+    const categories = this.props.data.Categories.map((category, index) => 
+      <option key={index} value={category.value}>{category.value}</option>
+    );
+  
+    return (
+      <fieldset className="search">
+        <legend id="search-legend">Filter</legend>
+        <form id="search-form">
+          <label htmlFor="property">Property:</label>
+          <select className="drop-down" name="property" required>
+            {rentals}
+          </select>
+          
+          <label htmlFor="category">Category:</label>
+          <select className="drop-down" name="category" required>
+            {categories}
+          </select>
+          
+          <label htmlFor="dateFrom">Date:</label>
+          <input type="date" name="dateFrom" required />
+          <label htmlFor="dateTo">Date:</label>
+          <input type="date" name="dateTo" required />
+        <button id="search-button" type="submit">Search</button>
+      </form>
+    </fieldset>
+    );
+  }
 };
 
 SearchForm.defaultProps = {
   name: '',
   image: '',
   link: '',
+  data: {}
 };
+
+const mapStateToProps = state => {
+  const {currentUser} = state.auth;
+  return {
+    username: state.auth.currentUser.username,
+    name: `${currentUser.firstName} ${currentUser.lastName}`,
+    protectedData: state.protectedData.data,
+    rentals: state.rental.rentals,
+    loading: state.rental.loading
+  };
+};
+
+export default requiresLogin()(connect(mapStateToProps)(SearchForm));
+
+

@@ -11,7 +11,7 @@ import EditRental from './edit-rental';
 import DeleteRental from './delete-rental';
 import AddRental from './add-rental';
 import AddExpense from './add-expense';
-import ExpenseDetails from './expense-details';
+import EditExpense from './edit-expense';
 import Footer from './footer'
 import {refreshAuthToken} from '../actions/auth';
 
@@ -58,7 +58,7 @@ export class App extends React.Component {
         <Route exact path="/delete-rental/:id" component={DeleteRental} />
         <Route exact path="/add-rental" component={AddRental} />
         <Route exact path="/add-expense" component={AddExpense} />
-        <Route exact path="/expense-details" component={ExpenseDetails} />
+        <Route exact path="/edit-expense/:propId/:id" component={EditExpense} />
         <Footer />
       </div>  
     );

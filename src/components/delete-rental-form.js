@@ -35,35 +35,7 @@ export class DeleteRentalForm extends React.Component {
               <span> {this.props.initialValues.state}</span> 
               <span> {this.props.initialValues.zip}</span> <br/>
             </b></h4>
-            {/* <fieldset className="form-section">
-              <legend>Address</legend>
-              <label htmlFor="street">Street: </label>
-              <Field component={Input} type="text" name="street" required />
-              <label htmlFor="city">City: </label>
-              <Field component={Input} type="text" name="city" required />
-              <label htmlFor="state">State: </label>
-              <Field component={Input} type="text" name="state" required />
-              <label htmlFor="zip">Zip: </label>
-              <Field component={Input} type="text" name="zip"  required />
-            </fieldset>
-            <fieldset className="form-section">
-              <legend>Expenses</legend>
-              <label htmlFor="mortgage">Mortgage:</label>
-              <Field component={Input} type="text" name="mortgage" />
-              <label htmlFor="pmi">PMI:</label>
-              <Field component={Input} type="text" name="pmi" />
-              <label htmlFor="insurance">Insurance:</label>
-              <Field component={Input} type="text" name="insurance" />
-              <label htmlFor="propertyTax">Prop Tax:</label>
-              <Field component={Input} type="text" name="propertyTax" />
-              <label htmlFor="hoa">HOA Fee:</label>
-              <Field component={Input} type="text" name="hoa" />
-              <label htmlFor="managementFees">Mgmt Fee:</label>
-              <Field component={Input} type="text" name="managementFees" />
-              <label htmlFor="misc">Misc:</label>
-              <Field component={Input} type="text" name="misc" />
-            </fieldset> */}
-           </section>
+          </section>
           <div>
             <Link to="/dashboard"><button type="button">No, go back</button></Link>
             <button type="submit" >Yes, delete property</button>

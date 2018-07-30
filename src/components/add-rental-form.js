@@ -69,17 +69,17 @@ export class AddRentalForm extends React.Component {
             </fieldset>
             <fieldset className="form-section">
               <legend>Expenses</legend>
-              <label htmlFor="mortgage">Mortgage:</label>
+              <label htmlFor="mortgage">Mortgage (per month):</label>
               <Field component={Input} type="text" name="mortgage" />
-              <label htmlFor="pmi">PMI:</label>
+              <label htmlFor="pmi">PMI (per month):</label>
               <Field component={Input} type="text" name="pmi" />
-              <label htmlFor="insurance">Insurance:</label>
+              <label htmlFor="insurance">Insurance (per year):</label>
               <Field component={Input} type="text" name="insurance" />
-              <label htmlFor="propertyTax">Property Tax:</label>
+              <label htmlFor="propertyTax">Property Tax (per year):</label>
               <Field component={Input} type="text" name="propertyTax" />
-              <label htmlFor="hoa">HOA Fees:</label>
+              <label htmlFor="hoa">HOA Fees (per month):</label>
               <Field component={Input} type="text" name="hoa" />
-              <label htmlFor="managementFees">Management Fees:</label>
+              <label htmlFor="managementFees">Management Fees (per month):</label>
               <Field component={Input} type="text" name="managementFees" />
               <label htmlFor="misc">Miscellaneous:</label>
               <Field component={Input} type="text" name="misc" />

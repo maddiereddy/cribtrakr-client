@@ -3,61 +3,39 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
+import {fetchAllExpenses} from '../actions/expenses';
 import './dashboard.css';
 import Header from './header';
 import ExpenseCard from './expense-card';
 import SearchForm from './search-form';
+import spinner from '../images/ajax-loader.gif';
+import * as data from '../data.json';
 
 export class Expenses extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      expenses: [
-        {
-          link: '/expense-details',
-          date: 'June 12, 2018',
-          vendor: 'Acme cooling and heating',
-          description: 'AC repair',
-          property: 'Property 1',
-          category: 'Repairs',
-          expense: '$500'
-        },
-        {
-          link: '/expense-details',
-          date: 'May 2, 2018',
-          vendor: 'Acme Cleaning',
-          description: 'Deep cleaning before move-in',
-          property: 'Property 2',
-          category: 'Cleaning and Maintenance',
-          expense: '$250'
-        },
-        {
-          link: '/expense-details',
-          date: 'Apr 14, 2018',
-          vendor: 'Diablo Highlands HOA',
-          description: 'Fine for leaving garbage cans out too long',
-          property: 'Property 3',
-          category: 'Fines',
-          expense: '$120'
-        }
-      ]
-    };
+    this.props.dispatch(fetchAllExpenses());
   }
 
   render() {
-    const expenses = this.state.expenses.map((expense, index) => (
-      <ExpenseCard key={index} {...expense} />
-    ));
+    if (this.props.loading) 
+      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+    
+    let expenses;
+
+    if(this.props.expenses && this.props.expenses.length) {
+      expenses = this.props.expenses.map((expense, index) => (
+        <ExpenseCard key={index} link={`/edit-expense`} data={data} {...expense} />
+      ));
+    } else {
+      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+    }
+
     return (
       <div className="dashboard">
         <Header title='Expenses' />
         <Link to='/add-expense'><button className="add-expense-button">Add Expense</button></Link>
-        <SearchForm />
+        <SearchForm data={data}/>
         <ul>
         {expenses}
         </ul>
@@ -71,7 +49,9 @@ const mapStateToProps = state => {
   return {
       username: state.auth.currentUser.username,
       name: `${currentUser.firstName} ${currentUser.lastName}`,
-      protectedData: state.protectedData.data
+      protectedData: state.protectedData.data,
+      expenses: state.expense.expenses,
+      loading: state.expense.loading
   };
 };
 
