@@ -53,11 +53,11 @@ fieldset {
 }
 
 input, select, textarea {
-  width: 70%;
+  width: 65%;
   float: left;
   margin-bottom:10px;
   padding: 3px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 input[type='file'] {
@@ -78,8 +78,7 @@ select {
 label {
   font-size: 16px;
   float: left;
-  width: 28%;
-  text-align: left;
+  width: 35%;
 }
 
 input[type='text'] {
