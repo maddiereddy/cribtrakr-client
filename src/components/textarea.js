@@ -9,8 +9,6 @@ export default class Textarea extends React.Component {
     }
 
     render() {
-        //textarea used in blog-create and blog-edit forms
-        //futture iterations could use editable div to allow user to input html
         let error;
         if (this.props.meta.touched && this.props.meta.error) {
             error = <div className="form-error">{this.props.meta.error}</div>;

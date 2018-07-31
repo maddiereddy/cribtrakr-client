@@ -186,10 +186,10 @@ export const fetchAllExpenses = () => (dispatch) => {
         .catch(err=> dispatch(fetchExpensesError(err)))
 }
 
-export const updateExpense = (expense, propId) => dispatch => {
+export const updateExpense = (expense) => dispatch => {
     //edit a expense with updateExpense
     const authToken = loadAuthToken();
-    return fetch(`${API_BASE_URL}/expenses/${propId}/${expense.id}`, {
+    return fetch(`${API_BASE_URL}/expenses/${expense.propId}/${expense.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

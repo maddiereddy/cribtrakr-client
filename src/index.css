@@ -92,7 +92,9 @@ input[type='button'] {
 }
 
 textarea {
-  height: 50px;
+  max-height: 100px;
+  float: right;
+  max-width: 65%;
 }
 
 button {
