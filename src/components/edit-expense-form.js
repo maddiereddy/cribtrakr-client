@@ -8,6 +8,7 @@ import './dashboard.css';
 // import {connect} from 'react-redux';
 import Moment from 'react-moment';
 import 'moment-timezone';
+import {Categories} from '../data';
 
 
 export class EditExpenseForm extends React.Component {
@@ -24,8 +25,9 @@ export class EditExpenseForm extends React.Component {
     const rentalsOptions = this.props.rentals.map((rental, index) => 
       <option key={index} value={rental.name}>{rental.name}</option>
     );
-      
-    const categoriesOptions = this.props.categories.map((category, index) => 
+    
+    let categories = Categories;
+    const categoriesOptions = categories.map((category, index) => 
       <option key={index} value={category.value}>{category.value}</option>
     );
     //redux form used to update rental content

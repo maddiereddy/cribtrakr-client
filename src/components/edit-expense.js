@@ -8,7 +8,6 @@ import './dashboard.css';
 import Header from './header';
 import { EditExpenseForm } from './edit-expense-form';
 import spinner from '../images/ajax-loader.gif';
-import * as data from '../data.json';
 
 export class EditExpense extends React.Component {
   componentDidMount() {
@@ -21,7 +20,7 @@ export class EditExpense extends React.Component {
     if (this.props.loading || this.props.loadingRentals) 
       return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
     
-    let username, initialValues, rentals, categories;
+    let username, initialValues, rentals;
 
     if(this.props.currentExpense) {
       initialValues = this.props.currentExpense;
@@ -33,15 +32,12 @@ export class EditExpense extends React.Component {
     if(this.props.rentals) {
       rentals = this.props.rentals;
     } 
-    if(data.Categories) {
-      categories = data.Categories;
-    }
 
     return (
       <div className="dashboard">
         <Header title='Update Expense Details' />
         <section>
-        <EditExpenseForm initialValues={initialValues} username={username} categories={categories} rentals={rentals}/>
+        <EditExpenseForm initialValues={initialValues} username={username} rentals={rentals}/>
         </section>
       </div>
     );

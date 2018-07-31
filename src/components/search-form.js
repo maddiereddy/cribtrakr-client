@@ -5,6 +5,7 @@ import {fetchProtectedData} from '../actions/protected-data';
 import {fetchRentals} from '../actions/rentals';
 import spinner from '../images/ajax-loader.gif';
 import './dashboard.css';
+import {Categories} from '../data';
 
 export class SearchForm extends React.Component {
   componentDidMount() {
@@ -25,8 +26,7 @@ export class SearchForm extends React.Component {
     } else {
       return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
     }
-    
-    const categories = this.props.data.Categories.map((category, index) => 
+    const categories = Categories.map((category, index) => 
       <option key={index} value={category.value}>{category.value}</option>
     );
   
@@ -59,7 +59,7 @@ SearchForm.defaultProps = {
   name: '',
   image: '',
   link: '',
-  data: {}
+  data: []
 };
 
 const mapStateToProps = state => {

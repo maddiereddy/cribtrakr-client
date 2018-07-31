@@ -9,7 +9,6 @@ import Header from './header';
 import ExpenseCard from './expense-card';
 import SearchForm from './search-form';
 import spinner from '../images/ajax-loader.gif';
-import * as data from '../data.json';
 
 export class Expenses extends React.Component {
   componentDidMount() {
@@ -25,7 +24,7 @@ export class Expenses extends React.Component {
 
     if(this.props.expenses && this.props.expenses.length) {
       expenses = this.props.expenses.map((expense, index) => (
-        <ExpenseCard key={index} link={`/edit-expense`} data={data} {...expense} />
+        <ExpenseCard key={index} link={`/edit-expense`} {...expense} />
       ));
     } else {
       return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
@@ -35,7 +34,7 @@ export class Expenses extends React.Component {
       <div className="dashboard">
         <Header title='Expenses' />
         <Link to='/add-expense'><button className="add-expense-button">Add Expense</button></Link>
-        <SearchForm data={data}/>
+        <SearchForm/>
         <ul>
         {expenses}
         </ul>

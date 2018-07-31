@@ -37,6 +37,7 @@
 .search p {
   text-align: left;
   font-weight: bold;
+  color: green;
 }
 
 #search-legend {
@@ -75,12 +76,6 @@
   max-width: 100px;
   margin: 0 auto;
 }
-
-/* .drop-down, select, input {
-  border: 2px solid tomato;
-  font-size: 0.6em;
-  padding: 3px;
-} */
 
 #loading img{
   position: absolute;
