@@ -16,15 +16,15 @@ export class SearchForm extends React.Component {
     if (this.props.loading) 
       return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
     
-      let rentals;
+    let rentals;
 
-      if(this.props.rentals && this.props.rentals.length) {
-        rentals = this.props.rentals.map((rental, index) => 
-        <option key={index} value={rental.name}>{rental.name}</option>
-        );
-      } else {
-        return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
-      }
+    if(this.props.rentals && this.props.rentals.length) {
+      rentals = this.props.rentals.map((rental, index) => 
+      <option key={index} value={rental.name}>{rental.name}</option>
+      );
+    } else {
+      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+    }
     
     const categories = this.props.data.Categories.map((category, index) => 
       <option key={index} value={category.value}>{category.value}</option>
@@ -48,7 +48,7 @@ export class SearchForm extends React.Component {
           <input type="date" name="dateFrom" />
           <label htmlFor="dateTo">To Date:</label>
           <input type="date" name="dateTo" />
-        <button id="search-button" type="submit">Search</button>
+        <button id="search-button" type="submit">Go</button>
       </form>
     </fieldset>
     );

@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 import './dashboard.css';
 // import Input from './input';
 // import { Redirect } from 'react-router-dom';
-// import { connect } from 'react-redux';
-import * as data from '../data.json';
+// import {connect} from 'react-redux';
+import Moment from 'react-moment';
+import 'moment-timezone';
+
 
 export class EditExpenseForm extends React.Component {
   
-
   // onSubmit(values) {
   //   const expenseId = this.props.initialValues.id
   //   const username = this.props.username;
@@ -18,7 +19,13 @@ export class EditExpenseForm extends React.Component {
   //   return this.props.dispatch(updateExpense(expense))
   // }
   render() {
-    const categories = data.Categories.map((category, index) => 
+    const values = this.props.initialValues;
+    
+    const rentalsOptions = this.props.rentals.map((rental, index) => 
+      <option key={index} value={rental.name}>{rental.name}</option>
+    );
+      
+    const categoriesOptions = this.props.categories.map((category, index) => 
       <option key={index} value={category.value}>{category.value}</option>
     );
     //redux form used to update rental content
@@ -38,10 +45,18 @@ export class EditExpenseForm extends React.Component {
           
           <section className="property-details">
             <fieldset className="form-section">
-            <label htmlFor="category">Category:</label>
-            <select className="drop-down" name="category" required>
-              {categories}
+            <label htmlFor="property">Property:</label>
+            <select className="drop-down" name="property" defaultValue={values.propName} required>
+              {rentalsOptions}
             </select>
+            <label htmlFor="category">Category:</label>
+            <select className="drop-down" name="category" defaultValue={values.category} required>
+              {categoriesOptions}
+            </select>
+            <p className="date"><b><em>Date of Service: </em></b><Moment tz="America/Los_Angeles" aria-hidden="true" format="MMM DD, YYYY">{values.date}</Moment></p>
+            <p className="expense"><b><em>Expense: </em></b>{values.amount}</p>
+            <p className="vendor"><b><em>Vendor: </em></b>{values.vendor}</p>
+            <p className="description"><b><em>Description: </em></b>{values.description}</p>
             </fieldset>
             
           </section>
@@ -67,5 +82,15 @@ export class EditExpenseForm extends React.Component {
   // state => ({ initialValues: state.expense.currentExpense }),
   // { load: fetchExpense }
 // )(EditExpenseForm);
+
+EditExpenseForm.defaultProps = {
+  date: '',
+  vendor: '',
+  amount: '',
+  description: '',
+  propName: '',
+  category: '',
+  initialValues: []
+};
 
 export default EditExpenseForm;
