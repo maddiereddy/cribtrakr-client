@@ -34,7 +34,7 @@ export class AddRentalForm extends React.Component {
       // this.setState({selectedFile: input.files[0]})
     }
     else {
-      alert("File size must under 2MB!");
+      alert("File size must under 1MB!");
     }
   }
 	
