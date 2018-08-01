@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-import { updateExpense, fetchExpense  } from '../actions/expenses';
+import { updateExpense, fetchExpense } from '../actions/expenses';
 import './dashboard.css';
 import Input from './input';
 import { Redirect } from 'react-router-dom';

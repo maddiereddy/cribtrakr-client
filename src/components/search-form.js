@@ -5,7 +5,7 @@ import {fetchProtectedData} from '../actions/protected-data';
 import {fetchRentals} from '../actions/rentals';
 import spinner from '../images/ajax-loader.gif';
 import './dashboard.css';
-import {Categories} from '../data';
+// import {Categories} from '../data';
 
 export class SearchForm extends React.Component {
   componentDidMount() {
@@ -26,9 +26,9 @@ export class SearchForm extends React.Component {
     } else {
       return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
     }
-    const categories = Categories.map((category, index) => 
-      <option key={index} value={category.value}>{category.value}</option>
-    );
+    // const categories = Categories.map((category, index) => 
+    //   <option key={index} value={category.value}>{category.value}</option>
+    // );
   
     return (
       <fieldset className="search">
@@ -39,10 +39,10 @@ export class SearchForm extends React.Component {
             {rentals}
           </select>
           
-          <label htmlFor="category">Category:</label>
+          {/* <label htmlFor="category">Category:</label>
           <select className="drop-down" name="category" required>
             {categories}
-          </select>
+          </select> */}
           <p>Or</p>
           <label htmlFor="dateFrom">From Date:</label>
           <input type="date" name="dateFrom" />

@@ -59,7 +59,7 @@ export class App extends React.Component {
         <Route exact path="/delete-rental/:id" component={DeleteRental} />
         <Route exact path="/add-rental" component={AddRental} />
         <Route exact path="/add-expense" component={AddExpense} />
-        <Route exact path="/edit-expense/:propId/:id" component={EditExpense} />
+        <Route exact path="/edit-expense/:id" component={EditExpense} />
         <Route exact path="/delete-expense/:id" component={DeleteExpense} />
         <Footer />
       </div>  

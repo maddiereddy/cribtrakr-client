@@ -10,7 +10,7 @@ export default function ExpenseCard(props) {
     <section className="expense-card">
       <div className="container">
       <p className="icons">
-          <Link to={`${props.link}/${props.propId}/${props.id}`}> <i className="fa fa-pencil" aria-hidden="true"></i></Link>
+          <Link to={`${props.link}/${props.id}`}> <i className="fa fa-pencil" aria-hidden="true"></i></Link>
           <Link to={`delete-expense/${props.id}`}><i className="fa fa-times" aria-hidden="true"></i></Link>
         </p>
         <p className="date"><b><em>Date of Service: </em></b><Moment tz="America/Los_Angeles" aria-hidden="true" format="MMM DD, YYYY">{props.date}</Moment></p>

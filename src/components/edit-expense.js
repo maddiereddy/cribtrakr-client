@@ -11,7 +11,7 @@ import spinner from '../images/ajax-loader.gif';
 export class EditExpense extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
-    this.props.dispatch(fetchExpense(this.props.match.params.id, this.props.match.params.propId));
+    this.props.dispatch(fetchExpense(this.props.match.params.id));
   }
 
   render() {
