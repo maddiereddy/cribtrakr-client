@@ -9,15 +9,19 @@ import Textarea from './textarea';
 
 
 export class AddExpenseForm extends React.Component {
-  
+
   onSubmit(values) {
     const username = this.props.username;
     let property = this.props.rentals.find(rental => {
       return rental.name === values.propName
     })
-    if (!property) property = this.props.rentals[0];
+    if (!property) {
+      property = this.props.rentals[0];
+    }
 
-    const expense = Object.assign({}, {user: username}, {propId: property.id}, values);
+    const expense = Object.assign({}, {user: username}, {propId: property.id}, 
+      {propName: property.name}, {category: Categories[0].value}, values);
+    
     return this.props.dispatch(newExpense(expense));
   }
 

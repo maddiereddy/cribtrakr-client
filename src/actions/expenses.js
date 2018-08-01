@@ -201,8 +201,6 @@ export const updateExpense = (expense) => dispatch => {
     })
         .then(res => res.json())
             .then(response=> {
-            // const id = response.id;
-            // window.location = `/expenses/${id}`;
             return dispatch(updateExpenseRequest(response));
         })
         .catch(err => {
@@ -223,7 +221,6 @@ export const deleteExpense = (expense, propId) => dispatch => {
   
   })
 	.then(()=> {
-		// window.location = `/dashboard`;
 		return dispatch(deleteExpenseSuccess(expense.id))
 	})
 	.catch(err=> dispatch(deleteExpenseError(err))) 
