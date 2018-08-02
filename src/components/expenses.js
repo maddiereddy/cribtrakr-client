@@ -4,37 +4,137 @@ import { Link } from 'react-router-dom';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import {fetchAllExpenses} from '../actions/expenses';
-import './dashboard.css';
+import {fetchRentals} from '../actions/rentals';
 import Header from './header';
 import ExpenseCard from './expense-card';
-import SearchForm from './search-form';
 import spinner from '../images/ajax-loader.gif';
+import './dashboard.css';
 
 export class Expenses extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { 
+      selectedRental: '',
+      selFromDate: '',
+      selToDate: '',
+      filterByDate: false,
+      filterByProperty: false
+    };
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
+    this.props.dispatch(fetchRentals());
     this.props.dispatch(fetchAllExpenses());
   }
+
+  OnRentalChange = (e => {
+    this.setState({
+      selectedRental: e.target.value,
+      filterByProperty: true, 
+      filterByDate: false, 
+      selFromDate: '',
+      selToDate: ''
+    });
+  });
+
+  OnFromDateChange = (e => {
+    this.setState({selFromDate: e.target.value});
+  });
+
+  OnToDateChange = (e => {
+    this.setState({selToDate: e.target.value});
+  });
+
+  OnSubmit = (e => {
+    if (this.state.selFromDate < this.state.selToDate) {
+      if (this.state.selFromDate !== '' && this.state.selToDate !== '') {
+        this.setState({
+          filterByDate: true,
+          filterByProperty: false,
+          selectedRental: ''
+        });
+        document.getElementById('filter').value = '';
+      } else {
+        alert(`Please select both 'From Date' and 'To Date'`);
+      }
+    } else {
+      alert(`Please select 'From Date' earlier than the 'To Date'`);
+    }
+  });
 
   render() {
     if (this.props.loading) 
       return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+
+    let rentals;
+    if(this.props.rentals && this.props.rentals.length) {
+      rentals = this.props.rentals.map((rental, index) => 
+      <option key={index} value={rental.name}>{rental.name}</option>
+      );
+    } else {
+      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+    }
+
+    //display filter form
+    let filter = (
+      <fieldset className="search">
+        <legend id="search-legend">Filter By:</legend>
+        <label htmlFor="property">Property:</label>
+        <select id="filter" className="drop-down" name="property" onChange={this.OnRentalChange} required>
+        <option key={1000000} value={''}>Select a property</option>
+          {rentals}
+        </select>
+        <br />
+        <hr />
+        <p>Or</p>
+        <label htmlFor="dateFrom">From Date:</label>
+        <input type="date" name="dateFrom" value={this.state.selFromDate} onChange={this.OnFromDateChange}/>
+        <label htmlFor="dateTo">To Date:</label>
+        <input type="date" name="dateTo" value={this.state.selToDate} onChange={this.OnToDateChange}/>
+        <button id="search-button" onClick={this.OnSubmit}>Go</button>
+      </fieldset>
+    );
     
     let expenses;
-
     if(this.props.expenses && this.props.expenses.length) {
-      expenses = this.props.expenses.map((expense, index) => (
+
+      //check if filtering needs to be done
+      let filteredExpenses = this.props.expenses;
+      if (this.state.filterByProperty) {
+        filteredExpenses = filteredExpenses.filter(item => item.propName === this.state.selectedRental);
+      }
+      if (this.state.filterByDate) {
+        filteredExpenses = filteredExpenses.filter(item => 
+          (item.date >= this.state.selFromDate && item.date <= this.state.selToDate)
+        );
+      }
+
+      let sortedExpenses
+      if (!filteredExpenses) {
+        sortedExpenses = this.props.expenses;
+      } else {
+        sortedExpenses = filteredExpenses;
+      }
+      
+      //sort the expenses according to date of service in descending order
+      sortedExpenses.sort( (a,b) => b.date.localeCompare(a.date) );
+
+      //display expense cards
+      expenses = sortedExpenses.map((expense, index) => (
         <ExpenseCard key={index} link={`/edit-expense`} {...expense} />
       ));
     } else {
       return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
     }
 
+
     return (
       <div className="dashboard">
         <Header title='Expenses' />
         <Link to='/add-expense'><button className="add-expense-button">Add Expense</button></Link>
-        <SearchForm/>
+        {filter}
         <ul>
         {expenses}
         </ul>
@@ -44,13 +144,12 @@ export class Expenses extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const {currentUser} = state.auth;
   return {
-      username: state.auth.currentUser.username,
-      name: `${currentUser.firstName} ${currentUser.lastName}`,
-      protectedData: state.protectedData.data,
-      expenses: state.expense.expenses,
-      loading: state.expense.loading
+    username: state.auth.currentUser.username,
+    protectedData: state.protectedData.data,
+    expenses: state.expense.expenses,
+    loading: state.expense.loading,
+    rentals: state.rental.rentals,
   };
 };
 
