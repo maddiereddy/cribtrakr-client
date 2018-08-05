@@ -115,6 +115,26 @@ export const deleteExpenseError = (error) => ({
 	error
 })
 
+//delete all by rental Id
+export const DELETE_ALL_EXPENSES_REQUEST = 'DELETE_ALL_EXPENSES'
+export const deleteAllExpensesRequest = (rental) => ({
+  type: DELETE_ALL_EXPENSES_REQUEST,
+    
+})
+
+export const DELETE_ALL_EXPENSES_SUCCESS = 'DELETE_ALL_EXPENSES_SUCCESS'
+export const deleteAllExpensesSuccess = (rental) => ({
+	type: DELETE_ALL_EXPENSES_SUCCESS,
+	rental: rental
+    
+})
+
+export const DELETE_ALL_EXPENSES_ERROR = 'DELETE_ALL_EXPENSES_ERROR'
+export const deleteAllExpensesError = (error) => ({
+	type: DELETE_ALL_EXPENSES_ERROR,
+	error
+})
+
 //create a new expense
 export const newExpense = (expense) => dispatch => {
 	const authToken = loadAuthToken();
@@ -218,4 +238,21 @@ export const deleteExpense = (expense) => dispatch => {
 		return dispatch(deleteExpenseSuccess(expense.id))
 	})
 	.catch(err=> dispatch(deleteExpenseError(err))) 
+};
+
+export const deleteAllExpenses = (rental) => dispatch => {
+  //delete a expense with deleteExpense
+  const authToken = loadAuthToken();
+  return fetch(`${API_BASE_URL}/expenses/prop/${rental.id}`, {
+		method: 'DELETE',
+		headers: {
+				'Content-Type': 'application/json',
+				'Authorization' : `Bearer ${authToken}`
+		},
+		body: JSON.stringify(rental)
+  })
+	.then(()=> {
+		return dispatch(deleteAllExpensesSuccess(rental.id))
+	})
+	.catch(err=> dispatch(deleteAllExpensesError(err))) 
 };

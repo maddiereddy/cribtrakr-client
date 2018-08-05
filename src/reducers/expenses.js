@@ -16,7 +16,10 @@ import{
   UPDATE_EXPENSE_ERROR,
   DELETE_EXPENSE_REQUEST,
   DELETE_EXPENSE_SUCCESS,
-  DELETE_EXPENSE_ERROR
+	DELETE_EXPENSE_ERROR,
+	DELETE_ALL_EXPENSES_REQUEST,
+  DELETE_ALL_EXPENSES_SUCCESS,
+  DELETE_ALL_EXPENSES_ERROR
   } from '../actions/expenses';
   
   
@@ -24,7 +27,8 @@ import{
 		expenses: [],
 		currentExpense: null,
 		error: null,
-		loading: false
+		loading: false,
+		rentals: []
   }
   
   export const expenseReducer = (state = initialState, action) => {
@@ -129,7 +133,23 @@ import{
 					error: action.error
 			})
 		}  
+		else if(action.type === DELETE_ALL_EXPENSES_REQUEST) {
+			return Object.assign({}, state, {
+					loading: true
+			})
+		}
+		else if(action.type === DELETE_ALL_EXPENSES_SUCCESS){
+			return Object.assign({}, state,{
+					rentals: state.rentals.filter(rental => rental.id !== action.id),
+					loading: false
+			}) 
+		}   
+		else if(action.type === DELETE_ALL_EXPENSES_ERROR){
+			return Object.assign({}, state,{
+					loading: false,
+					error: action.error
+			})
+		}  
 
     return state
-  
   }

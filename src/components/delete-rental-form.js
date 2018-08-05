@@ -2,6 +2,7 @@ import React from 'react';
 import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { deleteRental, fetchRental  } from '../actions/rentals';
+import { deleteAllExpenses } from '../actions/expenses';
 import './dashboard.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -11,6 +12,7 @@ export class DeleteRentalForm extends React.Component {
     const rentalId = this.props.initialValues.id
     const username = this.props.username;
     const rental = Object.assign({}, { user: username }, { id: rentalId }, values);
+    this.props.dispatch(deleteAllExpenses(rental))
     return this.props.dispatch(deleteRental(rental))
   }
   render() {
