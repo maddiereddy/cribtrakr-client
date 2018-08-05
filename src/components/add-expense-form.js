@@ -21,7 +21,7 @@ export class AddExpenseForm extends React.Component {
 
     const expense = Object.assign({}, {user: username}, {propId: property.id}, 
       {propName: property.name}, {category: Categories[0].value}, values);
-    
+
     return this.props.dispatch(newExpense(expense));
   }
 

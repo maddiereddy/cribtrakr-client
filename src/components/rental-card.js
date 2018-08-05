@@ -48,7 +48,7 @@ export default class RentalCard extends React.Component {
           <span> {this.props.rental.state}</span> 
           <span> {this.props.rental.zip}</span> <br/>
         </b></h4>
-        <button onClick={this.onClick.bind(this)}>{ this.state.open ? 'Hide' : 'Show' } Details</button>
+        <button id="rental-card-button" onClick={this.onClick.bind(this)}>{ this.state.open ? 'Hide' : 'Show' } Details</button>
         { this.state.open && expenses }
       </div>
     );

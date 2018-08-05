@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { newRental } from "../actions/rentals";
 import "./dashboard.css";
 import Input from "./input";
+import { API_BASE_URL } from '../config';
 
 export class AddRentalForm extends React.Component {
 
@@ -30,8 +31,8 @@ export class AddRentalForm extends React.Component {
     }
 
     if (input.files[0].size <= (1024 * 1024 * 1)){
-      // reader.readAsDataURL(input.files[0]);
-      // this.setState({selectedFile: input.files[0]})
+      reader.readAsDataURL(input.files[0]);
+      this.setState({selectedFile: input.files[0]})
     }
     else {
       alert("File size must under 1MB!");
@@ -44,9 +45,32 @@ export class AddRentalForm extends React.Component {
   }
 
   onSubmit(values) {
-		const username = this.props.username;
-    const rental = Object.assign({}, {user:username}, {imageURL: this.state.selectedFile}, values);
-    return this.props.dispatch(newRental(rental));
+    if (this.state.selectedFile) {
+      const formData = new FormData();
+      const fileName = `${values.street}-${this.state.selectedFile.name}`;
+
+      formData.append('file', this.state.selectedFile);
+      formData.append('name', fileName);
+
+      return fetch(`${API_BASE_URL}/rentals/upload`, {
+          method: 'POST',
+          body: formData
+      }).then(response => {
+        // handle your response;
+        const username = this.props.username;
+        const url = `https://s3-us-west-1.amazonaws.com/cribtrakr/rentalsBucket/${fileName}`;
+        const rental = Object.assign({}, {user:username}, {imageURL: url}, values);
+        return this.props.dispatch(newRental(rental));
+
+      }).catch(error => {
+        // handle your error
+        alert(`Error uploading file to AWS: ${error}`);
+      });
+    } else {
+      const username = this.props.username;
+      const rental = Object.assign({}, {user:username}, values);
+      return this.props.dispatch(newRental(rental));
+    }
   }
 
   render() {
