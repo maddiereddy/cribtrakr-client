@@ -19,14 +19,14 @@ export const Categories = [
 export const captions = [
   {
     title: 'What is CribTrakr?',
-    description: 'CribTrakr is an app that keeps track of all expenses made for each of your rental properties'
+    description: 'CribTrakr is an app that keeps track of all expenses for each of your rental properties'
   },
   {
     title: 'Who is using CribTrakr?',
-    description: 'It is a wildly popular app that is being used by property owners and management companies to keep track of various rental properties remotely'
+    description: 'It is a wildly popular app that is being used by property owners and management companies to keep track of various rental properties and their associated expenses'
   },
   {
     title: 'How does CribTrakr work?',
-    description: 'First, create an account and add details of all your rental properties. Next, add expenses for each property as they come in. You can even upload pics of your bill receipts to have them handy during tax time!'
+    description: 'First, create an account and add details of all your rental properties. Next, add expenses for each property as they come in. This way you can access them anytime, like at during tax season!'
   }
 ];

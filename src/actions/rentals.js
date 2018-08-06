@@ -136,12 +136,12 @@ export const fetchRental =(id)=>(dispatch)=>{
         .catch(err=> dispatch(fetchRentalError(err))) 
 }
 
-export const fetchRentals = () => (dispatch) => {
+export const fetchRentals = (username) => (dispatch) => {
     //retrieve user's rentals
     dispatch(fetchRentalsData());
     const authToken = localStorage.getItem('authToken');
 
-    fetch(`${API_BASE_URL}/rentals`, {
+    fetch(`${API_BASE_URL}/rentals/user/${username}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
             'Content-Type': 'application/json'

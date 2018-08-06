@@ -12,7 +12,7 @@ export function LandingPage(props) {
   }
 
   return (
-      <div className="home">
+      <div id="home-section" className="home">
           <h1>Welcome to CribTrakr</h1>
           <About key={0} {...captions[0]} />
           <About key={1} {...captions[1]} />

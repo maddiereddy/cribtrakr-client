@@ -6,32 +6,39 @@ import {fetchRentals} from '../actions/rentals';
 import './dashboard.css';
 import RentalCard from './rental-card';
 import Header from './header';
-import spinner from '../images/ajax-loader.gif';
+// import spinner from '../images/ajax-loader.gif';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
-    this.props.dispatch(fetchRentals());
+    if (this.props.hasAuthToken) this.props.dispatch(fetchRentals(this.props.username));
   }
 
   render() {
-    if (this.props.loading) 
-      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+    // if (this.props.loading) 
+    //   return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
     
+
     let rentals;
 
-    if(this.props.rentals && this.props.rentals.length) {
+    if (this.props.rentals && this.props.rentals.length) {
       rentals = this.props.rentals.map((rental, index) => 
         <RentalCard key={index} link={`/edit-rental`} name={rental.name} rental={rental} image={require("../images/home.png")} id={rental.id}/>
       );
-    } else {
-      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
-    }
+    } 
+
+    let noRentalsMessage = (
+      <div>
+        <span>You don't have any rental properties yet.</span>
+      </div>
+    )
 
     return (
       <div className="dashboard">
         <Header title='Rental Properties' />
-        {rentals}
+        { this.props.rentals && this.props.rentals.length ? rentals : 
+          noRentalsMessage }
+        {/* {rentals} */}
         <RentalCard link='/add-rental' name='Add Property' newRental={true} image={require("../images/add-home.png")} />
       </div>
     );
@@ -41,11 +48,12 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => {
   const {currentUser} = state.auth;
   return {
-      username: state.auth.currentUser.username,
-      name: `${currentUser.firstName} ${currentUser.lastName}`,
-      protectedData: state.protectedData.data,
-      rentals: state.rental.rentals,
-      loading: state.rental.loading
+    hasAuthToken: state.auth.authToken !== null,
+    username: state.auth.currentUser.username,
+    name: `${currentUser.firstName} ${currentUser.lastName}`,
+    protectedData: state.protectedData.data,
+    rentals: state.rental.rentals,
+    loading: state.rental.loading
   };
 };
 

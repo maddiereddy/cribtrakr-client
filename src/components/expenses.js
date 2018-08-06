@@ -25,7 +25,7 @@ export class Expenses extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
-    this.props.dispatch(fetchRentals());
+    this.props.dispatch(fetchRentals(this.props.username));
     this.props.dispatch(fetchAllExpenses());
   }
 
@@ -73,9 +73,7 @@ export class Expenses extends React.Component {
       rentals = this.props.rentals.map((rental, index) => 
       <option key={index} value={rental.name}>{rental.name}</option>
       );
-    } else {
-      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
-    }
+    } 
 
     //display filter form
     let filter = (
@@ -125,18 +123,27 @@ export class Expenses extends React.Component {
       expenses = sortedExpenses.map((expense, index) => (
         <ExpenseCard key={index} link={`/edit-expense`} {...expense} />
       ));
-    } else {
-      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
-    }
+    } 
+
+    let noExpensesMessage = (
+      <div>
+        <span>You don't have any expenses yet.</span>
+      </div>
+    )
+    // else {
+    //   return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+    // }
 
 
     return (
       <div className="dashboard">
         <Header title='Expenses' />
+        { this.props.rentals && this.props.rentals.length ? 
         <Link to='/add-expense'><button className="add-expense-button">Add Expense</button></Link>
+        : <p>Please add a rental property first!</p> }
         {filter}
         <ul>
-        {expenses}
+        { this.props.expenses && this.props.expenses.length ? expenses : noExpensesMessage }
         </ul>
       </div>
     );

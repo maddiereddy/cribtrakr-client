@@ -40,9 +40,9 @@ export class Nav extends React.Component {
                     </ul>
                     ) : (
                     <ul id="menu">
-                        <Link to="/#logIn"><li>Log In</li></Link>
+                         <a href="/#logIn"><li>Log In</li></a>
                         <Link to="/register"><li>Create Account</li></Link>
-                        <Link to="/"><li>Home</li></Link>
+                        <a href="/home-section"><li>Home</li></a>
                     </ul>
                     )}
                 </div>
@@ -55,9 +55,9 @@ export class Nav extends React.Component {
                     {logOutButtonLarge}
                 </div> ) : (
                 <div id="nav-large-menu">
-                    <Link to="/dashboard"><button id="home-link" className="nav-large-menu-items">
-                    <img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></Link>
-                    <Link to="/#logIn"><button className="nav-large-menu-items">Log In</button></Link>
+                    <a href="/#home-section"><button id="home-link" className="nav-large-menu-items">
+                    <img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr" /> <span className="logo-title">CribTrakr</span></button></a>
+                    <a href="/#logIn"><button className="nav-large-menu-items">Log In</button></a>
                     <Link to="/register"><button className="nav-large-menu-items">Create Account</button></Link>
                 </div>
                 )}
