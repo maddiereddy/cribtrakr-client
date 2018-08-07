@@ -143,7 +143,6 @@ export class EditRentalForm extends React.Component {
             <button type="submit" disabled={this.props.pristine || this.props.submitting} >
               Save Changes
             </button>
-            <Link to="/expenses"><button type="button">View Expenses</button></Link>
           </div>
         </form>
       </div>

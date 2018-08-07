@@ -37,13 +37,13 @@
 .search p {
   text-align: left;
   font-weight: bold;
-  color: green;
+  color: darkcyan;
 }
 
 #search-legend {
   font-size: 1.5em;
   text-align: left;
-  color: green;
+  color: darkcyan;
 }
 
 .add-expense-button {
@@ -84,3 +84,13 @@
   width: 50px;
   height: 50px;
 }
+
+.userHome {
+  padding-top: 5rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  background-color: darkcyan;
+  color: white;
+}
+
+  

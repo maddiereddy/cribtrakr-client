@@ -3,6 +3,7 @@ img {
 }
 .property-card {
   margin-top: 20px;
+  color: black;
   box-shadow: 6px 7px 10px #888888;
 }
 

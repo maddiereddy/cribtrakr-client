@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
 import {fetchAllExpenses} from '../actions/expenses';
 import {fetchRentals} from '../actions/rentals';
 import Header from './header';
@@ -24,7 +23,6 @@ export class Expenses extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
     this.props.dispatch(fetchRentals(this.props.username));
     this.props.dispatch(fetchAllExpenses());
   }
@@ -130,10 +128,6 @@ export class Expenses extends React.Component {
         <span>You don't have any expenses yet.</span>
       </div>
     )
-    // else {
-    //   return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
-    // }
-
 
     return (
       <div className="dashboard">
@@ -153,7 +147,6 @@ export class Expenses extends React.Component {
 const mapStateToProps = state => {
   return {
     username: state.auth.currentUser.username,
-    protectedData: state.protectedData.data,
     expenses: state.expense.expenses,
     loading: state.expense.loading,
     rentals: state.rental.rentals,

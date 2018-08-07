@@ -124,7 +124,7 @@ export const newRental = (rental) => dispatch => {
 export const fetchRental =(id)=>(dispatch)=>{
     //fetch a specific rental with its id
     dispatch(fetchRentalData());
-    const authToken = localStorage.getItem('authToken');
+    const authToken = loadAuthToken();
     fetch(`${API_BASE_URL}/rentals/${id}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
@@ -139,8 +139,7 @@ export const fetchRental =(id)=>(dispatch)=>{
 export const fetchRentals = (username) => (dispatch) => {
     //retrieve user's rentals
     dispatch(fetchRentalsData());
-    const authToken = localStorage.getItem('authToken');
-
+    const authToken = loadAuthToken();
     fetch(`${API_BASE_URL}/rentals/user/${username}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
