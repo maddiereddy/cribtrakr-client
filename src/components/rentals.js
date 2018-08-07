@@ -9,7 +9,7 @@ import spinner from '../images/ajax-loader.gif';
 
 export class Rentals extends React.Component {
   componentDidMount() {
-      this.props.dispatch(fetchRentals(this.props.user));
+      this.props.dispatch(fetchRentals());
   }
 
   render() {

@@ -17,7 +17,7 @@ export const createRentalSuccess = (rental) => ({
 export const CREATE_RENTAL_ERROR = 'CREATE_RENTAL_ERROR'
 export const createRentalError = (error) => ({
     type:CREATE_RENTAL_ERROR,
-    error
+    error: error
 })
 
 //get by id
@@ -35,7 +35,7 @@ export const fetchRentalSuccess = (rental) => ({
 export const FETCH_RENTAL_ERROR= 'FETCH_RENTAL_ERROR'
 export const fetchRentalError = (error) => dispatch => ({
     type: FETCH_RENTAL_ERROR,
-    error
+    error: error
 })
 
 //get all
@@ -53,7 +53,7 @@ export const fetchRentalsSuccess = (rentals) => ({
 export const FETCH_RENTALS_ERROR= 'FETCH_RENTALS_ERROR'
 export const fetchRentalsError = (error) => dispatch => ({
     type: FETCH_RENTALS_ERROR,
-    error
+    error: error
 })
 
 //put by id
@@ -74,7 +74,7 @@ export const updateRentalSuccess = (rental) => ({
 export const UPDATE_RENTAL_ERROR = 'UPDATE_RENTAL_ERROR'
 export const updateRentalError = (error) => ({
     type: UPDATE_RENTAL_ERROR,
-    error
+    error: error
 })
 
 //delete by id
@@ -94,7 +94,7 @@ export const deleteRentalSuccess = (rental) => ({
 export const DELETE_RENTAL_ERROR = 'DELETE_RENTAL_ERROR'
 export const deleteRentalError = (error) => ({
     type: DELETE_RENTAL_ERROR,
-    error
+    error: error
 })
 
 
@@ -136,11 +136,11 @@ export const fetchRental =(id)=>(dispatch)=>{
         .catch(err=> dispatch(fetchRentalError(err))) 
 }
 
-export const fetchRentals = (username) => (dispatch) => {
+export const fetchRentals = () => (dispatch) => {
     //retrieve user's rentals
     dispatch(fetchRentalsData());
     const authToken = loadAuthToken();
-    fetch(`${API_BASE_URL}/rentals/user/${username}`, {
+    fetch(`${API_BASE_URL}/rentals/`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
             'Content-Type': 'application/json'

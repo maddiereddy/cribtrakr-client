@@ -23,7 +23,7 @@ export class Expenses extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchRentals(this.props.username));
+    this.props.dispatch(fetchRentals());
     this.props.dispatch(fetchAllExpenses());
   }
 

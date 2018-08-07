@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
 import {fetchRentals} from '../actions/rentals';
 import spinner from '../images/ajax-loader.gif';
 import './dashboard.css';
@@ -9,7 +8,6 @@ import './dashboard.css';
 
 export class SearchForm extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
     this.props.dispatch(fetchRentals());
   }
 
@@ -26,9 +24,6 @@ export class SearchForm extends React.Component {
     } else {
       return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
     }
-    // const categories = Categories.map((category, index) => 
-    //   <option key={index} value={category.value}>{category.value}</option>
-    // );
   
     return (
       <fieldset className="search">
@@ -38,11 +33,6 @@ export class SearchForm extends React.Component {
           <select className="drop-down" name="property" required>
             {rentals}
           </select>
-          
-          {/* <label htmlFor="category">Category:</label>
-          <select className="drop-down" name="category" required>
-            {categories}
-          </select> */}
           <p>Or</p>
           <label htmlFor="dateFrom">From Date:</label>
           <input type="date" name="dateFrom" />
@@ -63,11 +53,7 @@ SearchForm.defaultProps = {
 };
 
 const mapStateToProps = state => {
-  const {currentUser} = state.auth;
   return {
-    username: state.auth.currentUser.username,
-    name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data,
     rentals: state.rental.rentals,
     loading: state.rental.loading
   };
