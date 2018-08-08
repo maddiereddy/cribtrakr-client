@@ -192,7 +192,7 @@ export const fetchAllExpenses = () => (dispatch) => {
 	dispatch(fetchAllExpensesData());
 	const authToken = localStorage.getItem('authToken');
 
-	fetch(`${API_BASE_URL}/expenses/`, {
+	fetch(`${API_BASE_URL}/expenses`, {
 		headers: {
 			'Authorization': `Bearer ${authToken}`,
 			'Content-Type': 'application/json'

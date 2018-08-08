@@ -101,7 +101,7 @@ export const deleteRentalError = (error) => ({
 export const newRental = (rental) => dispatch => {
     //create a new rental
     const authToken = loadAuthToken();
-    return fetch(`${API_BASE_URL}/rentals/`, {
+    return fetch(`${API_BASE_URL}/rentals`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ export const fetchRentals = () => (dispatch) => {
     //retrieve user's rentals
     dispatch(fetchRentalsData());
     const authToken = loadAuthToken();
-    fetch(`${API_BASE_URL}/rentals/`, {
+    fetch(`${API_BASE_URL}/rentals`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
             'Content-Type': 'application/json'
