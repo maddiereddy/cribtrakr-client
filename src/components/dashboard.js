@@ -56,14 +56,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 import requiresLogin from './requires-login';
 import './dashboard.css';
 
 export function Dashboard(props) {
+
+	if (props.loggedIn) {
+		return <Redirect to="/rentals" />;
+	}
 	
 	return (
-		// <Redirect to="/rentals" />
 		<div className="userHome">
 			<h1><i>Hello, {props.name}!</i></h1>
       <h2>Do you want to start by viewing your <br />
@@ -75,6 +78,7 @@ export function Dashboard(props) {
 const mapStateToProps = state => {
 	const {currentUser} = state.auth;
 	return {
+		loggedIn: currentUser != null,
 		name: `${currentUser.firstName} ${currentUser.lastName}`
 	}
 }

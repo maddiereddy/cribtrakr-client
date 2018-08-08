@@ -43,7 +43,6 @@ export class Rentals extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.auth.currentUser.username,
     rentals: state.rental.rentals,
     loading: state.rental.loading
   };
