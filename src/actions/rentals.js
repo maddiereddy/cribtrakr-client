@@ -112,8 +112,7 @@ export const newRental = (rental) => dispatch => {
     })
         .then(res => res.json())
 				.then(response=> {
-					// const id = response.id;
-					window.location = `/dashboard`; //`/edit-rental/${id}`;
+					window.location = `/dashboard`; 
 					return dispatch(createRentalSuccess(response));
         })
         .catch(err => {   
@@ -132,18 +131,20 @@ export const fetchRental =(id)=>(dispatch)=>{
         }
     })
         .then(res => res.json())
-        .then(rental=> dispatch(fetchRentalSuccess(rental)))
-        .catch(err=> dispatch(fetchRentalError(err))) 
+        .then(rental => dispatch(fetchRentalSuccess(rental)))
+        .catch(err => dispatch(fetchRentalError(err))) 
 }
 
 export const fetchRentals = () => (dispatch) => {
     //retrieve user's rentals
     dispatch(fetchRentalsData());
     const authToken = loadAuthToken();
+
     fetch(`${API_BASE_URL}/rentals`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         }
     })
         .then(res => res.json())

@@ -43,6 +43,8 @@ export class Rentals extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    authToken: state.auth.authToken,
+    currentUser: state.auth.currentUser,
     rentals: state.rental.rentals,
     loading: state.rental.loading
   };

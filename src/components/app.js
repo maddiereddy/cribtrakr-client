@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import {Route, Router, withRouter} from 'react-router-dom';
 
 import Nav from './nav';
 import LandingPage from './landing-page';
@@ -16,6 +16,8 @@ import EditExpense from './edit-expense';
 import DeleteExpense from './delete-expense';
 import Footer from './footer'
 import {refreshAuthToken} from '../actions/auth';
+import LoginForm from './login-form';
+import history from '../history'
 
 export class App extends React.Component {
   
@@ -50,10 +52,12 @@ export class App extends React.Component {
 
   render() {
     return (
+      <Router history={history}>
       <div className="app">
         <Nav />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/login" component={LoginForm} />
         <Route exact path="/register" component={RegistrationPage} />
         <Route exact path="/rentals" component={Rentals} />
         <Route exact path="/expenses" component={Expenses} />
@@ -65,6 +69,7 @@ export class App extends React.Component {
         <Route exact path="/delete-expense/:id" component={DeleteExpense} />
         <Footer />
       </div>  
+      </Router>
     );
   }
 }
