@@ -113,7 +113,7 @@ export const newRental = (rental) => dispatch => {
     })
         .then(res => res.json())
 				.then(response=> {
-					history.push('/expenses'); 
+					history.push('/dashboard'); 
 					return dispatch(createRentalSuccess(response));
         })
         .catch(err => {   
