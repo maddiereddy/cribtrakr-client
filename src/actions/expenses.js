@@ -1,5 +1,6 @@
 import { API_BASE_URL } from '../config';
 import { loadAuthToken } from '../local-storage';
+import history from '../history';
 
 //post
 export const CREATE_EXPENSE = 'CREATE_EXPENSE'
@@ -148,7 +149,7 @@ export const newExpense = (expense) => dispatch => {
 	})
 	.then(res => res.json())
 	.then(response=> {
-		window.location = `/expenses`; 
+		history.push('/expenses');
 		return dispatch(createExpenseSuccess(response));
 	})
 	.catch(err => {   

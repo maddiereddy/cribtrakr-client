@@ -1,5 +1,6 @@
 import { API_BASE_URL } from '../config';
 import { loadAuthToken } from '../local-storage';
+import history from '../history';
 
 //post
 export const CREATE_RENTAL = 'CREATE_RENTAL'
@@ -112,7 +113,7 @@ export const newRental = (rental) => dispatch => {
     })
         .then(res => res.json())
 				.then(response=> {
-					window.location = `/dashboard`; 
+					history.push('/expenses'); 
 					return dispatch(createRentalSuccess(response));
         })
         .catch(err => {   
