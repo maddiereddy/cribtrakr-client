@@ -6,7 +6,6 @@ import './dashboard.css';
 import Input from './input';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { API_BASE_URL } from '../config';
 
 export class EditRentalForm extends React.Component {
   constructor(props) {
@@ -21,61 +20,11 @@ export class EditRentalForm extends React.Component {
     this.fileSelector = document.getElementById('selectedFile');
   }
   
-  // https://www.javascripture.com/FileReader#readAsDataURL
-  readURL(event) {
-    let input = event.target
-    let reader = new FileReader();
-      
-    reader.onload = function () {
-      let dataURL = reader.result;
-      let output = document.getElementById('output');
-      output.src = dataURL;
-    };
-
-    if (input.files[0].size <= (1024 * 1024 * 1))
-    {
-      reader.readAsDataURL(input.files[0]);
-      this.setState({selectedFile: input.files[0]});
-    }
-    else {
-      alert("File size must under 1MB!");
-    }
-  }
-	
-  handleFileSelect = (e) => {
-    e.preventDefault();
-    this.fileSelector.click();
-  }
-
-  onSubmit(values) {
-    if (this.state.selectedFile) {
-      const formData = new FormData();
-      const fileName = `${values.street}-${this.state.selectedFile.name}`;
-
-      formData.append('file', this.state.selectedFile);
-      formData.append('name', fileName);
-
-      return fetch(`${API_BASE_URL}/rentals/upload`, {
-          method: 'POST',
-          body: formData
-      }).then(response => {
-        // handle your response;
-        const rentalId = this.props.initialValues.id;
-        const username = this.props.username;
-        const url = `https://s3-us-west-1.amazonaws.com/cribtrakr/rentalsBucket/${fileName}`;
-        const rental = Object.assign({}, {user:username}, {id:rentalId}, {imageURL: url}, values);
-        return this.props.dispatch(updateRental(rental));
-
-      }).catch(error => {
-        // handle your error
-        alert(`Error uploading file to AWS: ${error}`);
-      });
-    } else {
+  onSubmit(values) {  
       const rentalId = this.props.initialValues.id;
       const username = this.props.username;
       const rental = Object.assign({}, {user:username}, {id:rentalId}, values);
       return this.props.dispatch(updateRental(rental));
-    }
   }
 
   render() {
@@ -130,8 +79,6 @@ export class EditRentalForm extends React.Component {
               <Field component={Input} type="text" name="misc" />
             </fieldset>
             <div className="upload-pic">
-              <input id="selectedFile" type="file" accept="image/png, image/jpeg, image/jpg" onChange={this.readURL}/>
-              <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
               <br />
               <div className="pic-container">
                 {rentalImage}

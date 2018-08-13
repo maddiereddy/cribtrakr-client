@@ -30,7 +30,7 @@ export class AddRentalForm extends React.Component {
       output.src = dataURL;
     }
 
-    if (input.files[0].size <= (1024 * 1024 * 1)){
+    if (input.files[0].size <= (1024 * 1024 * 2)){
       reader.readAsDataURL(input.files[0]);
       this.setState({selectedFile: input.files[0]})
     }
@@ -45,9 +45,10 @@ export class AddRentalForm extends React.Component {
   }
 
   onSubmit(values) {
+    // https://medium.com/@fabianopb/upload-files-with-node-and-react-to-aws-s3-in-3-steps-fdaa8581f2bd
     if (this.state.selectedFile) {
       const formData = new FormData();
-      const fileName = `${values.street}-${this.state.selectedFile.name}`;
+      const fileName = `${this.props.username}-${values.street}-${this.state.selectedFile.name}`;
 
       formData.append('file', this.state.selectedFile);
       formData.append('name', fileName);
