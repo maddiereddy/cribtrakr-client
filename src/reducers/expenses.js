@@ -23,133 +23,133 @@ import{
   } from '../actions/expenses';
   
   
-  const initialState = {
-		expenses: [],
-		currentExpense: null,
-		error: null,
-		loading: false,
-		rentals: []
-  }
-  
-  export const expenseReducer = (state = initialState, action) => {
-		if(action.type === CREATE_EXPENSE_SUCCESS) {
-			return Object.assign({}, state, {
-					expenses: [...state.expenses, action.expense]
-			})
-		}
-		else if(action.type === CREATE_EXPENSE) {
-			return Object.assign({}, state, {
-					loading: true 
-			})
-		}
-		else if(action.type === CREATE_EXPENSE_ERROR) {
-			return Object.assign({}, state,{
-					loading: false,
-					error: action.error
-			})
-		}
-		else if(action.type === FETCH_EXPENSE_DATA) {
-			return Object.assign({}, state, {
-					loading: true
-			})
-		}
-		else if(action.type === FETCH_EXPENSE_SUCCESS){
-			return Object.assign({}, state,{
-					currentExpense: action.expense,
-					loading: false
-			}) 
-		}   
-		else if(action.type === FETCH_EXPENSE_ERROR){
-			return Object.assign({}, state,{
-					loading: false,
-					error: action.error
-			})
-		}  
-		else if(action.type === FETCH_EXPENSES_DATA) {
-			return Object.assign({}, state, {
-					loading: true
-			})
-		}
-		else if(action.type === FETCH_EXPENSES_SUCCESS){
-			return Object.assign({}, state,{
-					expenses: action.expenses,
-					loading: false
-			}) 
-		}   
-		else if(action.type === FETCH_EXPENSES_ERROR){
-			return Object.assign({}, state,{
-					loading: false,
-					error: action.error
-			})
-		}   
-		else if(action.type === FETCH_ALL_EXPENSES_DATA) {
-			return Object.assign({}, state, {
-					loading: true
-			})
-    }
-    else if(action.type === FETCH_ALL_EXPENSES_SUCCESS){
-			return Object.assign({}, state,{
-					expenses: action.expenses,
-					loading: false
-			}) 
-    }   
-    else if(action.type === FETCH_ALL_EXPENSES_ERROR){
-			return Object.assign({}, state,{
-					loading: false,
-					error: action.error
-			})
-    }  
-		else if(action.type === UPDATE_EXPENSE_REQUEST) {
-			return Object.assign({}, state, {
-					loading: true
-			})
-		}
-		else if(action.type === UPDATE_EXPENSE_SUCCESS){
-			return Object.assign({}, state,{
-					expenses: action.expenses,
-					loading: false
-			}) 
-		}   
-		else if(action.type === UPDATE_EXPENSE_ERROR){
-			return Object.assign({}, state,{
-					loading: false,
-					error: action.error
-			})
-		}  
-		else if(action.type === DELETE_EXPENSE_REQUEST) {
-			return Object.assign({}, state, {
-					loading: true
-			})
-		}
-		else if(action.type === DELETE_EXPENSE_SUCCESS){
-			return Object.assign({}, state,{
-					expenses: state.expenses.filter(expense => expense.id !== action.id),
-					loading: false
-			}) 
-		}   
-		else if(action.type === DELETE_EXPENSE_ERROR){
-			return Object.assign({}, state,{
-					loading: false,
-					error: action.error
-			})
-		}  
-		else if(action.type === DELETE_ALL_EXPENSES_REQUEST) {
-			return Object.assign({}, state, {
-					loading: true
-			})
-		}
-		else if(action.type === DELETE_ALL_EXPENSES_SUCCESS){
-			return Object.assign({}, state,{
-					rentals: state.rentals.filter(rental => rental.id !== action.id),
-					loading: false
-			}) 
-		}   
-		else if(action.type === DELETE_ALL_EXPENSES_ERROR){
-			return Object.assign({}, state,{
-					loading: false,
-					error: action.error
-			})
-		}  
+const initialState = {
+	expenses: [],
+	currentExpense: null,
+	error: null,
+	loading: false,
+	rentals: []
+}
 
-    return state
-  }
+export const expenseReducer = (state = initialState, action) => {
+	if(action.type === CREATE_EXPENSE_SUCCESS) {
+		return Object.assign({}, state, {
+			expenses: [...state.expenses, action.expense]
+		})
+	}
+	else if(action.type === CREATE_EXPENSE) {
+		return Object.assign({}, state, {
+			loading: true 
+		})
+	}
+	else if(action.type === CREATE_EXPENSE_ERROR) {
+		return Object.assign({}, state,{
+			loading: false,
+			error: action.error
+		})
+	}
+	else if(action.type === FETCH_EXPENSE_DATA) {
+		return Object.assign({}, state, {
+			loading: true
+		})
+	}
+	else if(action.type === FETCH_EXPENSE_SUCCESS){
+		return Object.assign({}, state,{
+			currentExpense: action.expense,
+			loading: false
+		}) 
+	}   
+	else if(action.type === FETCH_EXPENSE_ERROR){
+		return Object.assign({}, state,{
+			loading: false,
+			error: action.error
+		})
+	}  
+	else if(action.type === FETCH_EXPENSES_DATA) {
+		return Object.assign({}, state, {
+			loading: true
+		})
+	}
+	else if(action.type === FETCH_EXPENSES_SUCCESS){
+		return Object.assign({}, state,{
+			expenses: action.expenses,
+			loading: false
+		}) 
+	}   
+	else if(action.type === FETCH_EXPENSES_ERROR){
+		return Object.assign({}, state,{
+			loading: false,
+			error: action.error
+		})
+	}   
+	else if(action.type === FETCH_ALL_EXPENSES_DATA) {
+		return Object.assign({}, state, {
+			loading: true
+		})
+	}
+	else if(action.type === FETCH_ALL_EXPENSES_SUCCESS){
+		return Object.assign({}, state,{
+			expenses: action.expenses,
+			loading: false
+		}) 
+	}   
+	else if(action.type === FETCH_ALL_EXPENSES_ERROR){
+		return Object.assign({}, state,{
+			loading: false,
+			error: action.error
+		})
+	}  
+	else if(action.type === UPDATE_EXPENSE_REQUEST) {
+		return Object.assign({}, state, {
+			loading: true
+		})
+	}
+	else if(action.type === UPDATE_EXPENSE_SUCCESS){
+		return Object.assign({}, state,{
+			expenses: action.expenses,
+			loading: false
+		}) 
+	}   
+	else if(action.type === UPDATE_EXPENSE_ERROR){
+		return Object.assign({}, state,{
+			loading: false,
+			error: action.error
+		})
+	}  
+	else if(action.type === DELETE_EXPENSE_REQUEST) {
+		return Object.assign({}, state, {
+			loading: true
+		})
+	}
+	else if(action.type === DELETE_EXPENSE_SUCCESS){
+		return Object.assign({}, state,{
+			expenses: state.expenses.filter(expense => expense.id !== action.id),
+			loading: false
+		}) 
+	}   
+	else if(action.type === DELETE_EXPENSE_ERROR){
+		return Object.assign({}, state,{
+			loading: false,
+			error: action.error
+		})
+	}  
+	else if(action.type === DELETE_ALL_EXPENSES_REQUEST) {
+		return Object.assign({}, state, {
+			loading: true
+		})
+	}
+	else if(action.type === DELETE_ALL_EXPENSES_SUCCESS){
+		return Object.assign({}, state,{
+			rentals: state.rentals.filter(rental => rental.id !== action.id),
+			loading: false
+		}) 
+	}   
+	else if(action.type === DELETE_ALL_EXPENSES_ERROR){
+		return Object.assign({}, state,{
+			loading: false,
+			error: action.error
+		})
+	}  
+
+	return state
+}

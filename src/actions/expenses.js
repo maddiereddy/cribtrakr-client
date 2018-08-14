@@ -142,8 +142,8 @@ export const newExpense = (expense) => dispatch => {
 	return fetch(`${API_BASE_URL}/expenses`, {
 		method: 'POST',
 		headers: {
-				'Content-Type': 'application/json',
-				'Authorization' : `Bearer ${authToken}`
+			'Content-Type': 'application/json',
+			'Authorization' : `Bearer ${authToken}`
 		},
 		body: JSON.stringify(expense)
 	})
@@ -153,7 +153,7 @@ export const newExpense = (expense) => dispatch => {
 		return dispatch(createExpenseSuccess(response));
 	})
 	.catch(err => {   
-			dispatch(createExpenseError(err))
+		dispatch(createExpenseError(err))
 	});
 };
 
@@ -214,17 +214,17 @@ export const updateExpense = (expense) => dispatch => {
 	return fetch(`${API_BASE_URL}/expenses/${expense.id}`, {
 		method: 'PUT',
 		headers: {
-				'Content-Type': 'application/json',
-				'Authorization' : `Bearer ${authToken}`
+			'Content-Type': 'application/json',
+			'Authorization' : `Bearer ${authToken}`
 		},
 		body: JSON.stringify(expense)
 	})
 	.then(res => res.json())
-			.then(response=> {
-			return dispatch(updateExpenseRequest(response));
+		.then(response=> {
+		return dispatch(updateExpenseRequest(response));
 	})
 	.catch(err => {
-			dispatch(updateExpenseError(err))
+		dispatch(updateExpenseError(err))
 	});
 };
 
@@ -234,8 +234,8 @@ export const deleteExpense = (expense) => dispatch => {
   return fetch(`${API_BASE_URL}/expenses/${expense.id}`, {
 		method: 'DELETE',
 		headers: {
-				'Content-Type': 'application/json',
-				'Authorization' : `Bearer ${authToken}`
+			'Content-Type': 'application/json',
+			'Authorization' : `Bearer ${authToken}`
 		},
 		body: JSON.stringify(expense)
   })
@@ -251,8 +251,8 @@ export const deleteAllExpenses = (rental) => dispatch => {
   return fetch(`${API_BASE_URL}/expenses/prop/${rental.id}`, {
 		method: 'DELETE',
 		headers: {
-				'Content-Type': 'application/json',
-				'Authorization' : `Bearer ${authToken}`
+			'Content-Type': 'application/json',
+			'Authorization' : `Bearer ${authToken}`
 		},
 		body: JSON.stringify(rental)
   })

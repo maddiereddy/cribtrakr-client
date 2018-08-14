@@ -39,10 +39,9 @@ export class Nav extends React.Component {
                         {logOutButton}
                     </ul>
                     ) : (
-                    <ul id="menu">
-                         <a href="/#logIn"><li>Log In</li></a>
-                        <Link to="/register"><li>Create Account</li></Link>
-                        <a href="/#home-section"><li>Home</li></a>
+                    <ul id="menu"> 
+                        <a href="/#logIn"><li>Log In</li></a>
+                        <a href="/register"><li>Create Account</li></a>
                     </ul>
                     )}
                 </div>

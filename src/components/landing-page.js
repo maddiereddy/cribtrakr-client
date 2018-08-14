@@ -12,19 +12,20 @@ export function LandingPage(props) {
   }
 
   return (
-      <div id="home-section" className="home">
-          <h1>Welcome to CribTrakr</h1>
-          <About key={0} {...captions[0]} />
-          <About key={1} {...captions[1]} />
-          <About key={2} {...captions[2]} />
-          <LoginForm />
-          <Link to="/register">Register</Link>
-          <div className="demo-credentials">
-            <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Demo Credentials</u></b> <br/>
-            <b><i>Username:</i></b>  demo <br/>
-            <b><i>Password:</i></b>  password
-          </div>
-        </div>
+    <div id="home-section" className="home">
+      <h1>Welcome to CribTrakr</h1>
+      <About key={0} {...captions[0]} />
+      <About key={1} {...captions[1]} />
+      <About key={2} {...captions[2]} />
+      <LoginForm />
+      <Link to="/register">Register</Link>
+      <div className="demo-credentials">
+        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Demo Credentials</u></b> <br/>
+        <b><i>Username:</i></b>  demo <br/>
+        <b><i>Password:</i></b>  password
+      </div>
+      <span><a href="#home-section">Back to Top</a></span>
+    </div>
   );
 }
 
