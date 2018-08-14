@@ -200,7 +200,11 @@ export const fetchAllExpenses = () => (dispatch) => {
 		}
 	})
 	.then(res => res.json())
-	.then(expenses => dispatch(fetchAllExpensesSuccess(expenses)))
+	.then(expenses => {
+
+		history.push('/expenses');
+		return dispatch(fetchAllExpensesSuccess(expenses))
+	})
 	.catch(err=> dispatch(fetchAllExpensesError(err)))
 }
 
