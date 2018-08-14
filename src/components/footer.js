@@ -16,7 +16,6 @@ export default class Footer extends React.Component {
           <Link to="mailto:maddiereddy@gmail.com?Subject=Hello"><i className="fa fa-envelope" aria-hidden="true"></i></Link>
         </span>
       </footer>
-    ); 
-    
+    );     
   }
 }

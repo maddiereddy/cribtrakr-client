@@ -59,7 +59,7 @@ export class RegistrationForm extends React.Component {
 }
 
 export default reduxForm({
-    form: 'registration',
-    onSubmitFail: (errors, dispatch) =>
-      dispatch(focus('registration', Object.keys(errors)[0]))
+  form: 'registration',
+  onSubmitFail: (errors, dispatch) =>
+    dispatch(focus('registration', Object.keys(errors)[0]))
 })(RegistrationForm);

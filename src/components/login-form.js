@@ -7,12 +7,13 @@ import '../index.css';
 import './dashboard.css';
 
 export class LoginForm extends React.Component {
-    onSubmit(values) {
-    	return this.props.dispatch(login(values.username, values.password));
-    }
+	onSubmit(values) {
+		return this.props.dispatch(login(values.username, values.password));
+	}
 
-    render() {
+	render() {
 		let error;
+		
 		if (this.props.error) {
 			error = (
 				<div className="form-error" aria-live="polite">
