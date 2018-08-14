@@ -13,7 +13,9 @@ export default class Footer extends React.Component {
         </span>
         <span role="region" className="footer-contact">
           <Link to="https://github.com/maddiereddy/cribtrakr-client"><i className="fa fa-github" aria-hidden="true"></i></Link>
+          <Link to="https://www.linkedin.com/in/maddierajavasireddy/"><i className="fa fa-linkedin" aria-hidden="true"></i></Link>
           <Link to="mailto:maddiereddy@gmail.com?Subject=Hello"><i className="fa fa-envelope" aria-hidden="true"></i></Link>
+          
         </span>
       </footer>
     );     

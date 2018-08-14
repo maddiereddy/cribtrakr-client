@@ -1,4 +1,95 @@
-.dashboard {
+.loginTitle{
+  color: tomato;
+  font-weight: bolder;
+  padding-bottom: 0;
+  padding-top: 40px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: 0;
+  font-size: 25px;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.login-section {
+  background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
+  margin-top: -1px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+label {
+  font-size: 15px!important;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+form {
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-top: 30px;
+  color: #fff;
+  font-size: 17px;
+  margin-top: -1px;
+}
+
+#username {
+  display: block;
+}
+
+.username-field, .password-field {
+  display: block;
+}
+
+.register-text {
+  font-size: 17px;
+  background-color: #fcfcfd;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
+
+.register-link {
+  color: tomato;
+}
+
+.demo-credentials {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.demo-credentials p {
+  font-size: 14px;
+}
+
+.demo-credentials span {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.title {
+  background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
+  color: white;
+  margin-top: 50px;
+}
+
+.to-top {
+  font-size: 16px;
+  color: tomato;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 1000px) {
+  .loginTitle, .title {
+      font-size: 40px;
+  }
+  p {
+      font-size: 22px;
+  }
+}
+/* .dashboard {
   width: 80%;
   margin: 50px auto ;
   margin-top: 100px;
@@ -93,4 +184,4 @@
   color: white;
 }
 
-  
+   */
