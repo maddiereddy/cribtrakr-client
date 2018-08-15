@@ -31,10 +31,10 @@ export class DeleteRentalForm extends React.Component {
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
-            <h4><b>
-              <span>{this.props.initialValues.street}</span> <br/>
-              <span>{this.props.initialValues.city}</span>,  
-              <span> {this.props.initialValues.state}</span> 
+            <h4 className="delete-rental"><b>
+              <span>{this.props.initialValues.street}</span>,&nbsp;
+              <span>{this.props.initialValues.city}</span>,&nbsp;
+              <span> {this.props.initialValues.state}</span>&nbsp;
               <span> {this.props.initialValues.zip}</span> <br/>
             </b></h4>
           </section>

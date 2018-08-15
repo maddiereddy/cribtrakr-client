@@ -18,9 +18,14 @@
   padding-bottom: 30px;
 }
 
+.login-section label { 
+  color: white;
+}
+
 label {
-  font-size: 15px!important;
+  font-size: 20px!important;
   margin-top: 10px;
+  margin-bottom: 0px;
   display: block;
   text-align: center;
 }
@@ -79,6 +84,23 @@ form {
   font-size: 16px;
   color: tomato;
   padding-bottom: 20px;
+}
+
+#selectedFile {
+  opacity: 0;
+}
+
+.property-details .delete-expense {
+  color: black;
+  font-size: 19px;
+  text-align: left;
+}
+
+
+.property-details .delete-rental {
+  color: black;
+  font-size: 20px;
+  text-align: center;
 }
 
 @media (min-width: 1000px) {

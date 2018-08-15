@@ -1,7 +1,11 @@
 .expense-card {
-  text-align: left;
   margin: 20px;
   box-shadow: 6px 7px 10px #888888;
+}
+
+.expense-card p {
+  text-align: left;
+
 }
 
 ul {
@@ -12,4 +16,39 @@ ul {
 
 i {
   margin-left: 20px;
+}
+
+em {
+  color: tomato;
+}
+
+.icons {
+  float: right;
+  margin-right: 5px;
+}
+
+.card-title {
+  float: center;
+  font-weight: bolder;
+  font-size: 24px;
+  font-style: italic;
+  text-decoration-line: underline;
+}
+
+.search {
+  margin-top: 20px;
+}
+
+.search p {
+  font-weight: bolder;
+  font-size: 19px;
+}
+
+.search, hr {
+  margin-top: 24px;
+  border: 2px solid tomato;
+}
+
+hr {
+  border: 1px solid tomato;
 }

@@ -41,20 +41,18 @@ export class AddExpenseForm extends React.Component {
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
-            <fieldset className="form-section">
-              <label htmlFor="propName">Property:</label>
-              <Field component="select" name="propName" required>{rentalsOptions}</Field>
-              <label htmlFor="category">Category:</label>
-              <Field component="select" name="category" required>{categoriesOptions}</Field>
-              <label htmlFor="date">Date of Service: </label>
-              <Field component="input" type="date" name="date" required />
-              <label htmlFor="amount">Expense: </label>
-              <Field component={Input} type="text" name="amount" required />
-              <label htmlFor="vendor">Vendor: </label>
-              <Field component={Input} type="text" name="vendor" required />
-              <label htmlFor="description">Description: </label>
-              <Field component={Textarea} type="text" name="description" required />
-            </fieldset>
+            <label htmlFor="propName">Property:</label>
+            <Field component="select" name="propName" required>{rentalsOptions}</Field>
+            <label htmlFor="category">Category:</label>
+            <Field component="select" name="category" required>{categoriesOptions}</Field>
+            <label htmlFor="date">Date of Service: </label>
+            <Field component="input" type="date" name="date" required />
+            <label htmlFor="amount">Expense: </label>
+            <Field component={Input} type="text" name="amount" required />
+            <label htmlFor="vendor">Vendor: </label>
+            <Field component={Input} type="text" name="vendor" required />
+            <label htmlFor="description">Description: </label>
+            <Field component={Textarea} type="text" name="description" required /> 
           </section>
           <div>
             <Link to="/expenses"><button type="button">Back</button></Link>

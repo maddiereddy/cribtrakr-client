@@ -35,7 +35,7 @@ export class Rentals extends React.Component {
         <Header title='Rental Properties' />
         { this.props.rentals && this.props.rentals.length ? rentals : 
           noRentalsMessage }
-        <RentalCard link='/add-rental' name='Add Property' newRental={true} image={require("../images/add-home.png")} />
+        <RentalCard link='/add-rental' name='Add Property' newRental={true} image={require("../images/add-home.svg")} />
       </div>
     );
   }

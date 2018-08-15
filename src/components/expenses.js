@@ -84,7 +84,7 @@ export class Expenses extends React.Component {
         </select>
         <br />
         <hr />
-        <p>Or</p>
+        <p><u>OR</u></p>
         <label htmlFor="dateFrom">From Date:</label>
         <input type="date" name="dateFrom" value={this.state.selFromDate} onChange={this.OnFromDateChange}/>
         <label htmlFor="dateTo">To Date:</label>

@@ -35,7 +35,7 @@ export class EditRental extends React.Component {
     return (
       <div className="dashboard">
         <Header title='Update Property Details' />
-        <section>
+        <section className="outermost-section">
         <EditRentalForm initialValues={initialValues} username={username} />
         </section>
       </div>

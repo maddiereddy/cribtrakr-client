@@ -12,7 +12,7 @@ body {
   line-height: 1.5;
 }
 
-input {
+input, select, Field {
   display: block;
   padding: 0.4em 1.8em;
   border: 2px solid tomato;
@@ -57,7 +57,7 @@ h1 {
 }
 
 header {
-  padding-top: 0;
+  padding-top: 5%;
 }
 
 nav, footer {
@@ -77,11 +77,34 @@ section {
   min-height: 150px;
   padding: 20px 15px;
   background-color: silver;
-  border: 5px solid white;
 }
 
 p {  
   font-size: 17px;
+}
+
+#loading {
+  margin: 200px auto;
+  width: 200px;
+}
+
+label {
+  color: black;
+  font-size: 20px;
+}
+
+legend {
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+fieldset {
+  margin-bottom: 20px;
+}
+
+.outermost-section {
+  border: 5px solid tomato;
 }
 
 @media (min-width: 496px) {

@@ -19,7 +19,7 @@ export class AddRental extends React.Component {
     return (
       <div className="dashboard">
         <Header title='Add New Property' />
-        <section>
+        <section className="outermost-section">
           <AddRentalForm username={username} />
         </section>
       </div>

@@ -2,8 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import RegistrationForm from './registration-form';
-// import About from './about';
-// import {captions} from '../data';
 import './dashboard.css';
 
 export function RegistrationPage(props) {
@@ -17,9 +15,6 @@ export function RegistrationPage(props) {
       <section className="title">
         <h1>Welcome to CribTrakr</h1>
       </section>
-      {/* <About key={0} {...captions[0]} />
-      <About key={1} {...captions[1]} />
-      <About key={2} {...captions[2]} /> */}
       <section className="login-section">
         <h2 className="loginTitle">Register</h2>
         <RegistrationForm />

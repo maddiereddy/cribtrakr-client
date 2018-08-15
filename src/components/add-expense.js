@@ -21,7 +21,7 @@ export class AddExpense extends React.Component {
     return (
       <div className="dashboard">
         <Header title='Add New Expense' />
-        <section>
+        <section className="outermost-section">
         <AddExpenseForm username={this.props.username} rentals={this.props.rentals}/>
         </section>
       </div>

@@ -30,7 +30,7 @@ export class EditExpense extends React.Component {
     return (
       <div className="dashboard">
         <Header title='Update Expense Details' />
-        <section>
+        <section className="outermost-section">
         <EditExpenseForm initialValues={initialValues} username={username}/>
         </section>
       </div>
