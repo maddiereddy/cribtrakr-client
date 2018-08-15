@@ -1,12 +1,12 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, focus } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { newExpense  } from '../actions/expenses';
 import './dashboard.css';
 import Input from './input';
 import {Categories} from '../data';
 import Textarea from './textarea';
-
+import {required, nonEmpty, isTrimmed, isCurrency} from '../validators';
 
 export class AddExpenseForm extends React.Component {
 
@@ -42,17 +42,17 @@ export class AddExpenseForm extends React.Component {
           
           <section className="property-details">
             <label htmlFor="propName">Property:</label>
-            <Field component="select" name="propName" required>{rentalsOptions}</Field>
+            <Field component="select" name="propName" validate={[required, nonEmpty]}>{rentalsOptions}</Field>
             <label htmlFor="category">Category:</label>
-            <Field component="select" name="category" required>{categoriesOptions}</Field>
+            <Field component="select" name="category" validate={[required, nonEmpty]}>{categoriesOptions}</Field>
             <label htmlFor="date">Date of Service: </label>
-            <Field component="input" type="date" name="date" required />
+            <Field component={Input} type="date" name="date" validate={[required, nonEmpty]} />
             <label htmlFor="amount">Expense: </label>
-            <Field component={Input} type="text" name="amount" required />
+            <Field component={Input} type="text" name="amount" validate={[required, nonEmpty, isTrimmed, isCurrency]} />
             <label htmlFor="vendor">Vendor: </label>
-            <Field component={Input} type="text" name="vendor" required />
+            <Field component={Input} type="text" name="vendor" validate={[required, nonEmpty, isTrimmed]} />
             <label htmlFor="description">Description: </label>
-            <Field component={Textarea} type="text" name="description" required /> 
+            <Field component={Textarea} type="text" name="description" validate={[required, nonEmpty, isTrimmed]} /> 
           </section>
           <div>
             <button type="submit" disabled={this.props.pristine || this.props.submitting} >
@@ -68,6 +68,10 @@ export class AddExpenseForm extends React.Component {
 
 AddExpenseForm = reduxForm({
     form: "addExpense",
-    // onSubmitFail: (errors, dispatch) =>
-    //     dispatch(focus('editRental', Object.keys(errors)[0]))
+    onSubmitFail: (errors, dispatch) => {
+      console.log(`Error: ${JSON.stringify(errors)}`)
+      dispatch(focus("addExpense", Object.keys(errors)[0]))
+    }
 })(AddExpenseForm);
+
+export default AddExpenseForm;

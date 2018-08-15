@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, focus } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { updateExpense, fetchExpense } from '../actions/expenses';
 import './dashboard.css';
@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Categories} from '../data';
 import Textarea from './textarea';
+import {required, nonEmpty, isTrimmed, isCurrency} from '../validators';
 
 
 export class EditExpenseForm extends React.Component {
@@ -43,15 +44,15 @@ export class EditExpenseForm extends React.Component {
             <label htmlFor="propName">Property:</label>
             <Field component="input" type="text" readOnly="true" name="propName" required />
             <label htmlFor="category">Category:</label>
-            <Field component="select" name="category" required>{categoriesOptions}</Field>
+            <Field component="select" name="category" validate={[required]} >{categoriesOptions}</Field>
             <label htmlFor="date">Date of Service: </label>
-            <Field component="input" type="date" name="date" required />
+            <Field component="input" type="date" name="date" validate={[required]} />
             <label htmlFor="amount">Expense: </label>
-            <Field component={Input} type="text" name="amount" required />
+            <Field component={Input} type="text" name="amount" validate={[required, nonEmpty, isTrimmed, isCurrency]} />
             <label htmlFor="vendor">Vendor: </label>
-            <Field component={Input} type="text" name="vendor" required />
+            <Field component={Input} type="text" name="vendor" validate={[required, nonEmpty, isTrimmed]} />
             <label htmlFor="description">Description: </label>
-            <Field component={Textarea} type="text" name="description" required />
+            <Field component={Textarea} type="text" name="description" validate={[required, nonEmpty, isTrimmed]} />
           </section>
           <div>
             <button type="submit" disabled={this.props.pristine || this.props.submitting} >
@@ -66,9 +67,9 @@ export class EditExpenseForm extends React.Component {
 }
 
 EditExpenseForm = reduxForm({
-    form: "editRental",
-    // onSubmitFail: (errors, dispatch) =>
-    //     dispatch(focus('editRental', Object.keys(errors)[0]))
+    form: "editExpense",
+    onSubmitFail: (errors, dispatch) =>
+        dispatch(focus('editExpense', Object.keys(errors)[0]))
 })(EditExpenseForm);
 
 EditExpenseForm = connect(

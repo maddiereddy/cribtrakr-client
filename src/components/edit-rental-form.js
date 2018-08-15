@@ -1,11 +1,12 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, focus } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { updateRental, fetchRental  } from '../actions/rentals';
 import './dashboard.css';
 import Input from './input';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import {required, nonEmpty,  zip, state, isTrimmed} from '../validators';
 
 export class EditRentalForm extends React.Component {
   constructor(props) {
@@ -35,9 +36,7 @@ export class EditRentalForm extends React.Component {
           <Redirect to={`/dashboard`} />
         </div>
       )
-    }  
-
-    console.log(this.props.initialValues.imageURL)
+    } 
 
     const rentalImage = 
     ( this.props.initialValues.imageURL ?
@@ -55,13 +54,17 @@ export class EditRentalForm extends React.Component {
             <fieldset className="form-section">
               <legend>Address</legend>
               <label htmlFor="street">Street: </label>
-              <Field component={Input} type="text" name="street" required />
+              <Field component={Input} type="text" name="street" 
+                validate={[required, nonEmpty, isTrimmed]} />
               <label htmlFor="city">City: </label>
-              <Field component={Input} type="text" name="city" required />
+              <Field component={Input} type="text" name="city" 
+                validate={[required, nonEmpty, isTrimmed]} />
               <label htmlFor="state">State: </label>
-              <Field component={Input} type="text" name="state" required />
+              <Field component={Input} type="text" name="state" 
+                validate={[required, nonEmpty, isTrimmed, state]} />
               <label htmlFor="zip">Zip: </label>
-              <Field component={Input} type="text" name="zip"  required />
+              <Field component={Input} type="text" name="zip"  
+                validate={[required, nonEmpty, isTrimmed, zip]} />
             </fieldset>
             <fieldset className="form-section">
               <legend>Expenses</legend>
@@ -101,8 +104,10 @@ export class EditRentalForm extends React.Component {
 
 EditRentalForm = reduxForm({
     form: "editRental",
-    // onSubmitFail: (errors, dispatch) =>
-    //     dispatch(focus('editRental', Object.keys(errors)[0]))
+    onSubmitFail: (errors, dispatch) => {
+      console.log(`Error: ${JSON.stringify(errors)}`)
+      dispatch(focus("editRental", Object.keys(errors)[0]))
+    }
 })(EditRentalForm);
 
 EditRentalForm = connect(

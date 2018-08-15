@@ -106,6 +106,10 @@ fieldset {
   border: 5px solid tomato;
 }
 
+.caption {
+  margin: 10px auto;
+}
+
 @media (min-width: 496px) {
   p {  
     font-size: 19px;

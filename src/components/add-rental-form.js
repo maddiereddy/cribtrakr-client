@@ -1,10 +1,11 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, focus } from "redux-form";
 import { Link } from "react-router-dom";
 import { newRental } from "../actions/rentals";
 import "./dashboard.css";
 import Input from "./input";
 import { API_BASE_URL } from '../config';
+import {required, nonEmpty, zip, state, isTrimmed} from '../validators';
 
 export class AddRentalForm extends React.Component {
 
@@ -44,14 +45,21 @@ export class AddRentalForm extends React.Component {
     this.fileSelector.click();
   }
 
+  removeSpecialChars = (str) => {
+    return str.replace(/(?!\w|\s)/g, '')
+    .replace(/\s+/g, '')
+    .replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2');
+  }
+
   onSubmit(values) {
     // https://medium.com/@fabianopb/upload-files-with-node-and-react-to-aws-s3-in-3-steps-fdaa8581f2bd
     if (this.state.selectedFile) {
       const formData = new FormData();
       const fileName = `${this.props.username}-${values.street}-${this.state.selectedFile.name}`;
+      const cleanFileName = this.removeSpecialChars(fileName);
 
       formData.append('file', this.state.selectedFile);
-      formData.append('name', fileName);
+      formData.append('name', cleanFileName);
 
       return fetch(`${API_BASE_URL}/rentals/upload`, {
           method: 'POST',
@@ -59,7 +67,7 @@ export class AddRentalForm extends React.Component {
       }).then(response => {
         // handle your response;
         const username = this.props.username;
-        const url = `https://s3-us-west-1.amazonaws.com/cribtrakr/rentalsBucket/${fileName}`;
+        const url = `https://s3-us-west-1.amazonaws.com/cribtrakr/rentalsBucket/${cleanFileName}`;
         const rental = Object.assign({}, {user:username}, {imageURL: url}, values);
         return this.props.dispatch(newRental(rental));
 
@@ -84,13 +92,17 @@ export class AddRentalForm extends React.Component {
             <fieldset className="form-section">
               <legend>Address</legend>
 							<label htmlFor="street">Street: </label>
-              <Field component={Input} type="text" name="street" required />
+              <Field component={Input} type="text" name="street" 
+                validate={[required, nonEmpty, isTrimmed]} />
               <label htmlFor="city">City: </label>
-              <Field component={Input} type="text" name="city" required />
+              <Field component={Input} type="text" name="city" 
+                validate={[required, nonEmpty, isTrimmed]} />
               <label htmlFor="state">State: </label>
-              <Field component={Input} type="text" name="state" required />
+              <Field component={Input} type="text" name="state" 
+                validate={[required, nonEmpty, isTrimmed, state]} />
               <label htmlFor="zip">Zip: </label>
-              <Field component={Input} type="text" name="zip"  required />
+              <Field component={Input} type="text" name="zip"  
+                validate={[required, nonEmpty, isTrimmed, zip ]} />
             </fieldset>
             <fieldset className="form-section">
               <legend>Expenses</legend>
@@ -132,8 +144,8 @@ export class AddRentalForm extends React.Component {
 
 export default reduxForm({
   form: "addRental",
-  // onSubmitFail: (errors, dispatch) => {
-	// 	console.log(`Error: ${JSON.stringify(errors)}`)
-	// 	dispatch(focus("addRental", Object.keys(errors)[0]))
-	// }
+  onSubmitFail: (errors, dispatch) => {
+		console.log(`Error: ${JSON.stringify(errors)}`)
+		dispatch(focus("addRental", Object.keys(errors)[0]))
+	}
 })(AddRentalForm);
