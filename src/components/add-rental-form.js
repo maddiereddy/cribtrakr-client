@@ -111,19 +111,18 @@ export class AddRentalForm extends React.Component {
             </fieldset>
             
             <div className="upload-pic">
-              <input id="selectedFile" type="file" accept="image/png, image/jpeg, image/jpg" onChange={this.readURL}/>
-              <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
-              <br />
               <div className="pic-container">
                 <img id="output" src={require("../images/home.png")} alt="Property" />
               </div>
+              <input id="selectedFile" type="file" accept="image/png, image/jpeg, image/jpg" onChange={this.readURL}/>
+              <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
             </div>
           </section>
 					<div>
-						<Link to="/dashboard"><button type="button">Back</button></Link>
-						<button type="submit" disabled={this.props.pristine || this.props.submitting} >
+            <button type="submit" disabled={this.props.pristine || this.props.submitting} >
               Add Rental Property
             </button>
+						<Link to="/dashboard"><button type="button">Back</button></Link>
 					</div>
 				</form>
       </div>

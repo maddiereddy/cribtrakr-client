@@ -37,6 +37,8 @@ export class EditRentalForm extends React.Component {
       )
     }  
 
+    console.log(this.props.initialValues.imageURL)
+
     const rentalImage = 
     ( this.props.initialValues.imageURL ?
       <img id="output" src={this.props.initialValues.imageURL} alt="Property"/>
@@ -86,10 +88,10 @@ export class EditRentalForm extends React.Component {
             </div>
           </section>
           <div>
-            <Link to="/dashboard"><button type="button">Back</button></Link>
             <button type="submit" disabled={this.props.pristine || this.props.submitting} >
               Save Changes
             </button>
+            <Link to="/dashboard"><button type="button">Back</button></Link>
           </div>
         </form>
       </div>

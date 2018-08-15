@@ -40,8 +40,8 @@ export class DeleteExpenseForm extends React.Component {
             </b></h4>
           </section>
           <div>
-            <Link to="/expenses"><button type="button">No, go back</button></Link>
             <button type="submit" >Yes, delete expense</button>
+            <Link to="/expenses"><button type="button">No, go back</button></Link>
           </div>
         </form>
       </div>

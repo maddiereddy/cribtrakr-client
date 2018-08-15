@@ -125,7 +125,7 @@ export const fetchRental =(id)=>(dispatch)=>{
 	fetch(`${API_BASE_URL}/rentals/${id}`, {
 		headers: {
 			'Authorization': `Bearer ${authToken}`,
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json' | 'application/xml',
 		}
 	})
 	.then(res => res.json())
@@ -141,7 +141,7 @@ export const fetchRentals = () => (dispatch) => {
 	fetch(`${API_BASE_URL}/rentals`, {
 		headers: {
 			'Authorization': `Bearer ${authToken}`,
-			'Content-Type': 'application/json',
+			'Content-Type': 'application/json' | 'application/xml',
 			'Accept': 'application/json'
 		}
 	})

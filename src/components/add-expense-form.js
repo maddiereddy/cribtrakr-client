@@ -55,10 +55,10 @@ export class AddExpenseForm extends React.Component {
             <Field component={Textarea} type="text" name="description" required /> 
           </section>
           <div>
-            <Link to="/expenses"><button type="button">Back</button></Link>
             <button type="submit" disabled={this.props.pristine || this.props.submitting} >
               Add Expense
             </button>
+            <Link to="/expenses"><button type="button">Back</button></Link>
           </div>
         </form>
       </div>
