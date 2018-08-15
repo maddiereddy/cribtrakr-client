@@ -16,11 +16,11 @@ export default function ExpenseCard(props) {
             <Link to={`delete-expense/${props.id}`}><i className="fa fa-times" aria-hidden="true"></i></Link>
           </span>
         </div>
-        <p className="date"><b><em>Date of Service: </em></b><Moment tz="America/Los_Angeles" aria-hidden="true" format="MMM DD, YYYY">{props.date}</Moment></p>
-        <p className="expense"><b><em>Expense: </em></b>{props.amount}</p>
-        <p className="vendor"><b><em>Vendor: </em></b>{props.vendor}</p>
-        <p className="description"><b><em>Description: </em></b>{props.description}</p>
-        <p className="category"><b><em>Category: </em></b>{props.category}</p>
+        <p className="date"><span className="expense-field-title">Date of Service: </span><Moment tz="America/Los_Angeles" aria-hidden="true" format="MMM DD, YYYY">{props.date}</Moment></p>
+        <p className="expense"><span className="expense-field-title">Expense: </span>{props.amount}</p>
+        <p className="vendor"><span className="expense-field-title">Vendor: </span>{props.vendor}</p>
+        <p className="description"><span className="expense-field-title">Description: </span>{props.description}</p>
+        <p className="category"><span className="expense-field-title">Category: </span>{props.category}</p>
       </div>
     </section>
   );

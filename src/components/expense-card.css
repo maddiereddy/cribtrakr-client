@@ -18,8 +18,11 @@ i {
   margin-left: 20px;
 }
 
-em {
-  color: tomato;
+.expense-field-title {
+  color: black;
+  text-decoration-line: underline;
+  font-weight: bolder;
+  font-style: italic;
 }
 
 .icons {

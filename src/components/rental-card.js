@@ -21,13 +21,13 @@ export default class RentalCard extends React.Component {
     const expenses = (
       <fieldset className="form-section">
         <legend>Recurring Payments</legend>
-        <span>Mortgage (per month): {this.props.rental.mortgage}</span> <br/>
-        <span>PMI (per month): {this.props.rental.pmi}</span><br/>
-        <span>Insurance (per year): {this.props.rental.insurance}</span><br/> 
-        <span>Property Tax (per year): {this.props.rental.propertyTax}</span> <br/>
-        <span>HOA Fees (per month): {this.props.rental.hoa}</span> <br/>
-        <span>Management Fees (per month): {this.props.rental.managementFees}</span><br/>
-        <span>Miscellaneous: {this.props.rental.misc}</span><br/> 
+        <p><span className="rental-field-title">Mortgage (per month): </span>{this.props.rental.mortgage}</p>
+        <p><span className="rental-field-title">PMI (per month): </span>{this.props.rental.pmi}</p>
+        <p><span className="rental-field-title">Insurance (per year): </span>{this.props.rental.insurance}</p>
+        <p><span className="rental-field-title">Property Tax (per year): </span>{this.props.rental.propertyTax}</p>
+        <p><span className="rental-field-title">HOA Fees (per month): </span>{this.props.rental.hoa}</p>
+        <p><span className="rental-field-title">Management Fees (per month): </span>{this.props.rental.managementFees}</p>
+        <p><span className="rental-field-title">Miscellaneous: </span>{this.props.rental.misc}</p>
       </fieldset>
     );
 
@@ -37,11 +37,15 @@ export default class RentalCard extends React.Component {
           <Link to={`${this.props.link}/${this.props.id}`}> <i className="fa fa-pencil" aria-hidden="true"></i></Link>
           <Link to={`delete-rental/${this.props.id}`}><i className="fa fa-times" aria-hidden="true"></i></Link>
         </p>
+        <br />
+        <br />
+        <p className="rental-image">
         { this.props.rental.imageURL ?
-          <img src={this.props.rental.imageURL} alt="Property"/>
+          <img className="old" src={this.props.rental.imageURL} alt="Property"/>
           :
-          <img src={this.props.image} alt="Property"/>
+          <img className="new" src={this.props.image} alt="Property"/>
         }
+        </p>
         <h4><b>
           <span>{this.props.rental.street}</span> <br/>
           <span>{this.props.rental.city}</span>,  
