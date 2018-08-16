@@ -18,7 +18,7 @@ export const createExpenseSuccess = (expense) => ({
 export const CREATE_EXPENSE_ERROR = 'CREATE_EXPENSE_ERROR'
 export const createExpenseError = (error) => ({
 	type:CREATE_EXPENSE_ERROR,
-	error
+	error: error
 })
 
 //get by id
@@ -34,9 +34,9 @@ export const fetchExpenseSuccess = (expense) => ({
 })
 
 export const FETCH_EXPENSE_ERROR= 'FETCH_EXPENSE_ERROR'
-export const fetchExpenseError = (error) => dispatch => ({
+export const fetchExpenseError = (error) => ({
 	type: FETCH_EXPENSE_ERROR,
-	error
+	error: error
 })
 
 //get all by propid
@@ -52,9 +52,9 @@ export const fetchExpensesSuccess = (expenses) => ({
 })
 
 export const FETCH_EXPENSES_ERROR= 'FETCH_EXPENSES_ERROR'
-export const fetchExpensesError = (error) => dispatch => ({
+export const fetchExpensesError = (error) => ({
 	type: FETCH_EXPENSES_ERROR,
-	error
+	error: error
 })
 
 //get all for user
@@ -70,30 +70,28 @@ export const fetchAllExpensesSuccess = (expenses) => ({
 })
 
 export const FETCH_ALL_EXPENSES_ERROR= 'FETCH_ALL_EXPENSES_ERROR'
-export const fetchAllExpensesError = (error) => dispatch => ({
+export const fetchAllExpensesError = (error) => ({
 	type: FETCH_ALL_EXPENSES_ERROR,
-	error
+	error: error
 })
 
 //put by id
 export const UPDATE_EXPENSE_REQUEST = 'UPDATE_EXPENSE'
 export const updateExpenseRequest = (expense) => ({
 	type: UPDATE_EXPENSE_REQUEST,
-	newExpense: expense,
-	redirectToExpense: true
+	newExpense: expense
 })
 
 export const UPDATE_EXPENSE_SUCCESS = 'UPDATE_EXPENSE_SUCCESS'
 export const updateExpenseSuccess = (expense) => ({
 	type: UPDATE_EXPENSE_SUCCESS,
-	newExpense: expense,
-	redirectToExpense: true
+	newExpense: expense
 })
 
 export const UPDATE_EXPENSE_ERROR = 'UPDATE_EXPENSE_ERROR'
 export const updateExpenseError = (error) => ({
 	type: UPDATE_EXPENSE_ERROR,
-	error
+	error: error
 })
 
 //delete by id
@@ -113,7 +111,7 @@ export const deleteExpenseSuccess = (expense) => ({
 export const DELETE_EXPENSE_ERROR = 'DELETE_EXPENSE_ERROR'
 export const deleteExpenseError = (error) => ({
 	type: DELETE_EXPENSE_ERROR,
-	error
+	error: error
 })
 
 //delete all by rental Id
@@ -133,7 +131,7 @@ export const deleteAllExpensesSuccess = (rental) => ({
 export const DELETE_ALL_EXPENSES_ERROR = 'DELETE_ALL_EXPENSES_ERROR'
 export const deleteAllExpensesError = (error) => ({
 	type: DELETE_ALL_EXPENSES_ERROR,
-	error
+	error: error
 })
 
 //create a new expense

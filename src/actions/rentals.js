@@ -34,7 +34,7 @@ export const fetchRentalSuccess = (rental) => ({
 })
 
 export const FETCH_RENTAL_ERROR= 'FETCH_RENTAL_ERROR'
-export const fetchRentalError = (error) => dispatch => ({
+export const fetchRentalError = (error) => ({
 	type: FETCH_RENTAL_ERROR,
 	error: error
 })
@@ -52,7 +52,7 @@ export const fetchRentalsSuccess = (rentals) => ({
 })
 
 export const FETCH_RENTALS_ERROR= 'FETCH_RENTALS_ERROR'
-export const fetchRentalsError = (error) => dispatch => ({
+export const fetchRentalsError = (error) => ({
 	type: FETCH_RENTALS_ERROR,
 	error: error
 })
@@ -61,15 +61,13 @@ export const fetchRentalsError = (error) => dispatch => ({
 export const UPDATE_RENTAL_REQUEST = 'UPDATE_RENTAL'
 export const updateRentalRequest = (rental) => ({
 	type: UPDATE_RENTAL_REQUEST,
-	newRental: rental,
-	redirectToRental: true
+	newRental: rental
 })
 
 export const UPDATE_RENTAL_SUCCESS = 'UPDATE_RENTAL_SUCCESS'
 export const updateRentalSuccess = (rental) => ({
 	type: UPDATE_RENTAL_SUCCESS,
-	newRental: rental,
-	redirectToRental: true
+	newRental: rental
 })
 
 export const UPDATE_RENTAL_ERROR = 'UPDATE_RENTAL_ERROR'
