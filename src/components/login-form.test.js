@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
 import { LoginForm } from './login-form';
 
 describe('<LoginForm />', () => {

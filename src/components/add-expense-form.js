@@ -37,7 +37,7 @@ export class AddExpenseForm extends React.Component {
 
     return (
         <div>
-          <form className="add-expense-form" id="edit-property-form"
+          <form id="edit-property-form" className="add-expense-form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
