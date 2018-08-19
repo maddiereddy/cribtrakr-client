@@ -22,17 +22,17 @@ export function LandingPage(props) {
       <About key={2} {...captions[2]} />
       <section className="login-section">
         <h2 className="loginTitle">Login</h2>
-        <div className="demo-credentials">
+        <div className="demo-credentials" aria-label="demo credentials">
             <span><u>Demo Credentials</u></span><br/>
             <p>Username: <i>demo  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> </p>
             <p>Password: <i>password</i> </p>
         </div>
         <LoginForm />
       </section>
-      <div className="register-text">Don't have an account?
+      <div role="region" className="register-text">Don't have an account?
         <Link to="/register"> <span className="register-link">Register</span></Link>
       </div>
-      <div className="to-top"><a href="#home-section">[ Back to Top ]</a></div>
+      <div role="region" className="to-top"><a href="#home-section" >[ Back to Top ]</a></div>
     </div>
   );
 }

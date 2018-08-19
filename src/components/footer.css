@@ -7,6 +7,8 @@ footer {
   display: inline-block;
   margin: 0 5px;
   font-size: 0.7em;
+  color: black;
+  font-weight: bolder;
 }
 
 .footer-contact {

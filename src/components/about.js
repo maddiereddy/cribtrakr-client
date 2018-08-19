@@ -6,7 +6,7 @@ export default function About(props) {
     <div className="container">
       <section className="caption">
         <header>
-          <h3>{props.title}</h3>
+          <h2>{props.title}</h2>
         </header>
         <p>{props.description}</p>
       </section>

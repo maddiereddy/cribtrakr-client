@@ -53,7 +53,7 @@ export class App extends React.Component {
   render() {
     return (
       <Router history={history}>
-      <div className="app">
+      <div className="app" role="main">
         <Nav />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />

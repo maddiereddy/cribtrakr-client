@@ -27,21 +27,21 @@ export class Nav extends React.Component {
 		return (
 			<nav className="nav">
 				<div id="menuToggle">
-					<input type="checkbox" />
+					<input type="checkbox" aria-label="menu-open"/>
 					<span></span>
 					<span></span>
 					<span></span>
 					{loggedIn ? (
 					
 					<ul id="menu">
-						<a href="/dashboard"><li>Rentals</li></a> 
-						<a href="/expenses"><li>Expenses</li></a>
+						<li><a href="/dashboard">Rentals</a></li> 
+						<li><a href="/expenses">Expenses</a></li>
 						{logOutButton}
 					</ul>
 					) : (
 					<ul id="menu"> 
-						<a href="/#logIn"><li>Log In</li></a>
-						<a href="/register"><li>Create Account</li></a>
+						<li><a href="/#logIn">Log In</a></li>
+						<li><a href="/register">Create Account</a></li>
 					</ul>
 					)}
 				</div>
