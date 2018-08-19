@@ -34,8 +34,8 @@ export default class RentalCard extends React.Component {
     const existProperty = (
       <div>
         <p className="icons">
-          <Link to={`${this.props.link}/${this.props.id}`}> <i className="fa fa-pencil" aria-hidden="true"></i></Link>
-          <Link to={`delete-rental/${this.props.id}`}><i className="fa fa-times" aria-hidden="true"></i></Link>
+          <Link to={`${this.props.link}/${this.props.id}`} aria-label="link to edit property"> <i className="fa fa-pencil" aria-hidden="true"></i></Link>
+          <Link to={`delete-rental/${this.props.id}`} aria-label="link to delete property"><i className="fa fa-times" aria-hidden="true"></i></Link>
         </p>
         <br />
         <br />
@@ -46,13 +46,13 @@ export default class RentalCard extends React.Component {
           <img className="new" src={this.props.image} alt="Property"/>
         }
         </p>
-        <h4><b>
+        <div className="rental-address">
           <span>{this.props.rental.street}</span> <br/>
           <span>{this.props.rental.city}</span>,  
           <span> {this.props.rental.state}</span> 
           <span> {this.props.rental.zip}</span> <br/>
-        </b></h4>
-        <button id="rental-card-button" onClick={this.onClick.bind(this)}>{ this.state.open ? 'Hide' : 'Show' } Details</button>
+        </div>
+        <button className="rental-card-button" onClick={this.onClick.bind(this)}>{ this.state.open ? 'Hide' : 'Show' } Details</button>
         { this.state.open && expenses }
       </div>
     );
@@ -60,9 +60,9 @@ export default class RentalCard extends React.Component {
     const newProperty = (
       <div>
         <Link to={`${this.props.link}/${this.props.id}`}><img src={this.props.image} alt="Property"/></Link>
-        <h4><b>
+        <div className="rental-address">
           <span><Link to={`${this.props.link}/${this.props.id}`}>{this.props.name}</Link></span>
-        </b></h4>
+        </div>
       </div>
     );
 

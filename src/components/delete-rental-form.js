@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { deleteRental, fetchRental  } from '../actions/rentals';
 import './dashboard.css';
+import './rental-card.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -29,12 +30,12 @@ export class DeleteRentalForm extends React.Component {
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
-            <h4 className="delete-rental"><b>
+            <div className="rental-address">
               <span>{this.props.initialValues.street}</span>,&nbsp;
               <span>{this.props.initialValues.city}</span>,&nbsp;
               <span> {this.props.initialValues.state}</span>&nbsp;
               <span> {this.props.initialValues.zip}</span> <br/>
-            </b></h4>
+            </div>
           </section>
           <div>
             <button type="submit" >Yes, delete property</button>

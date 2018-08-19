@@ -53,35 +53,24 @@ export class EditRentalForm extends React.Component {
           <section className="property-details">
             <fieldset className="form-section">
               <legend>Address</legend>
-              <label htmlFor="street">Street: </label>
               <Field component={Input} type="text" name="street" 
-                validate={[required, nonEmpty, isTrimmed]} />
-              <label htmlFor="city">City: </label>
+                validate={[required, nonEmpty, isTrimmed]} label="Street: "/>
               <Field component={Input} type="text" name="city" 
-                validate={[required, nonEmpty, isTrimmed]} />
-              <label htmlFor="state">State: </label>
+                validate={[required, nonEmpty, isTrimmed]} label="City: "/>
               <Field component={Input} type="text" name="state" 
-                validate={[required, nonEmpty, isTrimmed, state]} />
-              <label htmlFor="zip">Zip: </label>
-              <Field component={Input} type="text" name="zip"  
-                validate={[required, nonEmpty, isTrimmed, zip]} />
+                validate={[required, nonEmpty, isTrimmed, state]} label="State: "/>
+             <Field component={Input} type="text" name="zip"  
+                validate={[required, nonEmpty, isTrimmed, zip]} label="Zip: "/>
             </fieldset>
             <fieldset className="form-section">
               <legend>Expenses</legend>
-              <label htmlFor="mortgage">Mortgage (per month):</label>
-              <Field component={Input} type="text" name="mortgage" />
-              <label htmlFor="pmi">PMI (per month):</label>
-              <Field component={Input} type="text" name="pmi" />
-              <label htmlFor="insurance">Insurance (per year):</label>
-              <Field component={Input} type="text" name="insurance" />
-              <label htmlFor="propertyTax">Property Tax (per year):</label>
-              <Field component={Input} type="text" name="propertyTax" />
-              <label htmlFor="hoa">HOA Fees (per month):</label>
-              <Field component={Input} type="text" name="hoa" />
-              <label htmlFor="managementFees">Management Fees (per month):</label>
-              <Field component={Input} type="text" name="managementFees" />
-              <label htmlFor="misc">Miscellaneous:</label>
-              <Field component={Input} type="text" name="misc" />
+              <Field component={Input} type="text" name="mortgage" label="Mortgage (per month): "/>
+              <Field component={Input} type="text" name="pmi" label="PMI (per month): "/>
+              <Field component={Input} type="text" name="insurance" label="Insurance (per year): "/>
+              <Field component={Input} type="text" name="propertyTax" label="Property Tax (per year): "/>
+              <Field component={Input} type="text" name="hoa" label="HOA Fees (per month): "/>
+              <Field component={Input} type="text" name="managementFees" label="Management Fees (per month): "/>
+              <Field component={Input} type="text" name="misc" label="Miscellaneous: "/>
             </fieldset>
             <div className="upload-pic">
               <br />

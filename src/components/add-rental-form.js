@@ -85,48 +85,46 @@ export class AddRentalForm extends React.Component {
   render() {
     return (
       <div>
-        <form className="add-rental-form" id="add-property-form"
+        <form className="add-rental-form" id="add-property-form" aria-label="add property form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
 
 					<section className="property-details">
             <fieldset className="form-section">
               <legend>Address</legend>
-							<label htmlFor="street">Street: </label>
               <Field component={Input} type="text" name="street" 
-                validate={[required, nonEmpty, isTrimmed]} />
-              <label htmlFor="city">City: </label>
+                validate={[required, nonEmpty, isTrimmed]} 
+                label="Street: "
+                />
               <Field component={Input} type="text" name="city" 
-                validate={[required, nonEmpty, isTrimmed]} />
-              <label htmlFor="state">State: </label>
+                validate={[required, nonEmpty, isTrimmed]} 
+                label="City: "
+                />
               <Field component={Input} type="text" name="state" 
-                validate={[required, nonEmpty, isTrimmed, state]} />
-              <label htmlFor="zip">Zip: </label>
+                validate={[required, nonEmpty, isTrimmed, state]} 
+                label="State: "
+                />
               <Field component={Input} type="text" name="zip"  
-                validate={[required, nonEmpty, isTrimmed, zip ]} />
+                validate={[required, nonEmpty, isTrimmed, zip ]} 
+                label="Zip: "
+                />
             </fieldset>
             <fieldset className="form-section">
               <legend>Expenses</legend>
-              <label htmlFor="mortgage">Mortgage (per month):</label>
-              <Field component={Input} type="text" name="mortgage" />
-              <label htmlFor="pmi">PMI (per month):</label>
-              <Field component={Input} type="text" name="pmi" />
-              <label htmlFor="insurance">Insurance (per year):</label>
-              <Field component={Input} type="text" name="insurance" />
-              <label htmlFor="propertyTax">Property Tax (per year):</label>
-              <Field component={Input} type="text" name="propertyTax" />
-              <label htmlFor="hoa">HOA Fees (per month):</label>
-              <Field component={Input} type="text" name="hoa" />
-              <label htmlFor="managementFees">Management Fees (per month):</label>
-              <Field component={Input} type="text" name="managementFees" />
-              <label htmlFor="misc">Miscellaneous:</label>
-              <Field component={Input} type="text" name="misc" />
+              <Field component={Input} type="text" name="mortgage" label="Mortgage (per month): "/>
+              <Field component={Input} type="text" name="pmi" label="PMI (per month): "/>
+              <Field component={Input} type="text" name="insurance" label="Insurance (per year): "/>
+              <Field component={Input} type="text" name="propertyTax" label="Property Tax (per year): "/>
+              <Field component={Input} type="text" name="hoa" label="HOA Fees (per month): "/>
+              <Field component={Input} type="text" name="managementFees" label="Management Fees (per month): "/>
+              <Field component={Input} type="text" name="misc" label="Miscellaneous: "/>
             </fieldset>
             
             <div className="upload-pic">
               <div className="pic-container">
                 <img id="output" src={require("../images/home.png")} alt="Property" />
               </div>
-              <input id="selectedFile" type="file" accept="image/png, image/jpeg, image/jpg" onChange={this.readURL}/>
+              <input aria-label="Select an image file for upload" id="selectedFile" type="file" 
+                accept="image/png, image/jpeg, image/jpg" onChange={this.readURL}/>
               <input type="button" value="Upload Image" onClick={this.handleFileSelect} />
             </div>
           </section>

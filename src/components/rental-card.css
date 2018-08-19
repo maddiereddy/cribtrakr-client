@@ -7,7 +7,7 @@ img {
   box-shadow: 6px 7px 10px #888888;
 }
 
-#rental-card-button {
+.rental-card-button {
   box-shadow: 5px 5px 10px #888888;
 }
 
@@ -33,8 +33,14 @@ img {
   font-style: italic;
 }
 
+.rental-address {
+  margin-top: 5px;
+  font-weight: bold;
+  color: black;
+}
+
 @media (min-width: 1000px) {
-  h4 {
+  .rental-address {
       font-size: 30px;
   }
 }

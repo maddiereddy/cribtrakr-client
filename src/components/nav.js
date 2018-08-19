@@ -17,7 +17,7 @@ export class Nav extends React.Component {
 		let logOutButtonLarge;
 		if (this.props.loggedIn) {
 			logOutButton = (
-				<a onClick={() => this.logOut()}><li>Log out</li></a>
+				<li><a onClick={() => this.logOut()}>Log out</a></li>
 			);
 			logOutButtonLarge = (
 				<a onClick={() => this.logOut()}><button className="nav-large-menu-items">Log out</button></a>
