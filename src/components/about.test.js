@@ -17,7 +17,7 @@ describe('<About />', () => {
     const description = "Description";
 
     const wrapper = shallow(<About title={title} description={description} />);
-    expect(wrapper.contains(<h3>{title}</h3>)).toEqual(true);
+    expect(wrapper.contains(<h2>{title}</h2>)).toEqual(true);
     expect(wrapper.contains(<p>{description}</p>)).toEqual(true);
   });
 });
