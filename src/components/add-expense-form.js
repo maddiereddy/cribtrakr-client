@@ -42,17 +42,21 @@ export class AddExpenseForm extends React.Component {
           
           <section className="property-details">
             <label htmlFor="propName">Property:</label>
-            <Field component="select" name="propName" validate={[required, nonEmpty]}>{rentalsOptions}</Field>
+            <Field component="select" name="propName" aria-label="Property:" 
+              validate={[required, nonEmpty]}>{rentalsOptions}
+            </Field>
             <label htmlFor="category">Category:</label>
-            <Field component="select" name="category" validate={[required, nonEmpty]}>{categoriesOptions}</Field>
-            <label htmlFor="date">Date of Service: </label>
-            <Field component={Input} type="date" name="date" validate={[required, nonEmpty]} />
-            <label htmlFor="amount">Expense: </label>
-            <Field component={Input} type="text" name="amount" validate={[required, nonEmpty, isTrimmed, isCurrency]} />
-            <label htmlFor="vendor">Vendor: </label>
-            <Field component={Input} type="text" name="vendor" validate={[required, nonEmpty, isTrimmed]} />
-            <label htmlFor="description">Description: </label>
-            <Field component={Textarea} type="text" name="description" validate={[required, nonEmpty, isTrimmed]} /> 
+            <Field component="select" name="category" aria-label="Category:"  
+              validate={[required, nonEmpty]}>{categoriesOptions}
+            </Field>
+            <Field component={Input} type="date" name="date" label="Date of Service:" 
+              validate={[required, nonEmpty]} />
+            <Field component={Input} type="text" name="amount" label="Expense:" 
+              validate={[required, nonEmpty, isTrimmed, isCurrency]} />
+            <Field component={Input} type="text" name="vendor" label="Vendor:" 
+              validate={[required, nonEmpty, isTrimmed]} />
+            <Field component={Textarea} type="text" name="description" label="Description:" 
+            validate={[required, nonEmpty, isTrimmed]} /> 
           </section>
           <div>
             <button type="submit" disabled={this.props.pristine || this.props.submitting} >

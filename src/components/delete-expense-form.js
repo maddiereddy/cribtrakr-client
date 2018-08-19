@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { deleteExpense, fetchExpense } from '../actions/expenses';
 import './dashboard.css';
+import './rental-card.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -30,14 +31,14 @@ export class DeleteExpenseForm extends React.Component {
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
         
           <section className="property-details">
-            <h4 className="delete-expense"><b>
+            <div className="rental-address">
               <span><u>Property</u>: {this.props.initialValues.propName}</span> <br/>
               <span><u>Category</u>: {this.props.initialValues.category}</span> <br/> 
               <span><u>Amount</u>: {this.props.initialValues.amount}</span> <br/>
               <span><u>Vendor</u>: {this.props.initialValues.vendor}</span> <br/>
               <span><u>Date of Service</u>: {this.props.initialValues.date}</span> <br/>
               <span><u>Description</u>: {this.props.initialValues.description}</span> <br/>
-            </b></h4>
+            </div>
           </section>
           <div>
             <button type="submit" >Yes, delete expense</button>

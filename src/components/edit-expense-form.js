@@ -42,17 +42,20 @@ export class EditExpenseForm extends React.Component {
           
           <section className="property-details">
             <label htmlFor="propName">Property:</label>
-            <Field component="input" type="text" readOnly="true" name="propName" required />
+            <Field component="input" type="text" readOnly="true" name="propName" 
+              aria-label="Property:" required />
             <label htmlFor="category">Category:</label>
-            <Field component="select" name="category" validate={[required]} >{categoriesOptions}</Field>
+            <Field component="select" name="category" validate={[required]} 
+              aria-label="Property:">{categoriesOptions}</Field>
             <label htmlFor="date">Date of Service: </label>
-            <Field component="input" type="date" name="date" validate={[required]} />
-            <label htmlFor="amount">Expense: </label>
-            <Field component={Input} type="text" name="amount" validate={[required, nonEmpty, isTrimmed, isCurrency]} />
-            <label htmlFor="vendor">Vendor: </label>
-            <Field component={Input} type="text" name="vendor" validate={[required, nonEmpty, isTrimmed]} />
-            <label htmlFor="description">Description: </label>
-            <Field component={Textarea} type="text" name="description" validate={[required, nonEmpty, isTrimmed]} />
+            <Field component="input" type="date" name="date" aria-label="Date of Service:" 
+              validate={[required]} />
+            <Field component={Input} type="text" name="amount" label="Expense:" 
+              validate={[required, nonEmpty, isTrimmed, isCurrency]} />
+            <Field component={Input} type="text" name="vendor" label="Vendor:" 
+              validate={[required, nonEmpty, isTrimmed]} />
+            <Field component={Textarea} type="text" name="description" label="Description:" 
+              validate={[required, nonEmpty, isTrimmed]} />
           </section>
           <div>
             <button type="submit" disabled={this.props.pristine || this.props.submitting} >

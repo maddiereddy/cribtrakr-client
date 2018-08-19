@@ -21,6 +21,10 @@ nav {
   display: none;
 }
 
+li > a {
+  color: white;
+}
+
 a {
   text-decoration: none;
   color: black;

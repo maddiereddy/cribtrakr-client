@@ -1,6 +1,9 @@
 .expense-card {
-  margin: 20px;
+  margin-top: 20px;
   box-shadow: 6px 7px 10px #888888;
+  min-height: 150px;
+  padding: 20px 15px;
+  background-color: silver;
 }
 
 .expense-card p {
@@ -40,6 +43,7 @@ i {
 
 .search {
   margin-top: 20px;
+  background-color: silver;
 }
 
 .search p {

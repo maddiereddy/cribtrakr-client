@@ -77,18 +77,18 @@ export class Expenses extends React.Component {
     let filter = (
       <fieldset className="search">
         <legend id="search-legend">Filter By:</legend>
-        <label htmlFor="property">Property:</label>
-        <select id="filter" className="drop-down" name="property" onChange={this.OnRentalChange} required>
+        <select id="filter" className="drop-down" name="property" label="Property:" 
+        onChange={this.OnRentalChange} aria-label="select a property" required>
         <option key={1000000} value={''}>Select a property</option>
           {rentals}
         </select>
         <br />
         <hr />
         <p><u>OR</u></p>
-        <label htmlFor="dateFrom">From Date:</label>
-        <input type="date" name="dateFrom" value={this.state.selFromDate} onChange={this.OnFromDateChange}/>
-        <label htmlFor="dateTo">To Date:</label>
-        <input type="date" name="dateTo" value={this.state.selToDate} onChange={this.OnToDateChange}/>
+        <input type="date" name="dateFrom" value={this.state.selFromDate} 
+          onChange={this.OnFromDateChange} label="From Date:" aria-label="select a from date"/>
+        <input type="date" name="dateTo" value={this.state.selToDate} 
+          onChange={this.OnToDateChange} label="To Date:" aria-label="select a to date"/>
         <button id="search-button" onClick={this.OnSubmit}>Go</button>
       </fieldset>
     );
