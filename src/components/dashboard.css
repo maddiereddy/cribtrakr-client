@@ -90,12 +90,16 @@ form {
   opacity: 0;
 }
 
+#search-legend {
+  font-weight: bolder;
+  font-family: 'Courgette', cursive;
+}
+
 .property-details .delete-expense {
   color: black;
   font-size: 19px;
   text-align: left;
 }
-
 
 .property-details .delete-rental {
   color: black;
@@ -109,5 +113,14 @@ form {
   }
   p {
       font-size: 22px;
+  }
+  #search-legend {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 496px) {
+  .title {
+    margin-top: 90px;
   }
 }

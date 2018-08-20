@@ -46,11 +46,13 @@ a:hover {
 
 #menuToggle {
   display: block;
-  position: relative;
+  /* position: relative; */
   left: 5%;
   z-index: 1;
   margin-top: 1%;
   user-select: none;
+  float: left;
+  margin-left: 10px;
 }
 
 #menuToggle input {
@@ -144,7 +146,7 @@ a:hover {
   }
   
   nav {
-    height: 120px!important;
+    height: 80px!important;
   }
 
   #nav-large-menu {
@@ -182,7 +184,7 @@ a:hover {
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1000px) {
   #nav-large-menu {
     top: 8px;
   }

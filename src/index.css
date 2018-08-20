@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   max-width: 1000px;
+  margin: 0 auto;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto|Lato|Courgette');
@@ -11,8 +12,7 @@ body {
   color: #444;
   text-align: center;
   line-height: 1.5;
-
-  margin: 0 auto;
+  margin: 0 10px;
 }
 
 input, select, Field {
@@ -57,6 +57,7 @@ h1 {
   font-family: 'Courgette', cursive;
   color: orangered;
   font-size: 34px;
+  margin-top: 2%;
 }
 
 h2 {
@@ -72,13 +73,13 @@ nav, footer {
   background-color: tomato;
 }
 
-nav {
+/* nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-}
+} */
 
 section {
   min-height: 150px;
