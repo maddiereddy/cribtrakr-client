@@ -123,4 +123,7 @@ fieldset {
   p {  
     font-size: 19px;
   }
+  .header {
+    padding-top: 80px;
+  }
 }
