@@ -25,7 +25,7 @@ export class Nav extends React.Component {
 		}
 		const loggedIn = this.props.loggedIn;
 		return (
-			<nav className="nav">
+			<nav className="navbar">
 				<div id="menuToggle">
 					<input type="checkbox" aria-label="menu-open"/>
 					<span></span>

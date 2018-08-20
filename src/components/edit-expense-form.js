@@ -41,15 +41,15 @@ export class EditExpenseForm extends React.Component {
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
-            <label htmlFor="propName">Property:</label>
+            <label htmlFor="propertyName">Property:</label>
             <Field component="input" type="text" readOnly="true" name="propName" 
-              aria-label="Property:" required />
-            <label htmlFor="category">Category:</label>
+              id="propertyName" aria-label="Property:" required />
+            <label htmlFor="categoryName">Category:</label>
             <Field component="select" name="category" validate={[required]} 
-              aria-label="Property:">{categoriesOptions}</Field>
-            <label htmlFor="date">Date of Service: </label>
+              id="categoryName" aria-label="Property:">{categoriesOptions}</Field>
+            <label htmlFor="dateName">Date of Service: </label>
             <Field component="input" type="date" name="date" aria-label="Date of Service:" 
-              validate={[required]} />
+              id="dateName" validate={[required]} />
             <Field component={Input} type="text" name="amount" label="Expense:" 
               validate={[required, nonEmpty, isTrimmed, isCurrency]} />
             <Field component={Input} type="text" name="vendor" label="Vendor:" 
