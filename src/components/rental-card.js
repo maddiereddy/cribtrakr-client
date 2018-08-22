@@ -32,7 +32,7 @@ export default class RentalCard extends React.Component {
     );
 
     const existProperty = (
-      <div>
+      <div aria-label="existing property">
         <p className="icons">
           <Link to={`${this.props.link}/${this.props.id}`} aria-label="link to edit property"> <i className="fa fa-pencil" aria-hidden="true"></i></Link>
           <Link to={`delete-rental/${this.props.id}`} aria-label="link to delete property"><i className="fa fa-times" aria-hidden="true"></i></Link>
@@ -46,20 +46,24 @@ export default class RentalCard extends React.Component {
           <img className="new" src={this.props.image} alt="Property"/>
         }
         </p>
-        <div className="rental-address">
+        <div className="rental-address" aria-label="property address">
           <span>{this.props.rental.street}</span> <br/>
           <span>{this.props.rental.city}</span>,  
           <span> {this.props.rental.state}</span> 
           <span> {this.props.rental.zip}</span> <br/>
         </div>
-        <button className="rental-card-button" onClick={this.onClick.bind(this)}>{ this.state.open ? 'Hide' : 'Show' } Details</button>
+        <button className="rental-card-button" aria-label="Hide or Show Details of property"
+          onClick={this.onClick.bind(this)}>{ this.state.open ? 'Hide' : 'Show' } Details
+        </button>
         { this.state.open && expenses }
       </div>
     );
 
     const newProperty = (
-      <div>
-        <Link to={`${this.props.link}/${this.props.id}`}><img src={this.props.image} alt="Property"/></Link>
+      <div aria-label="new property">
+        <Link to={`${this.props.link}/${this.props.id}`} aria-label="add new property">
+          <img src={this.props.image} alt="Property"/>
+        </Link>
         <div className="rental-address">
           <span><Link to={`${this.props.link}/${this.props.id}`}>{this.props.name}</Link></span>
         </div>

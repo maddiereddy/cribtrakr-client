@@ -21,7 +21,7 @@ export class LoginForm extends React.Component {
 		}
 
 		return (
-			<form id="logIn" className="login-form"
+			<form id="logIn" className="login-form" aria-label="Login form" aria-live="assertive"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 				{error}
 				<Field
@@ -40,8 +40,8 @@ export class LoginForm extends React.Component {
 					validate={[required, nonEmpty]}
 					label="Password"
 				/>
-				<button disabled={this.props.pristine || this.props.submitting}>
-					Log in
+				<button disabled={this.props.pristine || this.props.submitting} aria-label="Login">
+					Login
 				</button>
 			</form>
 		);

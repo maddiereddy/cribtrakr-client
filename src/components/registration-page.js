@@ -11,7 +11,7 @@ export function RegistrationPage(props) {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <div id="home-section" className="home">
+    <div id="home-section" className="home" aria-label="registration section">
       <section className="title">
         <h1>Welcome to CribTrakr</h1>
       </section>
@@ -22,7 +22,7 @@ export function RegistrationPage(props) {
       <div className="register-text">Already have an account?
         <Link to="/"> <span className="register-link">Login</span></Link>
       </div>
-      <div className="to-top"><a href="#home-section">[ Back to Top ]</a></div>
+      <div className="to-top"><a href="#home-section" aria-label="to top of page">[ Back to Top ]</a></div>
     </div>
   );
 }

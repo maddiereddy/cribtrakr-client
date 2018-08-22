@@ -38,8 +38,8 @@ export class DeleteRentalForm extends React.Component {
             </div>
           </section>
           <div>
-            <button type="submit" >Yes, delete property</button>
-            <Link to="/dashboard"><button type="button">No, go back</button></Link>
+            <button type="submit" aria-label="delete rental">Yes, delete property</button>
+            <Link to="/dashboard"><button type="button" aria-label="go back">No, go back</button></Link>
           </div>
         </form>
       </div>

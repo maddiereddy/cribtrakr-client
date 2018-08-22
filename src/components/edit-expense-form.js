@@ -37,7 +37,7 @@ export class EditExpenseForm extends React.Component {
 
     return (
         <div>
-          <form className="edit-expense-form" id="edit-property-form"
+          <form className="edit-expense-form" id="edit-property-form" aria-label="edit expense form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">

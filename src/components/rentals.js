@@ -25,7 +25,7 @@ export class Rentals extends React.Component {
     } 
 
     let noRentalsMessage = (
-      <div>
+      <div aria-label="no properties">
         <span>You don't have any rental properties yet.</span>
       </div>
     )
@@ -35,7 +35,8 @@ export class Rentals extends React.Component {
         <Header title='Rental Properties' />
         { this.props.rentals && this.props.rentals.length ? rentals : 
           noRentalsMessage }
-        <RentalCard link='/add-rental' name='Add Property' newRental={true} image={require("../images/add-home.svg")} />
+        <RentalCard link='/add-rental' name='Add Property' aria-label="add new property"
+          newRental={true} image={require("../images/add-home.svg")} />
       </div>
     );
   }

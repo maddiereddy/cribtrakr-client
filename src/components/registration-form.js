@@ -21,7 +21,7 @@ export class RegistrationForm extends React.Component {
   render() {
     return (
       <div >
-        <form className="login-form"
+        <form className="login-form" aria-label="Registration form" aria-live="assertive"
           onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
           )}>
@@ -46,7 +46,7 @@ export class RegistrationForm extends React.Component {
             label="Confirm password"
           />
           <button
-            type="submit"
+            type="submit" aria-label="Register"
             disabled={this.props.pristine || this.props.submitting}>
             Register
           </button>

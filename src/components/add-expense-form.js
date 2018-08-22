@@ -37,7 +37,7 @@ export class AddExpenseForm extends React.Component {
 
     return (
         <div>
-          <form id="edit-property-form" className="add-expense-form"
+          <form id="edit-property-form" className="add-expense-form" aria-label="add new expense form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
@@ -59,10 +59,10 @@ export class AddExpenseForm extends React.Component {
             validate={[required, nonEmpty, isTrimmed]} /> 
           </section>
           <div>
-            <button type="submit" disabled={this.props.pristine || this.props.submitting} >
+            <button type="submit" aria-label="add expense" disabled={this.props.pristine || this.props.submitting} >
               Add Expense
             </button>
-            <Link to="/expenses"><button type="button">Back</button></Link>
+            <Link to="/expenses"><button type="button" aria-label="go back">Back</button></Link>
           </div>
         </form>
       </div>

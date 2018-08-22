@@ -27,7 +27,7 @@ export class DeleteExpenseForm extends React.Component {
     
     return (
       <div>
-        <form className="delete-expense-form" id="delete-property-form"
+        <form className="delete-expense-form" id="delete-property-form" aria-label="delete expense form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
         
           <section className="property-details">
@@ -41,8 +41,8 @@ export class DeleteExpenseForm extends React.Component {
             </div>
           </section>
           <div>
-            <button type="submit" >Yes, delete expense</button>
-            <Link to="/expenses"><button type="button">No, go back</button></Link>
+            <button type="submit" aria-label="delete expense">Yes, delete expense</button>
+            <Link to="/expenses"><button type="button" aria-label="go back">No, go back</button></Link>
           </div>
         </form>
       </div>

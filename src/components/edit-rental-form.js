@@ -47,7 +47,7 @@ export class EditRentalForm extends React.Component {
 
     return (
         <div>
-          <form className="edit-rental-form" id="edit-property-form"
+          <form className="edit-rental-form" id="edit-property-form" aria-label="edit property form"
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
@@ -80,10 +80,10 @@ export class EditRentalForm extends React.Component {
             </div>
           </section>
           <div>
-            <button type="submit" disabled={this.props.pristine || this.props.submitting} >
+            <button type="submit" aria-label="save edits" disabled={this.props.pristine || this.props.submitting} >
               Save Changes
             </button>
-            <Link to="/dashboard"><button type="button">Back</button></Link>
+            <Link to="/dashboard"><button type="button" aria-label="got back">Back</button></Link>
           </div>
         </form>
       </div>
