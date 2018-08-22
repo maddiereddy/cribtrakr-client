@@ -53,7 +53,7 @@ export class App extends React.Component {
   render() {
     return (
       <Router history={history}>
-      <div className="app" role="main">
+      <main className="app">
         <Nav />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
@@ -68,7 +68,7 @@ export class App extends React.Component {
         <Route exact path="/edit-expense/:id" component={EditExpense} />
         <Route exact path="/delete-expense/:id" component={DeleteExpense} />
         <Footer />
-      </div>  
+      </main>  
       </Router>
     );
   }
