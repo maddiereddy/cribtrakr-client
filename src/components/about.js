@@ -6,9 +6,9 @@ export default function About(props) {
     <div className="container">
       <section className="caption">
         <header>
-          <h2 aria-label="{props.title}">{props.title}</h2>
+          <h2>{props.title}</h2>
         </header>
-        <p aria-label="description" aria-live="polite" >{props.description}</p>
+        <p>{props.description}</p>
       </section>
     </div>
   );
