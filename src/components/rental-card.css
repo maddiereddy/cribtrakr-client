@@ -2,13 +2,26 @@ img {
   width: 30%;
 }
 .property-card {
-  margin-top: 20px;
-  color: black;
+  margin-bottom: 10px;
+  color: white;
   box-shadow: 6px 7px 10px #888888;
 }
 
 .rental-card-button {
-  box-shadow: 5px 5px 10px #888888;
+  box-shadow: 3px 3px 10px #888888;
+  color: black;
+}
+
+.rental-card-button:hover {
+  color: white;
+}
+
+i {
+  color: white;
+}
+
+i:hover {
+  color: black;
 }
 
 .icons {
@@ -17,7 +30,7 @@ img {
 
 .rental-image {
   display: block;
-  margin: 20px auto 0 auto;
+  margin: 10px auto 0 auto;
 }
 
 .form-section {
@@ -26,8 +39,12 @@ img {
   border: 2px solid tomato;
 }
 
+.form-section legend {
+  color: white;
+}
+
 .rental-field-title {
-  color: black;
+  color: white;
   text-decoration-line: underline;
   font-weight: bolder;
   font-style: italic;
@@ -36,11 +53,23 @@ img {
 .rental-address {
   margin-top: 5px;
   font-weight: bold;
-  color: black;
+  color: white;
 }
 
-@media (min-width: 1000px) {
+#new-link span{
+  color: white;
+}
+
+#new-image {
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
   .rental-address {
-      font-size: 30px;
+    font-size: 30px;
+  }
+
+  #new-image {
+    padding: 30px;
   }
 }

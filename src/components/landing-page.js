@@ -14,9 +14,6 @@ export function LandingPage(props) {
 
   return (
     <div id="home-section" className="home">
-      <section className="title">
-        <h1>Welcome to CribTrakr</h1>
-      </section>
       <About key={0} {...captions[0]} />
       <About key={1} {...captions[1]} />
       <About key={2} {...captions[2]} />
@@ -30,7 +27,7 @@ export function LandingPage(props) {
         <LoginForm />
       </section>
       <div role="region" className="register-text">Don't have an account?
-        <Link to="/register"> <span className="register-link">Register</span></Link>
+        <Link to="/register" className="register-link">  Register</Link>
       </div>
       <div role="region" aria-label="to top of page" className="to-top">
         <a href="#home-section" >[ Back to Top ]</a>

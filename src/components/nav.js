@@ -20,12 +20,15 @@ export class Nav extends React.Component {
 				<li><a onClick={() => this.logOut()}>Log out</a></li>
 			);
 			logOutButtonLarge = (
-				<a onClick={() => this.logOut()}><button className="nav-large-menu-items">Log out</button></a>
+				<a onClick={() => this.logOut()} className="nav-large-menu-items">Log out</a>
 			);
 		}
 		const loggedIn = this.props.loggedIn;
 		return (
 			<nav className="navbar" aria-label="main menu">
+				{/* <section className="title"> */}
+					<h1>CribTrakr</h1>
+				{/* </section> */}
 				<div id="menuToggle">
 					<input type="checkbox" aria-label="menu-open"/>
 					<span></span>
@@ -47,17 +50,15 @@ export class Nav extends React.Component {
 				</div>
 				{loggedIn ? (
 				<div id="nav-large-menu">
-					<Link to="/dashboard"><button id="home-link" className="nav-large-menu-items">
-					<img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr Logged in" /> <span className="logo-title">CribTrakr</span></button></Link>
-					<Link to="/dashboard"><button className="nav-large-menu-items">Rentals</button></Link>
-					<Link to="/expenses"><button className="nav-large-menu-items">Expenses</button></Link>
+					<Link to="/dashboard"><img className="logo-sm" src={require("../images/house-big.png")} alt="CribTrakr Logged in" /></Link>
+					<Link to="/dashboard" className="nav-large-menu-items">Rentals</Link>
+					<Link to="/expenses" className="nav-large-menu-items">Expenses</Link>
 					{logOutButtonLarge}
 				</div> ) : (
 				<div id="nav-large-menu">
-					<a href="/#home-section"><button id="home-link" className="nav-large-menu-items">
-					<img className="logo-sm" src={require("../images/house.png")} alt="CribTrakr Logged out" /> <span className="logo-title">CribTrakr</span></button></a>
-					<a href="/#logIn"><button className="nav-large-menu-items">Log In</button></a>
-					<Link to="/register"><button className="nav-large-menu-items">Create Account</button></Link>
+					<a href="/#home-section"><img className="logo-sm" src={require("../images/house-big.png")} alt="CribTrakr Logged out" /></a>
+					<a href="/#logIn" className="nav-large-menu-items">Log In</a>
+					<Link to="/register" className="nav-large-menu-items">Create Account</Link>
 				</div>
 				)}
 			</nav>

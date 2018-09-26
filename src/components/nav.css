@@ -9,14 +9,6 @@ nav {
   max-height: 100px;
 }
 
-.logo-sm {
-  width: 50%;
-}
-
-#home-link {
-  width: 100px;
-}
-
 #nav-large-menu {
   display: none;
 }
@@ -44,15 +36,23 @@ a:hover {
   color: tomato;
 }
 
+
+nav h1 {
+  display: block;
+  font-weight: bolder;
+  font-family: 'Courgette';
+  color: white;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+}
+
 #menuToggle {
   display: block;
-  /* position: relative; */
-  left: 5%;
   z-index: 1;
-  margin-top: 1%;
   user-select: none;
   float: left;
-  margin-left: 10px;
+  margin: 10px 20px;
 }
 
 #menuToggle input {
@@ -140,7 +140,7 @@ a:hover {
   transform: none;
 }
 
-@media (min-width: 496px) {
+@media (min-width: 480px) {
   #menuToggle {  
     display: none;
   }
@@ -149,43 +149,66 @@ a:hover {
     height: 80px!important;
   }
 
+  .logo-sm {
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin-left:20px;
+  }
+
   #nav-large-menu {
     display: block;
     text-align: right;
     position: absolute;
     z-index: 10;
-    top: 4px;
+    top: 8px;
     left: 0;
     right: 0;
-    margin-top: 0;
+    margin-right: 20px;
   }
   .nav-large-menu-items {
-    display: inline-block;
+    display: block;
+    float: right;
     width: inherit;
     background: none;
-    padding-right: 20px;
     border: none;
-    margin-top: 20px;
-    font-size: 0.8em;
+    margin-top: 24px;
+    margin-right: 20px;
+    font-size: 16px;
   }
   .nav-large-menu-items:hover {
-    color: black;
+    color: white;
     background: none;
     border: none;
     cursor: pointer;
   }
 
-  #home-link {
-    margin-right: 10px;
-    position: absolute;
-    margin-top: 5px;
-    left: 20px;
-    top: -5px;
+  nav h1 {
+    color: black;
+    font-size: 28px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 100px;
+
   }
 }
 
-@media (min-width: 1000px) {
-  #nav-large-menu {
-    top: 8px;
+@media (min-width: 768px) {
+  nav h1 {
+    font-size: 36px;
+    margin-top: 10px;
   }
+
+  .nav-large-menu-items {
+    display: block;
+    float: right;
+    width: inherit;
+    background: none;
+    padding-right: 0px;
+    border: none;
+    margin-top: 24px;
+    margin-right: 20px;
+    font-size: 18px;
+  }
+  
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './rental-card.css';
+import newImage from '../images/add-home.png';
 
 export default class RentalCard extends React.Component {
   constructor(props) {
@@ -62,10 +63,10 @@ export default class RentalCard extends React.Component {
     const newProperty = (
       <div aria-label="new property">
         <Link to={`${this.props.link}/${this.props.id}`} aria-label="add new property">
-          <img src={this.props.image} alt="Property"/>
+          <img id="new-image" src={newImage} alt="Property"/>
         </Link>
-        <div className="rental-address">
-          <span><Link to={`${this.props.link}/${this.props.id}`}>{this.props.name}</Link></span>
+        <div className="rental-address" id="new-link">
+          <Link to={`${this.props.link}/${this.props.id}`}><span>{this.props.name}</span></Link>
         </div>
       </div>
     );

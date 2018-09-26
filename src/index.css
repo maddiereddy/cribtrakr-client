@@ -1,18 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|IBM+Plex+Sans|Lato|Libre+Franklin|Open+Sans|Roboto');
+
 * {
   box-sizing: border-box;
-  max-width: 1000px;
   margin: 0 auto;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto|Lato|Courgette');
-
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "IBM Plex Sans";
   font-size: 20px;
   color: #444;
   text-align: center;
   line-height: 1.5;
-  margin: 0 10px;
+  margin: 0;
+  background-color: dimgray;
 }
 
 input, select, Field {
@@ -24,7 +24,7 @@ input, select, Field {
   border-radius: 0.12em;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Roboto',sans-serif;
+  font-family: 'Roboto';
   font-weight: 300;
   color: #000;
   font-size: 17px;
@@ -38,7 +38,7 @@ button {
   border-radius: 0.12em;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Roboto',sans-serif;
+  font-family: 'Roboto';
   font-weight: bolder;
   color: black;
   text-align: center;
@@ -52,20 +52,28 @@ button {
   cursor: pointer;
 }
 
-h1 {
-  font-weight: bolder;
-  font-family: 'Courgette', cursive;
-  color: orangered;
-  font-size: 34px;
-  margin-top: 2%;
-}
-
 h2 {
   font-size: 22px;
+  font-family: 'Courgette';
+  margin-bottom: 10px;
 }
 
 .header {
-  padding-top: 10%;
+  top: 0px;
+  width: 100%;
+  margin-top: 60px;
+  height: 60px;
+  background-color: lightgray;
+}
+
+.header h1 {
+  width: 100%;
+  height: 100%;
+  padding-top: 5px;
+  color: orangered;
+  text-shadow: 2px 2px black;
+  font-family: "IBM Plex Sans";
+  font-size: 32px;
 }
 
 nav, footer {
@@ -84,7 +92,10 @@ nav, footer {
 section {
   min-height: 150px;
   padding: 20px 15px;
-  background-color: silver;
+  margin: 10px auto;
+  color: white;
+  /* background-color: silver; */
+  background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
 }
 
 p {  
@@ -115,15 +126,18 @@ fieldset {
   border: 5px solid tomato;
 }
 
-.caption {
-  margin: 10px auto;
-}
-
-@media (min-width: 496px) {
+@media (min-width: 480px) {
   p {  
     font-size: 19px;
   }
+
   .header {
-    padding-top: 80px;
+    margin-top: 85px;
+    height: 100px;
+    border: 1px solid lightgray;
+  }
+
+  .header h1 {
+    padding-top:30px;
   }
 }
