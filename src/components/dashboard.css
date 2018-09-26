@@ -5,21 +5,12 @@
 .loginTitle{
   color: tomato;
   font-weight: bolder;
-  padding-bottom: 0;
-  padding-top: 40px;
-  margin-left: -10px;
-  margin-right: -10px;
-  margin-bottom: 0;
-  font-size: 25px;
-  padding-bottom: 0;
-  padding-top: 0;
+  font-size: 26px;
 }
 
 .login-section {
   background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
-  margin-top: -1px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  
 }
 
 .login-section label { 
@@ -27,21 +18,21 @@
 }
 
 label {
-  font-size: 20px!important;
+  font-size: 18px!important;
   margin-top: 10px;
   margin-bottom: 0px;
   display: block;
   text-align: center;
 }
 
-form {
+/* form {
   margin-left: -10px;
   margin-right: -10px;
   padding-top: 30px;
   color: #fff;
   font-size: 17px;
   margin-top: -1px;
-}
+} */
 
 #username {
   display: block;
@@ -52,16 +43,22 @@ form {
 }
 
 .register-text {
+  font-family: 'IBM Plex Sans';
+  /* font-family: 'Courgette'; */
   font-size: 17px;
   background-color: #fcfcfd;
   margin-left: -10px;
   margin-right: -10px;
-  padding-bottom: 3%;
-  padding-top: 3%;
+  padding-bottom: 10px;;
+  padding-top: 10px;
 }
 
 .register-link {
+  font-family: 'Courgette';
+  /* font-family: 'IBM Plex Sans'; */
+  text-decoration: underline;
   color: #2c3d52;
+  margin-left: 5px;
 }
 
 .demo-credentials {
@@ -74,8 +71,9 @@ form {
 }
 
 .demo-credentials span {
-  font-size: 14px;
-  font-style: italic;
+  font-size: 16px;
+  font-family: 'Courgette';
+  font-weight: normal;
 }
 
 .title {
@@ -93,9 +91,42 @@ form {
   opacity: 0;
 }
 
+.search {
+  margin: 10px auto;
+}
+
 #search-legend {
-  font-weight: bolder;
-  font-family: 'Courgette', cursive;
+  color: white;
+  font-family: 'Courgette';
+  font-size: 28px;
+}
+
+.search input {
+  margin-top: 5px;
+}
+
+.or-tag {
+  color: white;
+  font-family: 'Courgette';
+  margin: 10px auto;
+}
+
+.property-details {
+  margin-top: 0;
+}
+
+.property-details fieldset {
+  margin-top: 0px;
+  font-size: 10px;
+}
+
+.property-details legend {
+  font-size: 28px;
+  font-family: 'Courgette';
+}
+
+.property-details label {
+  color: white;
 }
 
 .property-details .delete-expense {

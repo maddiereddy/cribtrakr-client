@@ -1,14 +1,18 @@
 .expense-card {
-  margin-top: 20px;
+  margin: 10px 0;
   box-shadow: 6px 7px 10px #888888;
   min-height: 150px;
   padding: 20px 15px;
-  background-color: silver;
+  background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
+}
+
+.expense-card-header {
+  margin-bottom: 15px;
 }
 
 .expense-card p {
   text-align: left;
-
+  color: white;
 }
 
 ul {
@@ -22,10 +26,8 @@ i {
 }
 
 .expense-field-title {
-  color: black;
+  color: tomato;
   text-decoration-line: underline;
-  font-weight: bolder;
-  font-style: italic;
 }
 
 .icons {
@@ -35,15 +37,15 @@ i {
 
 .card-title {
   float: center;
-  font-weight: bolder;
+  color: white;
   font-size: 24px;
-  font-style: italic;
   text-decoration-line: underline;
+  font-family: 'Courgette'
 }
 
 .search {
   margin-top: 20px;
-  background-color: silver;
+  background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
 }
 
 .search p {

@@ -34,7 +34,7 @@ export class DeleteRental extends React.Component {
 
     return (
       <div className="dashboard">
-        <Header title='Are you sure you want to delete this property?' />
+        <Header title='Delete property?' />
         <section>
         <DeleteRentalForm initialValues={initialValues} username={username} />
         </section>

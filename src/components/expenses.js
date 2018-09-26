@@ -82,9 +82,7 @@ export class Expenses extends React.Component {
         <option key={1000000} value={''}>Select a property</option>
           {rentals}
         </select>
-        <br />
-        <hr />
-        <p><u>OR</u></p>
+        <p className='or-tag'>OR</p>
         <input type="date" name="dateFrom" value={this.state.selFromDate} 
           onChange={this.OnFromDateChange} label="From Date:" aria-label="select a from date"/>
         <input type="date" name="dateTo" value={this.state.selToDate} 

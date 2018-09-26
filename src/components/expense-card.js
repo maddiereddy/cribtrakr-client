@@ -9,7 +9,7 @@ export default function ExpenseCard(props) {
   return (
     <li className="expense-card">
       <div className="container">
-        <div>
+        <div className="expense-card-header">
           <span className="card-title">{props.propName}</span>
           <span className="icons">
             <Link to={`${props.link}/${props.id}`} aria-label="edit expense"><i className="fa fa-pencil" aria-hidden="true"></i></Link>

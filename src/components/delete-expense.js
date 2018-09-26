@@ -34,7 +34,7 @@ export class DeleteExpense extends React.Component {
 
     return (
       <div className="dashboard">
-        <Header title='Are you sure you want to delete this expense?' />
+        <Header title='Delete expense?' />
         <section>
         <DeleteExpenseForm initialValues={initialValues} username={username} />
         </section>
