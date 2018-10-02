@@ -5,6 +5,7 @@ img {
   margin-bottom: 10px;
   color: white;
   box-shadow: 6px 7px 10px #888888;
+  max-width: 800px;
 }
 
 .rental-card-button {
@@ -44,10 +45,8 @@ i:hover {
 }
 
 .rental-field-title {
-  color: white;
-  text-decoration-line: underline;
-  font-weight: bolder;
-  font-style: italic;
+  color: tomato;
+  font-weight: bold;
 }
 
 .rental-address {
@@ -60,11 +59,15 @@ i:hover {
   color: white;
 }
 
+#new-link span:hover{
+  color: tomato;
+}
+
 #new-image {
   padding: 10px;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .rental-address {
     font-size: 30px;
   }

@@ -9,7 +9,7 @@ export default class Footer extends React.Component {
     return (
       <footer className="footer" role="region" aria-label="footer info">
         <span role="region" className="footer-copyright">
-          <i className="fa fa-copyright" aria-hidden="true"></i> CribTrakr 2018 by Maddie Rajavasireddy
+          <i className="fa fa-copyright fa-not" aria-hidden="true"></i> CribTrakr 2018 by Maddie Rajavasireddy
         </span>
         <span role="region" className="footer-contact" aria-label="contact info">
           <Link to="https://github.com/maddiereddy/cribtrakr-client" role="none"><i className="fa fa-github"  aria-label="github link"></i></Link>

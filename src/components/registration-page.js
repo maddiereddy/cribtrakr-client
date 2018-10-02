@@ -12,10 +12,10 @@ export function RegistrationPage(props) {
   }
   return (
     <div id="home-section" className="home" aria-label="registration section">
-      <section className="title">
+      {/* <section className="title">
         <h1>Welcome to CribTrakr</h1>
-      </section>
-      <section className="login-section">
+      </section> */}
+      <section className="register-section">
         <h2 className="loginTitle">Register</h2>
         <RegistrationForm />
       </section>

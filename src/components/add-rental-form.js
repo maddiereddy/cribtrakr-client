@@ -132,7 +132,7 @@ export class AddRentalForm extends React.Component {
             <button type="submit" aria-label="add new property" disabled={this.props.pristine || this.props.submitting} >
               Add Rental Property
             </button>
-						<Link to="/dashboard"><button type="button" aria-label="go back">Back</button></Link>
+						<Link to="/dashboard"><button type="button" aria-label="go back">Go Back</button></Link>
 					</div>
 				</form>
       </div>

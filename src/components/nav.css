@@ -140,7 +140,7 @@ nav h1 {
   transform: none;
 }
 
-@media (min-width: 480px) {
+@media only screen and (min-width: 480px) {
   #menuToggle {  
     display: none;
   }
@@ -193,7 +193,7 @@ nav h1 {
   }
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   nav h1 {
     font-size: 36px;
     margin-top: 10px;

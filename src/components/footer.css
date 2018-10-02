@@ -11,6 +11,13 @@ footer {
   font-weight: bolder;
 }
 
+.footer-copyright i {
+  display: inline-block;
+  margin: 0;
+  font-size: 1em;
+  color: black;
+}
+
 .footer-contact {
   display: inline-block;
   margin-left: 10px;
@@ -26,4 +33,8 @@ footer {
   width: 20px;
   color: #fff;
   margin-left: 10px
+}
+
+.fa:hover {
+  color: black;
 }

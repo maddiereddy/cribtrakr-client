@@ -1,11 +1,12 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { Link } from 'react-router-dom';
-import { newExpense  } from '../actions/expenses';
+import { newExpense } from '../actions/expenses';
 import './dashboard.css';
 import Input from './input';
 import {Categories} from '../data';
 import Textarea from './textarea';
+import Select from './select';
 import {required, nonEmpty, isTrimmed, isCurrency} from '../validators';
 
 export class AddExpenseForm extends React.Component {
@@ -41,13 +42,17 @@ export class AddExpenseForm extends React.Component {
           onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} >
           
           <section className="property-details">
-            <label htmlFor="propertyName">Property:</label>
-            <Field component="select" name="propName" aria-label="Property:" id="propertyName"
-              validate={[required, nonEmpty]}>{rentalsOptions}
+            {/* <label htmlFor="propertyName">Property:</label> */}
+            <Field component={Select} name="propName" aria-label="Property:" id="propertyName" label="Property:"
+              validate={[required, nonEmpty]}>
+              <option key={1000000} value={''}>Select a property</option>
+              {rentalsOptions}
             </Field>
-            <label htmlFor="categoryName">Category:</label>
-            <Field component="select" name="category" aria-label="Category:" id="categoryName"
-              validate={[required, nonEmpty]}>{categoriesOptions}
+            {/* <label htmlFor="categoryName">Category:</label> */}
+            <Field component={Select} name="category" aria-label="Category:" id="categoryName" label="Category:"
+              validate={[required, nonEmpty]}>
+              <option key={1000000} value={''}>Select a category</option>
+              {categoriesOptions}
             </Field>
             <Field component={Input} type="date" name="date" label="Date of Service:" 
               validate={[required, nonEmpty]} />
@@ -59,7 +64,7 @@ export class AddExpenseForm extends React.Component {
             validate={[required, nonEmpty, isTrimmed]} /> 
           </section>
           <div>
-            <button type="submit" aria-label="add expense" disabled={this.props.pristine || this.props.submitting} >
+            <button type="submit" aria-label="add expense" disabled={this.props.pristine || this.props.invalid || this.props.submitting} >
               Add Expense
             </button>
             <Link to="/expenses"><button type="button" aria-label="go back">Back</button></Link>

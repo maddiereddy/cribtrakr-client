@@ -21,13 +21,14 @@ input, select, Field {
   border: 1px dotted tomato;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
   border-radius: 0.12em;
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Roboto';
   font-weight: 300;
   color: #000;
-  font-size: 17px;
+  font-size: 15px;
   width: 250px;
 }
 
@@ -50,6 +51,12 @@ button {
   margin-right: auto;
   margin-top: 20px;
   cursor: pointer;
+}
+
+button:hover {
+  background-color:orangered;
+  color: white;
+  border: 2px solid dimgray;
 }
 
 h2 {
@@ -115,13 +122,14 @@ fieldset {
 
 .outermost-section {
   border: 5px solid tomato;
+  margin-bottom: 30px;
 }
 
 .login-form {
   margin: 20px auto;
 }
 
-@media (min-width: 480px) {
+@media only screen and (min-width: 480px) {
   p {  
     font-size: 19px;
   }
@@ -134,5 +142,12 @@ fieldset {
 
   .header h1 {
     padding-top:30px;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  input, select, Field {
+    width: 400px;
+    font-size: 17px;
   }
 }

@@ -1,14 +1,13 @@
-textarea {
+select {
   width: 250px;
-  height: 350px;
+  height: 35px;
   font-size: 15px;
   border: 1px dotted tomato;
 }
 
 @media only screen and (min-width: 768px) {
-  textarea {
+  select {
     width: 400px;
-    height: 350px;
     font-size: 17px;
   }
 }

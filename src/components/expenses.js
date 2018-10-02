@@ -122,8 +122,8 @@ export class Expenses extends React.Component {
     } 
 
     let noExpensesMessage = (
-      <div>
-        <span>You don't have any expenses yet.</span>
+      <div className="no-expenses">
+        <span>You don't have any expenses yet!</span>
       </div>
     )
 

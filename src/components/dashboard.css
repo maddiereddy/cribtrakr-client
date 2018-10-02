@@ -8,9 +8,17 @@
   font-size: 26px;
 }
 
+.register-section {
+  background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
+  max-width: 800px;
+}
+
+.register-section label { 
+  color: white;
+}
+
 .login-section {
   background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
-  
 }
 
 .login-section label { 
@@ -24,15 +32,6 @@ label {
   display: block;
   text-align: center;
 }
-
-/* form {
-  margin-left: -10px;
-  margin-right: -10px;
-  padding-top: 30px;
-  color: #fff;
-  font-size: 17px;
-  margin-top: -1px;
-} */
 
 #username {
   display: block;
@@ -91,8 +90,15 @@ label {
   opacity: 0;
 }
 
+.no-expenses {
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
 .search {
   margin: 10px auto;
+  max-width: 800px;
 }
 
 #search-legend {
@@ -143,6 +149,14 @@ label {
 
 .home {
   margin-top: 60px;
+}
+
+button[type="submit"]:disabled {
+  background-color: gray;
+}
+
+.outermost-section {
+  max-width: 800px;
 }
 
 @media only screen and (min-width: 480px) {
