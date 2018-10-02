@@ -146,9 +146,13 @@ fieldset {
   }
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 768px) {
   input, select, Field {
     width: 400px;
     font-size: 17px;
+  }
+
+  button {
+    font-size: 20px;
   }
 }
