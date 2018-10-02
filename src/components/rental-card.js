@@ -38,8 +38,6 @@ export default class RentalCard extends React.Component {
           <Link to={`${this.props.link}/${this.props.id}`} aria-label="link to edit property"> <i className="fa fa-pencil" aria-hidden="true"></i></Link>
           <Link to={`delete-rental/${this.props.id}`} aria-label="link to delete property"><i className="fa fa-times" aria-hidden="true"></i></Link>
         </p>
-        <br />
-        <br />
         <p className="rental-image">
         { this.props.rental.imageURL ?
           <img className="old" src={this.props.rental.imageURL} alt="Property"/>

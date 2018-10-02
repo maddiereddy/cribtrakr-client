@@ -26,12 +26,15 @@ i:hover {
 }
 
 .icons {
-  text-align: right;
+  display: block;
+  float: right;
+  margin-bottom: 0px;
 }
 
 .rental-image {
   display: block;
-  margin: 10px auto 0 auto;
+  clear: both;
+  margin: 40px auto 20px;
 }
 
 .form-section {
