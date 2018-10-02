@@ -51,9 +51,9 @@ export class Nav extends React.Component {
 				{loggedIn ? (
 				<div id="nav-large-menu">
 					<Link to="/dashboard"><img className="logo-sm" src={require("../images/house-big.png")} alt="CribTrakr Logged in" /></Link>
-					<Link to="/dashboard" className="nav-large-menu-items">Rentals</Link>
-					<Link to="/expenses" className="nav-large-menu-items">Expenses</Link>
 					{logOutButtonLarge}
+					<Link to="/dashboard" className="nav-large-menu-items">Rentals</Link>
+					<Link to="/expenses" className="nav-large-menu-items">Expenses</Link>	
 				</div> ) : (
 				<div id="nav-large-menu">
 					<a href="/#home-section"><img className="logo-sm" src={require("../images/house-big.png")} alt="CribTrakr Logged out" /></a>

@@ -90,6 +90,8 @@ export class Expenses extends React.Component {
         <button id="search-button" onClick={this.OnSubmit}>Go</button>
       </fieldset>
     );
+
+    let none = (<div></div>);
     
     let expenses;
     if(this.props.expenses && this.props.expenses.length) {
@@ -133,7 +135,7 @@ export class Expenses extends React.Component {
         { this.props.rentals && this.props.rentals.length ? 
         <Link to='/add-expense'><button className="add-expense-button">Add Expense</button></Link>
         : <p>Please add a rental property first!</p> }
-        {filter}
+        {this.props.expenses && this.props.expenses.length ? filter : none}
         <ul>
         { this.props.expenses && this.props.expenses.length ? expenses : noExpensesMessage }
         </ul>

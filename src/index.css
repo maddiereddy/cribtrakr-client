@@ -122,7 +122,8 @@ fieldset {
 
 .outermost-section {
   border: 5px solid tomato;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 .login-form {

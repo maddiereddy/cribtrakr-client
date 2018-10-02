@@ -96,6 +96,12 @@ label {
   margin-top: 20px;
 }
 
+.no-rentals {
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
 .search {
   margin: 10px auto;
   max-width: 800px;
@@ -109,6 +115,11 @@ label {
 
 .search input {
   margin-top: 5px;
+}
+
+#search-button {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .or-tag {

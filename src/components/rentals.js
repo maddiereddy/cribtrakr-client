@@ -25,8 +25,8 @@ export class Rentals extends React.Component {
     } 
 
     let noRentalsMessage = (
-      <div aria-label="no properties">
-        <span>You don't have any rental properties yet.</span>
+      <div aria-label="no properties" className="no-rentals">
+        <span>You don't have any rental properties yet!</span>
       </div>
     )
 
