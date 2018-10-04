@@ -41,7 +41,7 @@ export class DeleteExpenseForm extends React.Component {
             </div>
           </section>
           <div>
-            <button type="submit" aria-label="delete expense">Yes, delete expense</button>
+            <button type="submit" aria-label="delete expense">Yes, delete</button>
             <Link to="/expenses"><button type="button" aria-label="go back">No, go back</button></Link>
           </div>
         </form>

@@ -30,6 +30,7 @@ input, select, Field {
   color: #000;
   font-size: 15px;
   width: 250px;
+  height: 35px;
 }
 
 button {

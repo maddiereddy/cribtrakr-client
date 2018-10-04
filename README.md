@@ -1,6 +1,6 @@
 ### Status
 [![Build Status](https://travis-ci.org/maddiereddy/cribtrakr-client.svg?branch=master)](https://travis-ci.org/maddiereddy/cribtrakr-client)   
-# <i>CribTrakr
+# <i>CribTrakr</i>
 ### Keeps track of user's rental properties and associated expenses by allowing user to:
 * add property info like address, picture and related expenses.
 * edit or delete info pertaining to any property or expense.
@@ -61,17 +61,17 @@ Add a new expenses    ````.../api/expenses/````
 ## Screenshots
 
 ### Landing page:<br>
-<img src="./screenshots/ScreenShot1.png" alt="Landing page"> <br>
-<br>
+![landing page](screenshots/ScreenShot1.png)
+<br><br>
 ### My Rental Properties page:<br>
-<img src="./screenshots/ScreenShot2.png" alt="My Rental Properties page"> <br>
-<br>
+![rental properties page](screenshots/ScreenShot2.png)
+<br><br>
 ### Details page:<br>
-<img src="./screenshots/ScreenShot3.png" alt="details page "> <br>
-<br>
+![details page](screenshots/ScreenShot3.png)
+<br><br>
 ### Expenses page:<br>
-<img src="./screenshots/ScreenShot4.png" alt="Expenses page"> <br>
-<br>
+![expenses page](screenshots/ScreenShot4.png)
+<br><br>
 ## Nice-to-have-features for future version
 * Ability to add images of expense receipts
 * Be able to search/filter expenses by a phrase or name
