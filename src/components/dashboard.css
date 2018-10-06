@@ -9,7 +9,7 @@
 }
 
 .register-section {
-  background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
+  background: radial-gradient(ellipse at bottom, #202c3b 0%, #181c25 100%);
   max-width: 800px;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .login-section {
-  background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
+  background: radial-gradient(ellipse at bottom, #202c3b 0%, #181c25 100%);
 }
 
 .login-section label { 
