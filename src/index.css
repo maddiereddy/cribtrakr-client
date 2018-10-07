@@ -69,7 +69,7 @@ h2 {
 .header {
   top: 0px;
   width: 100%;
-  margin-top: 53px;
+  margin-top: 50px;
   padding-top: 5px;
   height: 50px;
   background-color: lightgray;
@@ -85,7 +85,7 @@ h2 {
 }
 
 nav, footer {
-  padding: 1% 0;
+  padding: 5px 0;
   background-color: tomato;
 }
 
@@ -137,7 +137,7 @@ fieldset {
   }
 
   .header {
-    margin-top: 75px;
+    margin-top: 70px;
     height: 70px;
     border: 1px solid lightgray;
   }
@@ -145,6 +145,10 @@ fieldset {
   .header h1 {
     padding-top:5px;
     font-size: 32px;
+  }
+
+  footer {
+    padding: 10px 0;
   }
 }
 

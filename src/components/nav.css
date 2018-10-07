@@ -146,12 +146,12 @@ nav h1 {
   }
   
   nav {
-    height: 80px!important;
+    height: 70px!important;
   }
 
   .logo-sm {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     float: left;
     margin-left:20px;
   }
@@ -172,9 +172,9 @@ nav h1 {
     width: inherit;
     background: none;
     border: none;
-    margin-top: 24px;
+    margin-top: 18px;
     margin-right: 20px;
-    font-size: 16px;
+    font-size: 18px;
   }
   .nav-large-menu-items:hover {
     color: white;
