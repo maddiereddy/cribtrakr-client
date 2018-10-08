@@ -4,12 +4,8 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import requiresLogin from './requires-login';
 import './dashboard.css';
-import spinner from '../images/ajax-loader.gif';
 
 export function Dashboard(props) {
-	if (props.loading) 
-      return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
-
 	if (props.loggedIn) {
 		return <Redirect to="/rentals" />;
 	}

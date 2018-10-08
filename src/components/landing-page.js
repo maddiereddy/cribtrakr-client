@@ -5,6 +5,7 @@ import About from './about';
 import LoginForm from './login-form';
 import {captions} from '../data';
 import './dashboard.css';
+import spinner from '../images/ajax-loader.gif';
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
@@ -17,15 +18,18 @@ export function LandingPage(props) {
       <About key={0} {...captions[0]} />
       <About key={1} {...captions[1]} />
       <About key={2} {...captions[2]} />
-      <section className="login-section">
-        <h2 className="loginTitle">Login</h2>
-        <div className="demo-credentials" aria-label="demo credentials">
-            <span><u>Demo Credentials</u></span><br/>
-            <p>Username: <i>demo  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> </p>
-            <p>Password: <i>password</i> </p>
-        </div>
-        <LoginForm />
-      </section>
+      {props.loading && <div id="loading"><img src={spinner} alt="Loading..."/></div>}
+      {!props.loading && 
+        <section className="login-section">
+          <h2 className="loginTitle">Login</h2>
+          <div className="demo-credentials" aria-label="demo credentials">
+              <span><u>Demo Credentials</u></span><br/>
+              <p>Username: <i>demo  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> </p>
+              <p>Password: <i>password</i> </p>
+          </div>
+          <LoginForm />
+        </section>
+      }
       <div role="region" className="register-text">Don't have an account?
         <Link to="/register" className="register-link">Register Now!</Link>
       </div>
@@ -37,6 +41,7 @@ export function LandingPage(props) {
 }
 
 const mapStateToProps = state => ({
+  loading: state.auth.loading,
   loggedIn: state.auth.currentUser !== null
 });
 
