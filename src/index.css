@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Courgette|IBM+Plex+Sans|Lato|Libre+Franklin|Open+Sans|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Varela|IBM+Plex+Sans|Lato|Libre+Franklin|Open+Sans|Roboto');
 
 * {
   box-sizing: border-box;
@@ -62,8 +62,9 @@ button:hover {
 
 h2 {
   font-size: 22px;
-  font-family: 'Courgette';
+  font-family: 'Varela';
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .header {
@@ -99,6 +100,7 @@ section {
 
 p {  
   font-size: 17px;
+  font-weight: normal;
 }
 
 #loading {
@@ -145,6 +147,10 @@ fieldset {
   .header h1 {
     padding-top:5px;
     font-size: 32px;
+  }
+
+  h2 {
+    font-size: 30px;
   }
 
   footer {
